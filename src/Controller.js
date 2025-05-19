@@ -189,7 +189,12 @@ export default function Controller() {
     const middel_conteiner_three = document.getElementById("middel_conteiner_three");
     const pilot_testing_program_button = document.getElementById("pilot_testing_program_button"); 
     const intersectoral_clusters_button = document.getElementById("intersectoral_clusters_button");
-  
+
+    const home_container_four = document.getElementById("home_container_four");
+    const middel_conteiner_four = document.getElementById("middel_conteiner_four");
+    const hitech_employment_button = document.getElementById("hitech_employment_button");
+    const entrepreneurship_promotion_button = document.getElementById("entrepreneurship_promotion_button");
+    const education_self_realization_button = document.getElementById("education_self_realization_button");
 
     
     //General buttons
@@ -333,7 +338,15 @@ export default function Controller() {
     }
 
       if (locationPath === 'board_four') {
-        
+        start_general();
+        animate(home_container_four, { opacity: 1 });
+        animate(middel_conteiner_four, { scale: 1 });
+        let buttons = [
+          hitech_employment_button,
+          entrepreneurship_promotion_button,
+          education_self_realization_button
+        ];
+        start_button_general(buttons);
       }
 
     };

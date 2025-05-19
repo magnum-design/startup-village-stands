@@ -235,7 +235,7 @@ export function TechnoMarketButton({ buttonVariants }) {
  export function HitechEmploymentButton() {
    return (
      <>
-       <div id="hitech_employment_button" className="hitech_employment_button_container">
+       <div id="hitech_employment_button" className="gloabal_button_style">
        </div>
      </>
    );
@@ -244,7 +244,7 @@ export function TechnoMarketButton({ buttonVariants }) {
  export function EntrepreneurshipPromotionButton() {
    return (
      <>
-       <div id="entrepreneurship_promotion_button" className="entrepreneurship_promotion_button_container">
+       <div id="entrepreneurship_promotion_button" className="gloabal_button_style">
        </div>
      </>
    );
@@ -253,7 +253,7 @@ export function TechnoMarketButton({ buttonVariants }) {
  export function EducationAndSelfRealizationButton() {
    return (
      <>
-       <div id="education_self_realization_button" className="education_self_realization_button_container">
+       <div id="education_self_realization_button" className="gloabal_button_style">
        </div>
      </>
    );

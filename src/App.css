@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('./fonts/TTFirsNeue-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('./fonts/TTFirsNeue-Light.ttf') format('truetype');
+  font-weight:  medium;
+  font-style: medium;
+}
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('./fonts/TTFirsNeue-Regular.ttf') format('truetype');
+  font-weight:  normal;
+  font-style: medium;
+}
+
+
+
+
+h1{
+  font-family: 'MyCustomFont';
+  font-style: normal;
+  font-size: 87pt;
+  letter-spacing: 1px;
+}
+
+
+h2{
+  font-family: 'MyCustomFont';
+  text-transform: uppercase;
+  font-size: 62pt;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+h3{
+  font-family: 'MyCustomFont';
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 32pt;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 6%;
+
+}
+
+p{
+  font-family: 'MyCustomFont';
+ 
+  font-style: normal;
+  font-size: 24pt;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 6%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+

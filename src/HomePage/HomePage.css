@@ -1,0 +1,62 @@
+
+
+.home_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    color: #000;
+    background-image: url('../Img/fon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center; 
+    /* opacity: 0; */
+}
+
+.middel_conteiner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative; 
+    overflow: hidden;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    z-index: 2;
+    
+    
+}
+
+.title_home{
+    position: absolute;
+    top: 9%;
+    left: 7%;
+    font-style: light;
+    color: #ffffff;
+    text-align: left;
+    
+}
+
+.logoHome {
+    position: absolute;
+    top: 4%;
+    left: 7%;
+    width: 242px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
+}
+
+.container_for_button{
+    position: relative;
+    top: 600px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    /* row-gap: 2%; */
+}

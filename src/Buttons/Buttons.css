@@ -24,41 +24,66 @@
 
 .back_button_container{
     position: absolute;
-    top: 75px;
-    left: 1420px;
-    width: 125px;
-    height: 125px;
-    background-image: url("../Img/backbutton.webp");
+    bottom: 1%;
+    left: 15%;
+    width: 95px;
+    height: 95px;
+    background-image: url("../Img/backbutton.png");
     background-size:contain;
     background-repeat: no-repeat;
     z-index: 3;
 }
 
-.support_button_container{
-    position: absolute;
-    top: 0px;
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton1.png");
+.gloabal_button_style {
+    width: 1080px;
+    height: 200px;
+    background-image: url("../Img/Rectangle1.png");
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+
+}
+  
+
+.gloabal_button_style h3{
+    margin-top: 20px;
+    padding: 0 10px; /* Отступы по бокам для текста */
+    position: relative; /* Для возможных эффектов */
+    z-index: 2; /* Поднимаем текст над возможными псевдоэлементами */
+}
+
+.support_button_container{
+    /* position: absolute;
+    top: 0px; */
+    width: 1800px;
+    height: auto;
+    background-image: url("../Img/homeOneButton1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 3;
     
 }
+
+
+
 .packaging_button_container{
-    position: absolute;
-    top: 200px;
+    /* position: absolute;
+    top: 200px; */
     width: 90%;
-    height: 20%;
-    margin-top: 20px;
+    height: 30%;
     background-image: url("../Img/homeOneButton2.png");
     background-size:contain;
     background-repeat: no-repeat;
     z-index: 3;
 }
 .expertise_button_container{
-    position: absolute;
-    top: 440px;
+    /* position: absolute;
+    top: 440px; */
     width: 90%;
     height: 20%;
     background-image: url("../Img/homeOneButton3.png");
@@ -67,8 +92,8 @@
     z-index: 3;
 }
 .program_button_container{
-    position: absolute;
-    top: 660px;
+    /* position: absolute;
+    top: 660px; */
     width: 90%;
     height: 20%;
     background-image: url("../Img/homeOneButton4.png");
@@ -77,8 +102,8 @@
     z-index: 3;
 }
 .investment_button_container{
-    position: absolute;
-    top: 870px;
+    /* position: absolute;
+    top: 870px; */
     width: 90%;
     height: 20%;
     background-image: url("../Img/homeOneButton5.png");
@@ -87,8 +112,8 @@
     z-index: 3;
 }
 .direct_button_container{
-    position: absolute;
-    top: 1080px;
+    /* position: absolute;
+    top: 1080px; */
     width: 90%;
     height: 20%;
     background-image: url("../Img/homeOneButton6.png");
@@ -98,8 +123,8 @@
 }
 
 .financing_button_container{
-    position: absolute;
-    top: 1280px;
+    /* position: absolute;
+    top: 1280px; */
     width: 90%;
     height: 20%;
     background-image: url("../Img/homeOneButton7.png");
@@ -109,8 +134,8 @@
 }
 
 .grants_button_container{
-    position: absolute;
-    top: 1480px;
+    /* position: absolute;
+    top: 1480px; */
     width: 90%;
     height: 20%;
     background-image: url("../Img/homeOneButton8.png");

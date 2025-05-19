@@ -31,6 +31,16 @@ export function BackButton() {
     )
  }
  
+
+ export function GlobalButton({id_button, nameButton}){
+  return (
+    <>
+         <div className='gloabal_button_style' id={id_button}>
+            <h3 >{nameButton}</h3>
+         </div>
+      </>
+  )
+ }
 //Первый билборд кнопки
  export function NavigatingSupportButton() {
     return (

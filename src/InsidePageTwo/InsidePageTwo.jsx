@@ -27,20 +27,25 @@ export default function InsidePageTwo({page}) {
     return(
         <>
             <div id='internal_page_two'  className='internal_conteiner'>
-                <h1>{page.title}</h1>
-                {page.text.map((item, index) => {
-                    const [key, value] = Object.entries(item)[0];
-                    return (
-                        <>
-                            <h3>{key}</h3>
-                            <ul>
-                                <li>
-                                <p>{value}</p>
-                                </li>
-                            </ul>
-                        </>
-                    );
-                })}
+                <div className="inside_main_conteiner-two">
+                    <h3>{page.title}</h3>
+                    {page.text.map((item, index) => {
+                        const [key, value] = Object.entries(item)[0];
+                        return (
+                            <>
+                                {/* <h3>{key}</h3> */}
+                                <div className="for_whom">
+                                    <ul>
+                                        <li>
+                                        <p>{key}</p>
+                                        </li>
+                                    </ul>
+                                    <p>{value}</p>
+                                </div>
+                            </>
+                        );
+                    })}
+                </div>
             </div>    
         </>
     )

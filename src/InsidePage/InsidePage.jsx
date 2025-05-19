@@ -44,25 +44,42 @@ export default function InsidePage({page}) {
         <>
             <div id='internal_page_one'  className='internal_conteiner'>
                 <img src={logo} alt="Logo" class="logoHome"/>
-                <h2 className='title_home'>{page.titleOne}</h2>
-                <p className='text'>{page.textOne}</p>
-                <div className='for_whom'>
-                    <h3>{page.titleTwo}</h3>    
-                    {page.textTwo.map((item, index) => (
-                     <p key={index}>{item}</p>                        
-                     ))}
+                <h2 className='title_inside'>{page.titleOne}</h2>
+                <div >
+                    <p className='gloabal_button_text'>{page.textOne}</p>
                 </div>
-                
-               
-                <h2>{page.titleTree}</h2>    
-                <ul>
-                    {page.dictTree.map((item, index) => (
-                     <li key={index}>{item}</li>
-                    ))}
-                </ul>
-                {page.indicator.map((item, index) => (
-                     <p key={index}>{item}</p>                        
-                     ))}
+                <div className='inside_main_conteiner' >
+                    <div className='for_whom'>
+                        <h3>{page.titleTwo}</h3>    
+                        {page.textTwo.map((item, index) => (
+                        <p key={index}>{item}</p>                        
+                        ))}
+                    </div>
+                    
+                    <div className='for_whom'>     
+                        <h3>{page.titleTree}</h3>    
+                        <ul>
+                            {page.dictTree.map((item, index) => (
+                            <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className='for_whom'> 
+                        {/* {page.indicator.map((item, index) => (
+                            <p className='indicator_size' key={index}>{item}</p>                        
+                            ))} */}
+
+                        {page.indicator.map((item, index) => {
+                            const [key, value] = Object.entries(item)[0];
+                                return (
+                                    <>
+                                        <h3 className='indicator_size'>{key}</h3>
+                                        <p>{value}</p>              
+                                    </>
+                            );            
+                        })}
+                    </div>
+                </div>     
             </div>    
         </>
     )

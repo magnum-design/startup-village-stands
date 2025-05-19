@@ -19,10 +19,12 @@
 }   
 
 .text_block{
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    background-color: blueviolet;
+
+    position: absolute;
+    top: 18%;
+    left: 7%;
+    font-style: light;
+    text-align: left;
 }
 
 .next_button_block{
@@ -38,6 +40,28 @@
     height: 400px;
 }
 
+.inside_main_conteiner{
+    position: absolute;
+    top: 600px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: 40px;
+
+
+}
+
+.inside_main_conteiner-two {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
 .for_whom{
     width: 90%;
     background: rgba(0, 0, 0, 0.445); /* Полупрозрачный темный фон */
@@ -45,10 +69,23 @@
     border-image: linear-gradient(to top, to right, to bottom, to left, #8dd18d, rgba(0, 0, 0, 0.802)) 1; /* Градиент от зеленого к центру */
     border-radius: 25px; /* Скругленные углы */
     box-shadow: 0px 0px 10px 5px rgba(124, 215, 124, 0.5); /* Легкое зеленое свечение */
-    
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
+    max-height: 800px;
+}
+
+.indicator_size{
+    font-size: 105pt;
+    margin: 0;
+}
+
+.title_inside{
+    position: absolute;
+    top: 5%;
+    left: 7%;
+
+    text-align: left;
 }

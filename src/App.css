@@ -36,6 +36,7 @@ h2{
   font-size: 62pt;
   letter-spacing: 2px;
   font-weight: 500;
+  color: #ffffff;
 }
 
 h3{
@@ -47,20 +48,31 @@ h3{
   letter-spacing: 2px;
   font-weight: 300;
   text-align: left;
-  margin-left: 6%;
+  
 
 }
 
 p{
   font-family: 'MyCustomFont';
- 
   font-style: normal;
   font-size: 24pt;
   color: #ffffff;
   letter-spacing: 2px;
   font-weight: 300;
   text-align: left;
-  margin-left: 6%;
+  
+}
+
+
+li{
+  font-family: 'MyCustomFont';
+  font-style: normal;
+  font-size: 24pt;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-align: left;
+  
 }
 
 .App {
@@ -70,5 +82,9 @@ p{
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+ul,li, p{
+  margin: 0;
 }
 

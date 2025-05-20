@@ -1,5 +1,7 @@
 import './InsidePage.css';
 import logo from '../Img/LogoMIK.png';
+import { useImperativeHandle, useRef, useEffect} from 'react';
+import {animate} from 'motion'
 
 const pageData = {
     support_button_container :  {
@@ -34,53 +36,74 @@ const pageData = {
 
 
 
-export default function InsidePage({page}) {
+export default function InsidePage(props, ref) {
+    useEffect(() => {
+        hideAnimate();
+    })
     // console.log(page);
+    let page = props['page']
     if (!page){
         page = pageData.support_button_container
     }
+     const  componentRef = useRef(null);
+     function showAnimate(delay){
+         if (componentRef.current){
+             animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
+         }
+     };
+     function hideAnimate(delay=0){
+         if (componentRef.current){
+             componentRef.current.style.pointerEvents = 'none';
+             animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
+         }
+     };
+     useImperativeHandle(ref, () => ({
+         showAnimate,
+         hideAnimate,
+     }));
+
 
     return(
         <>
-            <div id='internal_page_one'  className='internal_conteiner'>
-                <img src={logo} alt="Logo" class="logoHome"/>
+            <div id='internal_page_one'  className='internal_conteiner' ref={componentRef}>
+                <img src={logo} alt="Logo" className="logoHome"/>
                 <h2 className='title_inside'>{page.titleOne}</h2>
                 <div >
                     <p className='gloabal_button_text'>{page.textOne}</p>
                 </div>
                 <div className='inside_main_conteiner' >
                     <div className='for_whom'>
-                        <h3>{page.titleTwo}</h3>    
+                        <h3>{page.titleTwo}</h3>
                         {page.textTwo.map((item, index) => (
-                        <p key={index}>{item}</p>                        
+                        <p key={index}>{item}</p>
                         ))}
                     </div>
-                    
-                    <div className='for_whom'>     
-                        <h3>{page.titleTree}</h3>    
+
+                    <div className='for_whom'>
+                        <h3>{page.titleTree}</h3>
                         <ul>
                             {page.dictTree.map((item, index) => (
                             <li key={index}>{item}</li>
                             ))}
                         </ul>
                     </div>
-                    <div className='for_whom'> 
+                    <div className='for_whom'>
                         {/* {page.indicator.map((item, index) => (
-                            <p className='indicator_size' key={index}>{item}</p>                        
+                            <p className='indicator_size' key={index}>{item}</p>
                             ))} */}
 
                         {page.indicator.map((item, index) => {
                             const [key, value] = Object.entries(item)[0];
-                                return (
-                                    <>
-                                        <h3 className='indicator_size'>{key}</h3>
-                                        <p>{value}</p>              
-                                    </>
-                            );            
+                            return (
+                                <>
+                                    <h3 className='indicator_size'>{key}</h3>
+                                    <p>{value}</p>
+                                </>
+                            );
                         })}
                     </div>
-                </div>     
-            </div>    
+                </div>
+            </div>
         </>
     )
 }

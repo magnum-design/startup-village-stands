@@ -37,12 +37,12 @@ export function BackButton() {
      const  componentRef = useRef(null);
      function showAnimate(delay){
          if (componentRef.current){
-             animate(componentRef.current, { opacity: 1, y:20 }, { duration: 0.5, delay : delay} )
+             animate(componentRef.current, { opacity: 1, y:20}, { duration: 0.5, delay : delay} )
          }
      };
      function hideAnimate(delay){
          if (componentRef.current){
-             animate(componentRef.current, { opacity: 0, y:0 }, { duration: 0.5, delay : delay} )
+             animate(componentRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : delay} )
          }
      };
 

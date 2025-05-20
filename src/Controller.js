@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimate } from "framer-motion";
-import InsidePage from "./InsidePage/InsidePage"; 
+import InsidePage from "./InsidePage/InsidePage";
 import InsidePageTwo from "./InsidePageTwo/InsidePageTwo";
 import { useLocation } from "react-router-dom";
 
@@ -12,7 +12,7 @@ export default function Controller() {
   const [scope, animate] = useAnimate();
   const [currentPage, setCurrentPage] = useState(null);
   const [activePage, setActivePage] = useState("home");
-  
+
 
 
   const pageData = {
@@ -40,10 +40,10 @@ export default function Controller() {
           {'Рынок':'Оценка российского и глобального объёма рынка продукта, сегментов и прогнозов роста Продукт'},
           {'Продукт':'Определение основных преимуществ продукта, актуальности, востребованности на рынке'},
           {'Бизнес-модель':'Оценка бизнес-модели проекта, её реализуемости и эффективности'},
-          {'Динамика развития проекта':'Анализ истории развития проекта и его целей, оценка рисков и достигнутых результатов'}, 
-          {'Команда':'Анализ компетенций и опыта ключевых членов команды'}, 
-          {'Конкуренты':'Обзор конкурентного ландшафта продукта'}, 
-          {'Финансы':'Оценка финансовых показателей проекта'}, 
+          {'Динамика развития проекта':'Анализ истории развития проекта и его целей, оценка рисков и достигнутых результатов'},
+          {'Команда':'Анализ компетенций и опыта ключевых членов команды'},
+          {'Конкуренты':'Обзор конкурентного ландшафта продукта'},
+          {'Финансы':'Оценка финансовых показателей проекта'},
           {'Сделка':'Оценка инвестиционной привлекательности проекта и возможностей последующего выхода из него'}
        ],
     },
@@ -61,9 +61,9 @@ export default function Controller() {
         "Помогает качественно представить инновационный проект и повысить шансы на финансирование",
       ],
       indicator: [
-        "1200+ заявок подано на участие в программе", 
-        "290 млн руб. сумма привлеченного финансирования", 
-        "280+ проектов разработали инвестиционные материалы", 
+        "1200+ заявок подано на участие в программе",
+        "290 млн руб. сумма привлеченного финансирования",
+        "280+ проектов разработали инвестиционные материалы",
         "20,2+ млн руб. сэкономили участники на инвестиционной упаковке"],
       title: 'Что включает программа?',
       text: [
@@ -115,9 +115,9 @@ export default function Controller() {
         "Привлечено свыше 1 млрд ₽ инвестиций"
       ],
     }
-    
+
   };
-  
+
 
 
   const handleButtonClick = (pageType) => {
@@ -128,18 +128,18 @@ export default function Controller() {
   useEffect(() => {
 
     const locationPath = location.pathname.split('/')[1]
-         
+
 
     let button_next = 'support_button';
     let is_support = false;
     let is_packaging = false;
     let is_expertise = false;
-    let is_program = false;  
+    let is_program = false;
     let is_investment = false;
     let is_direct = false;
     let is_financing = false;
     let is_grants = false;
-    
+
     let is_techno_market = false;
 
     const next_button = document.getElementById("next_button");
@@ -149,20 +149,14 @@ export default function Controller() {
     const start_container = document.getElementById("start_container");
     const home_button = document.getElementById("home_button");
     animate(home_button, {scale: 0})
-    const internal_page_one = document.getElementById("internal_page_one"); 
+    const internal_page_one = document.getElementById("internal_page_one");
 
     const home_container = document.getElementById("home_container");
     const middel_conteiner = document.getElementById("middel_conteiner");
     const support_button = document.getElementById("support_button");
-    if (support_button) {
-      animate(support_button, {opacity: 0, x: -2000, scale : 0})
-    }
-    
+
     const packaging_button = document.getElementById("packaging_button");
-    if (packaging_button) {
-      animate(packaging_button, {opacity: 0, x: -2000, scale : 0})
-    }
-    
+
     const expertise_button = document.getElementById("expertise_button");
     const program_button = document.getElementById("program_button");
     const investment_button = document.getElementById("investment_button");
@@ -171,11 +165,11 @@ export default function Controller() {
     const grants_button = document.getElementById("grants_button");
 
 
-    
-    
+
+
     const home_container_two = document.getElementById("home_container_two");
     const middel_conteiner_two = document.getElementById("middel_conteiner_two");
-    const techno_market_button = document.getElementById("techno_market_button"); 
+    const techno_market_button = document.getElementById("techno_market_button");
     const education_programs_button = document.getElementById("education_programs_button");
     const online_service_rid_button = document.getElementById("online_service_rid_button");
     const ip_packaging_button = document.getElementById("ip_packaging_button");
@@ -184,19 +178,19 @@ export default function Controller() {
     const foreign_patent_grant_button = document.getElementById("foreign_patent_grant_button");
 
 
-  
+
     const home_container_three = document.getElementById("home_container_three");
     const middel_conteiner_three = document.getElementById("middel_conteiner_three");
-    const pilot_testing_program_button = document.getElementById("pilot_testing_program_button"); 
+    const pilot_testing_program_button = document.getElementById("pilot_testing_program_button");
     const intersectoral_clusters_button = document.getElementById("intersectoral_clusters_button");
-  
 
-    
+
+
     //General buttons
 
     function home_general(){
-      
-      setCurrentPage(null); 
+
+      setCurrentPage(null);
       // animate(
       //   home_button,
       //   {
@@ -208,14 +202,14 @@ export default function Controller() {
       //     stiffness: 400,
       //     damping: 17,
       //     // restDelta: 0.001,
-      //     onComplete: () => { 
-      //       home_button.style.scale = 0; 
+      //     onComplete: () => {
+      //       home_button.style.scale = 0;
       //     }
       //   }
       // );
       animate(internal_page_one, {  scale: 0 });
       animate(internal_page_two, {  scale: 0 })
-      animate(next_button, {scale: 0});  
+      animate(next_button, {scale: 0});
       animate(back_button, {scale: 0});
       animate(home_button, {scale: 0});
 
@@ -252,9 +246,9 @@ export default function Controller() {
         ];
         home_button_general(buttons);
       }
-  
+
       if (locationPath === 'board_three') {
-        setCurrentPage(null); 
+        setCurrentPage(null);
         animate(home_button, { scale: 0 });
         animate(home_container_three, { opacity: 1, scale: 1 });
         animate(middel_conteiner_three, { scale: 1 });
@@ -272,12 +266,12 @@ export default function Controller() {
           scale: 1,
           transition: { delay: 5, duration: 8 },
         });
-        animate(next_button, {scale: 0});  
+        animate(next_button, {scale: 0});
         animate(back_button, {scale: 0})
       }
     };
-    
-    
+
+
     function start_general() {
       setCurrentPage(null);
       animate(start_container, { scale: 0 });
@@ -292,53 +286,13 @@ export default function Controller() {
           opacity: 1,
           x: 0,
           scale: 1,
-          transition: { delay: 2 + index * 2, duration: 0.5 }, 
+          transition: { delay: 2 + index * 2, duration: 0.5 },
         });
       });
     }
 
-    start_container.onclick = () => {
-      if (locationPath == 'board_one') {
-        start_general();
-        animate(home_container , { opacity: 1 });
-        animate(middel_conteiner, { scale: 1 });
-        let buttons = [
-          support_button, packaging_button, expertise_button, program_button,
-          investment_button, direct_button, financing_button, grants_button
-        ];
-        start_button_general(buttons);
-        
-      }
 
-      if (locationPath === 'board_two') {
-        start_general();
-        animate(home_container_two, { opacity: 1 });
-        animate(middel_conteiner_two, { scale: 1 });
-        let buttons = [techno_market_button, education_programs_button, online_service_rid_button,
-          ip_packaging_button, ip_secured_lending_button, russian_patent_grant_button, foreign_patent_grant_button
-        ];
-        start_button_general(buttons);
-      }
 
-      if (locationPath === 'board_three') {
-        start_general();
-        animate(home_container_three, { opacity: 1 });
-        animate(middel_conteiner_three, { scale: 1 });
-        let buttons = [
-          pilot_testing_program_button,
-          intersectoral_clusters_button
-        ];
-        start_button_general(buttons);
-      
-    }
-
-      if (locationPath === 'board_four') {
-        
-      }
-
-    };
-
-    
     function next_button_general(){
       setActivePage("insideTwo");
       animate(internal_page_one, { opacity: 0 });
@@ -401,23 +355,22 @@ export default function Controller() {
       animate(next_button, {scale: 1});
       animate(back_button, {scale: 0});
       setActivePage("inside");
-      
+
 
     }
 
     back_button.onclick = () => {
       if (is_support){
-        back_button_general()  
+        back_button_general()
         is_support = false;
       }
-
       if (is_packaging){
         back_button_general()
         is_packaging = false;
       }
 
       if (is_expertise){
-        back_button_general()  
+        back_button_general()
         is_expertise = false;
       }
 
@@ -427,7 +380,7 @@ export default function Controller() {
       }
 
       if (is_investment){
-        back_button_general()  
+        back_button_general()
         is_investment = false;
       }
 
@@ -437,7 +390,7 @@ export default function Controller() {
       }
 
       if (is_financing){
-        back_button_general()  
+        back_button_general()
         is_financing = false;
       }
 
@@ -464,7 +417,7 @@ export default function Controller() {
           handleButtonClick("support_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          animate(next_button, {scale: 1});  
+          animate(next_button, {scale: 1});
           button_next = "support_button";
       };
     }
@@ -474,17 +427,17 @@ export default function Controller() {
           handleButtonClick("packaging_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          animate(next_button, {scale: 1}); 
+          animate(next_button, {scale: 1});
           button_next = "packaging_button";
       };
     }
-    
+
     if (expertise_button) {
       expertise_button.onclick = () => {
           handleButtonClick("expertise_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          animate(next_button, {scale: 1}); 
+          animate(next_button, {scale: 1});
           button_next = "expertise_button";
       };
     }
@@ -494,7 +447,7 @@ export default function Controller() {
           handleButtonClick("program_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          animate(next_button, {scale: 1}); 
+          animate(next_button, {scale: 1});
           button_next = "program_button";
       };
     }
@@ -504,7 +457,7 @@ export default function Controller() {
           handleButtonClick("investment_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          // animate(next_button, {scale: 1}); 
+          // animate(next_button, {scale: 1});
           // button_next = "program_button";
       };
     }
@@ -514,7 +467,7 @@ export default function Controller() {
           handleButtonClick("direct_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          // animate(next_button, {scale: 1}); 
+          // animate(next_button, {scale: 1});
           // button_next = "program_button";
       };
     }
@@ -524,7 +477,7 @@ export default function Controller() {
           handleButtonClick("financing_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          animate(next_button, {scale: 1}); 
+          animate(next_button, {scale: 1});
           button_next = "financing_button";
       };
     }
@@ -534,7 +487,7 @@ export default function Controller() {
           handleButtonClick("grants_button");
           animate(middel_conteiner, { scale: 0 });
           click_button_general();
-          animate(next_button, {scale: 1}); 
+          animate(next_button, {scale: 1});
           button_next = "grants_button";
       };
     }
@@ -548,7 +501,7 @@ export default function Controller() {
         handleButtonClick("techno_market_button");
         click_button_general();
         animate(middel_conteiner_two, { scale: 0 });
-        animate(next_button, {scale: 1});  
+        animate(next_button, {scale: 1});
         button_next = "techno_market_button";
       };
     }
@@ -564,7 +517,7 @@ export default function Controller() {
         animate(middel_conteiner_three, { scale: 0 });
         animate(internal_page_one, { opacity: 1 });
         animate(home_button, { scale: 1 });
-        // animate(next_button, {scale: 1});  
+        // animate(next_button, {scale: 1});
         // button_next = "techno_market_button";
       }
     }
@@ -577,7 +530,7 @@ export default function Controller() {
         animate(middel_conteiner_three, { scale: 0 });
         animate(internal_page_one, { opacity: 1 });
         animate(home_button, { scale: 1 });
-        animate(next_button, {scale: 1});  
+        animate(next_button, {scale: 1});
         button_next = "intersectoral_clusters_button";
       }
     }

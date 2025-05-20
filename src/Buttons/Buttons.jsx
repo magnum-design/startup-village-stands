@@ -1,6 +1,7 @@
 import './Buttons.css';
 import {motion, scale} from 'framer-motion';
-import { useRef, onClick } from "react";
+import {animate} from 'motion'
+import { useRef, onClick, useImperativeHandle, forwardRef } from "react";
 
 
 
@@ -30,25 +31,46 @@ export function BackButton() {
       </>
     )
  }
- 
 
- export function GlobalButton({id_button, nameButton}){
-  return (
-    <>
-         <div className='gloabal_button_style' id={id_button}>
+
+ export const MenuButton = forwardRef((props, ref) => {
+     const  componentRef = useRef(null);
+     function showAnimate(delay){
+         if (componentRef.current){
+             animate(componentRef.current, { opacity: 1, y:20 }, { duration: 0.5, delay : delay} )
+         }
+     };
+     function hideAnimate(delay){
+         if (componentRef.current){
+             animate(componentRef.current, { opacity: 0, y:0 }, { duration: 0.5, delay : delay} )
+         }
+     };
+
+     useImperativeHandle(ref, () => ({
+         showAnimate,
+         hideAnimate,
+     }));
+     const id_button = props['id_button']
+     const nameButton = props['nameButton']
+     const onclickFunc = props['onclickFunc']
+
+      return (
+        <>
+         <div onClick={onclickFunc} className='menu_button' id={id_button} ref={componentRef}>
             <h3 >{nameButton}</h3>
          </div>
       </>
-  )
- }
+      )
+ });
+
 //Первый билборд кнопки
  export function NavigatingSupportButton() {
     return (
       <>
-         <div 
+         <div
             // variants={buttonVariants}
             // initial="hidden"
-            id='support_button' 
+            id='support_button'
             className="support_button_container"
             // whileTap={{ scale: 0.95 }}
             >
@@ -60,10 +82,10 @@ export function BackButton() {
  export function InvestmentPackagingButton() {
     return (
       <>
-         <div 
+         <div
             // variants={buttonVariants}
             // initial="hidden"
-            id='packaging_button' 
+            id='packaging_button'
             className="packaging_button_container"
             >
          </div>
@@ -96,7 +118,7 @@ export function BackButton() {
          </div>
       </>
     )
- } 
+ }
 
  export function DirectInvestmentButton() {
     return (
@@ -137,7 +159,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  export function EducationProgramsButton({ buttonVariants }) {
    return (
      <motion.div
@@ -148,7 +170,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  export function OnlineServiceRIDButton({ buttonVariants }) {
    return (
      <motion.div
@@ -159,7 +181,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  export function IPPackagingButton({ buttonVariants }) {
    return (
      <motion.div
@@ -170,7 +192,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  export function IPSecuredLendingButton({ buttonVariants }) {
    return (
      <motion.div
@@ -181,7 +203,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  export function RussianPatentGrantButton({ buttonVariants }) {
    return (
      <motion.div
@@ -192,7 +214,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  export function ForeignPatentGrantButton({ buttonVariants }) {
    return (
      <motion.div
@@ -203,7 +225,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      />
    );
  }
- 
+
  //Третий билборд кнопки
  export function PilotTestingProgramButton({ buttonVariants }) {
    return (
@@ -217,7 +239,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      </>
    );
  }
- 
+
  export function IntersectoralClustersButton({ buttonVariants }) {
    return (
      <>
@@ -230,7 +252,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      </>
    );
  }
- 
+
  // четвертый билборд кнопки
  export function HitechEmploymentButton() {
    return (
@@ -240,7 +262,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      </>
    );
  }
- 
+
  export function EntrepreneurshipPromotionButton() {
    return (
      <>
@@ -249,7 +271,7 @@ export function TechnoMarketButton({ buttonVariants }) {
      </>
    );
  }
- 
+
  export function EducationAndSelfRealizationButton() {
    return (
      <>
@@ -258,4 +280,3 @@ export function TechnoMarketButton({ buttonVariants }) {
      </>
    );
  }
- 

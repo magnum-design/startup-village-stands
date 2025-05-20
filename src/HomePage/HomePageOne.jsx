@@ -2,17 +2,15 @@ import './HomePage.css';
 
 import { NavigatingSupportButton, InvestmentPackagingButton,
     InvestmentExpertiseButton, PathIPOProgramButton, SeedInvestmentButton, DirectInvestmentButton,
-    IPOPreparationFinancingButton, GrantsButton, GlobalButton
+    IPOPreparationFinancingButton, GrantsButton, MenuButton
 } from '../Buttons/Buttons.jsx';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import logo from '../Img/LogoMIK.png';
-
-
+import { motion } from "motion/react"
 
 
 export default function HomePageOne(){
-    const [currentPage, setCurrentPage] = useState(null);    
+    const [currentPage, setCurrentPage] = useState(null);
 
     // const buttonVariants = {
     //         hidden: { opacity: 0, x: -2000, scale : 0 },
@@ -21,13 +19,22 @@ export default function HomePageOne(){
 
     return (
         <>
-            <div id='home_container' className='home_container'> 
+            <div id='home_container' className='home_container'>
                 <img src={logo} alt="Logo" class="logoHome"/>
                 <div id='middel_conteiner' className='middel_conteiner'>
-                    
                     <h2 className='title_home'>Меры поддержки<br/> и сервисы</h2>
                     <div className='container_for_button'>
-                        <GlobalButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></GlobalButton>
+                        <motion.div animate={{ rotate: 180 }}>
+                            <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        </motion.div>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
+                        <MenuButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></MenuButton>
                         {/* <NavigatingSupportButton/>
                         <InvestmentPackagingButton/>
                         <InvestmentExpertiseButton></InvestmentExpertiseButton>

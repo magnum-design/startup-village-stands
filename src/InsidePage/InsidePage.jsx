@@ -1,9 +1,10 @@
 import './InsidePage.css';
 import logo from '../Img/LogoMIK.png';
-import { useImperativeHandle, useRef, useEffect} from 'react';
+import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
+import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
-const pageData = {
+const pageDataExample = {
     support_button_container :  {
         titleOne: 'Навигация',
         textOne: 'Сервис подбора релевантные программы поддержки от Правительства Москвы, институтов развития и других федеральных структур',
@@ -36,31 +37,31 @@ const pageData = {
 
 
 
-export default function InsidePage(props, ref) {
-    useEffect(() => {
-        hideAnimate();
-    })
+const InsidePage = forwardRef(({ pageData }, ref) =>  {
     // console.log(page);
-    let page = props['page']
-    if (!page){
-        page = pageData.support_button_container
+    console.log('Recived:', pageData);
+
+    let page = null;
+    if (pageData != null){
+        page = pageData
+    } else {
+        page = pageDataExample.support_button_container
     }
-     const  componentRef = useRef(null);
-     function showAnimate(delay){
-         if (componentRef.current){
-             animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
-         }
-     };
-     function hideAnimate(delay=0){
-         if (componentRef.current){
-             componentRef.current.style.pointerEvents = 'none';
-             animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
-         }
-     };
-     useImperativeHandle(ref, () => ({
-         showAnimate,
-         hideAnimate,
-     }));
+    const  componentRef = useRef(null);
+    function showAnimate(delay){
+        if (componentRef.current){
+            animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
+        }
+    };
+    function hideAnimate(delay=0){
+        if (componentRef.current){
+            animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
+        }
+    };
+    useImperativeHandle(ref, () => ({
+        showAnimate,
+        hideAnimate,
+    }));
 
 
     return(
@@ -88,16 +89,15 @@ export default function InsidePage(props, ref) {
                         </ul>
                     </div>
                     <div className='for_whom'>
-                        {/* {page.indicator.map((item, index) => (
-                            <p className='indicator_size' key={index}>{item}</p>
-                            ))} */}
-
-                        {page.indicator.map((item, index) => {
+                        {
+                            page.indicator.map((item, index) => {
                             const [key, value] = Object.entries(item)[0];
                             return (
                                 <>
+                                <div key={index}>
                                     <h3 className='indicator_size'>{key}</h3>
                                     <p>{value}</p>
+                                </div>
                                 </>
                             );
                         })}
@@ -106,4 +106,6 @@ export default function InsidePage(props, ref) {
             </div>
         </>
     )
-}
+})
+
+export default InsidePage;

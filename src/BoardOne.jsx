@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import {MenuButton} from './Buttons/Buttons'
 import StartPage from './StartPage/StartPage.jsx';
@@ -14,7 +14,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const RESET_TIME = 10; //secs
 
 
-function setTimer(homePageRef, startPageRef) {
+function setInactiveTimer(homePageRef, startPageRef) {
     let lastClickTimestamp = null;
     const time_to_restart = RESET_TIME;
 
@@ -38,25 +38,26 @@ function setTimer(homePageRef, startPageRef) {
 export default function BoardOne() {
     let homePageRef = useRef(null);
     let startPageRef = useRef(null);
+    let insidePageRef = useRef(null);
 
-    setTimer(homePageRef, startPageRef);
-
+    setInactiveTimer(homePageRef, startPageRef);
 
     const homeButtonClick = () => {
         // console.log(homePageRef)
+        insidePageRef.current.hideAnimate(0);
         homePageRef.current.showButtons()
     }
 
 
-
+    let [pageData, setPageData] = useState(null);
     return (
         <>
             <HomeButton onclickFunc={homeButtonClick}/>
             <NextButton/>
             <BackButton/>
-            <StartPage ref={startPageRef}/>
-            <HomePageOne ref={homePageRef}/>
-            <InsidePage/>
+            <StartPage   ref={startPageRef}/>
+            <HomePageOne ref={homePageRef} insidePageRef={insidePageRef} setPageData={setPageData}/>
+            <InsidePage  ref={insidePageRef} pageData={pageData}/>
         </>
     );
 }

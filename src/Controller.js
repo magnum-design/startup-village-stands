@@ -537,33 +537,9 @@ export default function Controller() {
 
 
 
-    let lastClickTimestamp = null;
-    const time_to_restart = 5 * 60; // 5 минут
-
-    function handleClickEvent() {
-      lastClickTimestamp = Date.now();
-    }
-
-    function checkTimeSinceLastClick() {
-      if (lastClickTimestamp) {
-        const currentTime = Date.now();
-        const timeDifference = currentTime - lastClickTimestamp;
-
-        if (timeDifference > time_to_restart * 1000) {
-          lastClickTimestamp = null;
-          window.location.reload();
-        }
-      }
-    }
-
-    document.body.addEventListener("click", handleClickEvent);
-    const intervalId = setInterval(checkTimeSinceLastClick, 1000);
-
     document.oncontextmenu = () => false;
 
     return () => {
-      document.body.removeEventListener("click", handleClickEvent);
-      clearInterval(intervalId);
     };
   }, [animate]);
 

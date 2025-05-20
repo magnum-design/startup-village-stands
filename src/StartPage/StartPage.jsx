@@ -48,7 +48,7 @@ const StartPage = forwardRef((props, ref) => {
                     <h1 className='title2'>
                         финансирования
                     </h1>
-                    <img src={logo} alt="Logo" class="logo"/>
+                    <img src={logo} alt="Logo" className="logo"/>
                 </div>
             </div>
         </>

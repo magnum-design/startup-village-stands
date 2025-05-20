@@ -14,10 +14,10 @@ export function BackButton() {
     )
  }
 
- export function HomeButton() {
+ export function HomeButton({onclickFunc}) {
     return (
       <>
-         <motion.div whileTap="tapped" id='home_button' className="home_button_container">
+         <motion.div whileTap="tapped" onClick={onclickFunc} id='home_button' className="home_button_container">
          </motion.div>
       </>
     )

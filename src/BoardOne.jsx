@@ -13,15 +13,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 export default function BoardOne() {
+    let homePageRef = useRef(null);
+
+    const f = () => {
+        // console.log(homePageRef)
+        homePageRef.current.showButtons()
+    }
+
+
 
     return (
         <>
-            <HomeButton></HomeButton>
+            <HomeButton onclickFunc={f}/>
             <NextButton></NextButton>
             <BackButton></BackButton>
-
             <StartPage></StartPage>
-            <HomePageOne></HomePageOne>
+            <HomePageOne ref={homePageRef}></HomePageOne>
             <InsidePage></InsidePage>
 
         </>

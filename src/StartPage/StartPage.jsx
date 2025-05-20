@@ -1,15 +1,15 @@
 import './StartPage.css';
 import background_video from '../Videos/fon.mp4';
 import logo from '../Img/LogoMIK.png';
-import { useImperativeHandle, useRef} from 'react';
-import {animate} from 'motion'
+import { forwardRef, useImperativeHandle, useRef} from 'react';
+import {animate, defaultEasing} from 'motion'
 
 
 const text = "Привлечение\nфинансирования";
 const words = text.split("\n");
 
 
-export default function StartPage(props, ref){
+const StartPage = forwardRef((props, ref) => {
      const  componentRef = useRef(null);
      function showAnimate(delay){
          if (componentRef.current){
@@ -53,4 +53,6 @@ export default function StartPage(props, ref){
             </div>
         </>
     )
-}
+})
+
+export default StartPage;

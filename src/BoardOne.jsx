@@ -11,11 +11,38 @@ import InsidePageTwo from './InsidePageTwo/InsidePageTwo.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
+const RESET_TIME = 10; //secs
+
+
+function setTimer(homePageRef, startPageRef) {
+    let lastClickTimestamp = null;
+    const time_to_restart = RESET_TIME;
+
+    document.body.addEventListener("click", ()=> {lastClickTimestamp = Date.now();});
+
+    const intervalId = setInterval(()=>{
+        if (lastClickTimestamp) {
+            const currentTime = Date.now();
+            const timeDifference = currentTime - lastClickTimestamp;
+
+            if (timeDifference > time_to_restart * 1000) {
+                lastClickTimestamp = null;
+                startPageRef.current.showAnimate(0);
+                homePageRef.current.showButtons()
+            }
+        }
+    }, 1000);
+}
+
 
 export default function BoardOne() {
     let homePageRef = useRef(null);
+    let startPageRef = useRef(null);
 
-    const f = () => {
+    setTimer(homePageRef, startPageRef);
+
+
+    const homeButtonClick = () => {
         // console.log(homePageRef)
         homePageRef.current.showButtons()
     }
@@ -24,13 +51,12 @@ export default function BoardOne() {
 
     return (
         <>
-            <HomeButton onclickFunc={f}/>
-            <NextButton></NextButton>
-            <BackButton></BackButton>
-            <StartPage></StartPage>
-            <HomePageOne ref={homePageRef}></HomePageOne>
-            <InsidePage></InsidePage>
-
+            <HomeButton onclickFunc={homeButtonClick}/>
+            <NextButton/>
+            <BackButton/>
+            <StartPage ref={startPageRef}/>
+            <HomePageOne ref={homePageRef}/>
+            <InsidePage/>
         </>
     );
 }

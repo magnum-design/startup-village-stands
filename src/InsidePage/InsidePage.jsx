@@ -44,10 +44,11 @@ export default function InsidePage({page}) {
         <>
             <div id='internal_page_one'  className='internal_conteiner'>
                 <img src={logo} alt="Logo" class="logoHome"/>
-                <h2 className='title_inside'>{page.titleOne}</h2>
-                <div >
-                    <p className='gloabal_button_text'>{page.textOne}</p>
+                <div className='title_container'> 
+                    <h2 className='title_one'>{page.titleOne}</h2>
+                    <p >{page.textOne}</p>
                 </div>
+                
                 <div className='inside_main_conteiner' >
                     <div className='for_whom'>
                         <h3>{page.titleTwo}</h3>    
@@ -64,7 +65,7 @@ export default function InsidePage({page}) {
                             ))}
                         </ul>
                     </div>
-                    <div className='for_whom'> 
+                    <div className=''>
                         {/* {page.indicator.map((item, index) => (
                             <p className='indicator_size' key={index}>{item}</p>                        
                             ))} */}
@@ -73,8 +74,11 @@ export default function InsidePage({page}) {
                             const [key, value] = Object.entries(item)[0];
                                 return (
                                     <>
-                                        <h3 className='indicator_size'>{key}</h3>
-                                        <p>{value}</p>              
+                                        <div className='for_statistic'>
+                                            <div className='circle'></div>    
+                                            <h3 className='indicator_size'>{key}</h3>
+                                            <p>{value}</p>
+                                        </div>              
                                     </>
                             );            
                         })}

@@ -292,8 +292,8 @@ export default function Controller() {
     function start_general() {
       setCurrentPage(null);
       animate(start_container, { scale: 0 });
-      // animate(internal_page_one, { opacity: 0, scale: 0 });
-      // animate(internal_page_two, { opacity: 0,  scale: 0 });
+      animate(internal_page_one, { opacity: 0, scale: 0 });
+      animate(internal_page_two, { opacity: 0,  scale: 0 });
 
     }
 

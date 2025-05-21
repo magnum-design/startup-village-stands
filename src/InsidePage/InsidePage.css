@@ -43,7 +43,7 @@
 .inside_main_conteiner{
     position: absolute;
     top: 600px;
-    width: 95%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,29 +63,78 @@
 }
 
 .for_whom{
-    width: 90%;
-    background: rgba(0, 0, 0, 0.445); /* Полупрозрачный темный фон */
-    border: 4px solid transparent; /* Прозрачная граница для border-image */
-    border-image: linear-gradient(to top, to right, to bottom, to left, #8dd18d, rgba(0, 0, 0, 0.802)) 1; /* Градиент от зеленого к центру */
-    border-radius: 25px; /* Скругленные углы */
-    box-shadow: 0px 0px 10px 5px rgba(124, 215, 124, 0.5); /* Легкое зеленое свечение */
-    text-align: center;
+    width: 100%;
+    align-items: flex-start;
+    background: radial-gradient(
+        200% 300% at 0% 50%,
+        rgba(0, 46, 40, 1) 0%,
+        rgba(64, 157, 122, 1) 40%,
+        rgba(77, 255, 201, 1) 70%
+      );
+    background-color: rgba(255, 255, 255, 1.0);
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 20px;
+    box-shadow: -4px 8px 15.399999618530273px 4px rgba(77, 255, 201, 0.5);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    overflow: hidden;
-    max-height: 800px;
+    /* gap: 25px; */
+    padding: 30px 40px;
+    position: relative;
+    
 }
+
+.for_statistic{
+    box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.5);
+    border-radius: 20px;
+    background-color: #0000008a;
+    border: 1px solid;
+    border-color: transparent;
+    
+}
+
+.circle{
+    background: radial-gradient(
+        50% 50% at 62% 49%,
+        rgba(139, 255, 126, 1) 0%,
+        rgba(77, 255, 201, 1) 33%,
+        rgba(82, 235, 133, 1) 65%,
+        rgba(39, 204, 210, 1) 100%
+      );
+      border-radius: 100px;
+      height: 132px;
+      
+      width: 26px;
+}
+
 
 .indicator_size{
     font-size: 105pt;
     margin: 0;
 }
 
-.title_inside{
+.title_container{
     position: absolute;
-    top: 5%;
+    top: 10%;
+    left: 7%;
+    text-align: left;
+    width: 90%;
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: column;
+    row-gap: 20px;
+    
+}
+
+.title_one{
+    margin: 0;
+}
+
+.textOne{
+    position: absolute;
+    top: 12%;
     left: 7%;
 
     text-align: left;
 }
+

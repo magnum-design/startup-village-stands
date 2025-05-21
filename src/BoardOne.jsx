@@ -11,7 +11,7 @@ import InsidePageTwo from './InsidePageTwo/InsidePageTwo.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-const RESET_TIME = 10; //secs
+const RESET_TIME = 520; //secs
 
 
 function setInactiveTimer(homePageRef, startPageRef) {

@@ -126,9 +126,9 @@ export default function Controller() {
   };
 
 
-  const handleButtonStart = () => {
-    setActivatHome(true);
-  };
+  // const handleButtonStart = () => {
+  //   setActivatHome(true);
+  // };
 
 
   useEffect(() => {
@@ -289,8 +289,8 @@ export default function Controller() {
         }
 
         if (locationPath === 'board_four') {
-          handleButtonStart()
-          console.log(activeHome)
+          // handleButtonStart()
+          // console.log(activeHome)
           start_general();
           // animate(home_container_four, { opacity: 1 });
           // animate(middel_conteiner_four, { scale: 1 });
@@ -596,7 +596,7 @@ export default function Controller() {
   return (
     <>  
           
-          {activeHome && <HomePageFour></HomePageFour>}
+          {/* {activeHome && <HomePageFour></HomePageFour>} */}
           {activePage === "inside" && currentPage && (
             <InsidePage page={currentPage} />
           )}

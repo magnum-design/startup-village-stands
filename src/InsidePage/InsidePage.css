@@ -84,12 +84,21 @@
     
 }
 
+.bottom_container{
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+
 .for_statistic{
     box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.5);
     border-radius: 20px;
     background-color: #0000008a;
     border: 1px solid;
     border-color: transparent;
+    width: 455px;
+    height: 253px;
     
 }
 

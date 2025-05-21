@@ -69,12 +69,9 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
             <div id='internal_page_one'  className='internal_conteiner' ref={componentRef}>
                 <img src={logo} alt="Logo" className="logoHome"/>
                 <div className='title_container'>
-                    <h2 className='title_inside'>{page.titleOne}</h2>
-                    <p >{page.textOne}</p>
+                    <h2>{page.titleOne}</h2>
+                    <p>{page.textOne}</p>
                 </div>    
-                <div >
-                    <p className='gloabal_button_text'>{page.textOne}</p>
-                </div>
                 
                 <div className='inside_main_conteiner' >
                     <div className='for_whom'>
@@ -92,13 +89,14 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                             ))}
                         </ul>
                     </div>
-                    <div className='for_whom'>
+                    <div className='bottom_container'>
                         {
                             page.indicator.map((item, index) => {
                             const [key, value] = Object.entries(item)[0];
                             return (
                                 <>
-                                <div key={index}>
+                                <div className='for_statistic' key={index}>
+                                <div className='circle'></div>    
                                     <h3 className='indicator_size'>{key}</h3>
                                     <p>{value}</p>
                                 </div>

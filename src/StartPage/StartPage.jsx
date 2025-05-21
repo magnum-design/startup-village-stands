@@ -26,17 +26,19 @@ const contentMap = {
       </>
     ),
     board_four: (
-        <>
+        
           <h1 className="title">Развитие человеческого капитала</h1>
-        </>
+    
       ),
   };
   
 
 
-export default function StartPage(){
+export default function StartPage( ){
   
     const location = useLocation();
+
+    
 
     const locationPath = location.pathname.split('/')[1]
     return (
@@ -51,6 +53,7 @@ export default function StartPage(){
                 <source src={background_video} type="video/webm" />
                 </video> 
                 <div id='content' className='content'>
+
                     {contentMap[locationPath] || null}
                     
                     {/* <motion.h1 style={{ display: "flex", color: 'white' }}>

@@ -13,13 +13,11 @@ export default function BoardFour() {
 
   return (
     <>
-      <HomeButton></HomeButton>
-      <NextButton></NextButton>
-      <BackButton></BackButton>
+      
       <StartPage></StartPage>  
-      <HomePageFour></HomePageFour>
+      {/* <HomePageFour></HomePageFour>
       <InsidePage></InsidePage>
-      <InsidePageTwo></InsidePageTwo>
+      <InsidePageTwo></InsidePageTwo> */}
 
       <Controller></Controller>
     </>

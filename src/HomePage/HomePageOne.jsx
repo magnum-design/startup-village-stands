@@ -27,15 +27,15 @@ export default function HomePageOne(){
                     
                     <h2 className='title_home'>Меры поддержки<br/> и сервисы</h2>
                     <div className='container_for_button'>
-                        <GlobalButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></GlobalButton>
-                        {/* <NavigatingSupportButton/>
+                        {/* <GlobalButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></GlobalButton> */}
+                        <NavigatingSupportButton/>
                         <InvestmentPackagingButton/>
                         <InvestmentExpertiseButton></InvestmentExpertiseButton>
                         <PathIPOProgramButton></PathIPOProgramButton>
                         <SeedInvestmentButton></SeedInvestmentButton>
                         <DirectInvestmentButton></DirectInvestmentButton>
                         <IPOPreparationFinancingButton></IPOPreparationFinancingButton>
-                        <GrantsButton></GrantsButton> */}
+                        <GrantsButton></GrantsButton>
                     </div>
                 </div>
             </div>

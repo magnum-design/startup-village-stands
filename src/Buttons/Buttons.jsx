@@ -1,8 +1,9 @@
 import './Buttons.css';
 import {motion, scale} from 'framer-motion';
-import { useRef, onClick } from "react";
-
-
+import { useRef, onClick, forwardRef, useImperativeHandle } from "react";
+import { useState } from 'react';
+import InsidePageFour from '../InsidePage/InsidePageFour';
+import { animate } from 'framer-motion';
 
 export function BackButton() {
     return (
@@ -231,20 +232,61 @@ export function TechnoMarketButton({ buttonVariants }) {
    );
  }
  
+ 
  // четвертый билборд кнопки
- export function HitechEmploymentButton() {
+ export const HitechEmploymentButton = forwardRef((props, ref) => {
+  const [showDetails, setShowDetails] = useState(false);
+  const  componentRef = useRef(null);
+
+  const handleClick = (e) => {
+    setShowDetails(true); 
+    if (onClick) {
+      onClick(e); 
+    }
+  };
+
+  function showAnimate(delay){
+    if (componentRef.current){
+        animate(componentRef.current, { opacity: 1, y:20 }, { duration: 0.5, delay : delay} )
+    }
+  };
+
+  function hideAnimate(delay){
+    if (componentRef.current){
+        animate(componentRef.current, { opacity: 0, y:0 }, { duration: 0.5, delay : delay} )
+    }
+  } ;
+
+  if (showDetails) {
+    hideAnimate(1);
+    
+  }
+
+  useImperativeHandle(ref, () => ({  showAnimate,
+    hideAnimate,}));
    return (
      <>
-       <div id="hitech_employment_button" className="gloabal_button_style">
+       <div onClick={handleClick}  id="hitech_employment_button" className="gloabal_button_style">
+          <h3>ТРУДОУСТРОЙСТВО В ВЫСОКОТЕХ</h3>
        </div>
+       {/* {showDetails && <InsidePageFour />} */}
      </>
    );
- }
+ })
  
+
+
+
+
+
+
+
+
  export function EntrepreneurshipPromotionButton() {
    return (
      <>
        <div id="entrepreneurship_promotion_button" className="gloabal_button_style">
+        <h3>ПОПУЛЯРИЗАЦИЯ ПРЕДПРИНИМАТЕЛЬСТВА</h3>
        </div>
      </>
    );
@@ -254,8 +296,40 @@ export function TechnoMarketButton({ buttonVariants }) {
    return (
      <>
        <div id="education_self_realization_button" className="gloabal_button_style">
+        <h3>ОБУЧЕНИЕ И САМОРЕАЛИЗАЦИЯ</h3>
        </div>
      </>
    );
  }
  
+ export function GloballButtonsFour({id_button, nameButton}){
+    return(
+      <>
+        <div className='gloabal_button_style' id={id_button}>
+            <h3 >{nameButton}</h3>
+         </div>
+      </>
+    )
+ }
+
+
+ export function QualificationExam({onClick}) {
+  return (
+    <>
+      <div onClick = {onClick}  id="qualification exam" className="gloabal_button_style">
+       <h3>Добровольный квалификационный экзамен</h3>
+      </div>
+    </>
+  );
+}
+
+
+export function StartInMoscow({onClick}) {
+  return (
+    <>
+      <div onClick = {onClick}  id="qualification exam" className="gloabal_button_style">
+       <h3>Start in Moscow</h3>
+      </div>
+    </>
+  );
+}

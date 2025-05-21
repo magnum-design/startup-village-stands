@@ -22,8 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
 
 /src/Videos/*
-=======
->>>>>>> d56b2b88b5585ac32611a865db1d499f368896ad

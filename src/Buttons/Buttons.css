@@ -35,7 +35,7 @@
 }
 
 .gloabal_button_style {
-    width: 1080px;
+    width: 100%;
     height: 200px;
     background-image: url("../Img/Rectangle1.png");
     background-size: contain;

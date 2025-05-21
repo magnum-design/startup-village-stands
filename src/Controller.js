@@ -3,18 +3,10 @@ import { motion, useAnimate } from "framer-motion";
 import InsidePage from "./InsidePage/InsidePage"; 
 import InsidePageTwo from "./InsidePageTwo/InsidePageTwo";
 import { useLocation } from "react-router-dom";
-
+import HomePageFour from "./HomePage/HomePageFour";
 
 
 export default function Controller() {
-  const location = useLocation();
-  // const navigate = useNavigate();
-  const [scope, animate] = useAnimate();
-  const [currentPage, setCurrentPage] = useState(null);
-  const [activePage, setActivePage] = useState("home");
-  
-
-
   const pageData = {
     support_button: {
       titleOne: "Навигация по мерам поддержки",
@@ -118,12 +110,25 @@ export default function Controller() {
     
   };
   
-
+  
+  const location = useLocation();
+  // const navigate = useNavigate();
+  const [scope, animate] = useAnimate();
+  const [currentPage, setCurrentPage] = useState(null);
+  const [activePage, setActivePage] = useState("home");
+  const [activeHome, setActivatHome ] = useState(false);
+  
 
   const handleButtonClick = (pageType) => {
     setCurrentPage(pageData[pageType]);
     setActivePage("inside");
   };
+
+
+  const handleButtonStart = () => {
+    setActivatHome(true);
+  };
+
 
   useEffect(() => {
 
@@ -148,7 +153,7 @@ export default function Controller() {
 
     const start_container = document.getElementById("start_container");
     const home_button = document.getElementById("home_button");
-    animate(home_button, {scale: 0})
+    // animate(home_button, {scale: 0})
     const internal_page_one = document.getElementById("internal_page_one"); 
 
     const home_container = document.getElementById("home_container");
@@ -237,57 +242,58 @@ export default function Controller() {
       });
     }
 
-    home_button.onclick = () => {
-      if (locationPath == 'board_one') {
-        home_general();
-        animate(home_container, { opacity: 1, scale: 1 });
-        animate(middel_conteiner, { scale: 1 });
-        let buttons = [support_button, packaging_button, expertise_button, program_button,
-          investment_button, direct_button, financing_button, grants_button
-        ];
-        home_button_general(buttons);
-        }
+    if (home_button) {
+      home_button.onclick = () => {
+        if (locationPath == 'board_one') {
+          home_general();
+          animate(home_container, { opacity: 1, scale: 1 });
+          animate(middel_conteiner, { scale: 1 });
+          let buttons = [support_button, packaging_button, expertise_button, program_button,
+            investment_button, direct_button, financing_button, grants_button
+          ];
+          home_button_general(buttons);
+          }
 
-      if (locationPath === 'board_two') {
-        home_general();
-        animate(home_container_two, { opacity: 1, scale: 1 });
-        animate(middel_conteiner_two, { scale: 1 });
-        let buttons = [techno_market_button, education_programs_button, online_service_rid_button,
-          ip_packaging_button, ip_secured_lending_button, russian_patent_grant_button, foreign_patent_grant_button
-        ];
-        home_button_general(buttons);
-      }
-  
-      if (locationPath === 'board_three') {
-        setCurrentPage(null); 
-        animate(home_button, { scale: 0 });
-        animate(home_container_three, { opacity: 1, scale: 1 });
-        animate(middel_conteiner_three, { scale: 1 });
-        animate(internal_page_one, {  scale: 0 });
-        animate(internal_page_two, {  scale: 0 })
-        animate(pilot_testing_program_button, {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          transition: { delay: 2, duration: 5 },
-        });
-        animate(intersectoral_clusters_button, {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          transition: { delay: 5, duration: 8 },
-        });
-        animate(next_button, {scale: 0});  
-        animate(back_button, {scale: 0})
-      }
-    };
+        if (locationPath === 'board_two') {
+          home_general();
+          animate(home_container_two, { opacity: 1, scale: 1 });
+          animate(middel_conteiner_two, { scale: 1 });
+          let buttons = [techno_market_button, education_programs_button, online_service_rid_button,
+            ip_packaging_button, ip_secured_lending_button, russian_patent_grant_button, foreign_patent_grant_button
+          ];
+          home_button_general(buttons);
+        }
     
+        if (locationPath === 'board_three') {
+          setCurrentPage(null); 
+          animate(home_button, { scale: 0 });
+          animate(home_container_three, { opacity: 1, scale: 1 });
+          animate(middel_conteiner_three, { scale: 1 });
+          animate(internal_page_one, {  scale: 0 });
+          animate(internal_page_two, {  scale: 0 })
+          animate(pilot_testing_program_button, {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            transition: { delay: 2, duration: 5 },
+          });
+          animate(intersectoral_clusters_button, {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            transition: { delay: 5, duration: 8 },
+          });
+          animate(next_button, {scale: 0});  
+          animate(back_button, {scale: 0})
+        }
+      };
+    }
     
     function start_general() {
       setCurrentPage(null);
       animate(start_container, { scale: 0 });
-      animate(internal_page_one, { opacity: 0, scale: 0 });
-      animate(internal_page_two, { opacity: 0,  scale: 0 });
+      // animate(internal_page_one, { opacity: 0, scale: 0 });
+      // animate(internal_page_two, { opacity: 0,  scale: 0 });
 
     }
 
@@ -338,15 +344,17 @@ export default function Controller() {
     }
 
       if (locationPath === 'board_four') {
+        handleButtonStart()
+        console.log(activeHome)
         start_general();
-        animate(home_container_four, { opacity: 1 });
-        animate(middel_conteiner_four, { scale: 1 });
-        let buttons = [
-          hitech_employment_button,
-          entrepreneurship_promotion_button,
-          education_self_realization_button
-        ];
-        start_button_general(buttons);
+        // animate(home_container_four, { opacity: 1 });
+        // animate(middel_conteiner_four, { scale: 1 });
+        // let buttons = [
+        //   hitech_employment_button,
+        //   entrepreneurship_promotion_button,
+        //   education_self_realization_button
+        // ];
+        // start_button_general(buttons);
       }
 
     };
@@ -360,53 +368,55 @@ export default function Controller() {
       animate(back_button, {scale: 1});
 
     }
-
-    next_button.onclick = () => {
-      if (button_next == "support_button") {
-        next_button_general();
-        is_support = true;
+    if (next_button){
+      next_button.onclick = () => {
+        if (button_next == "support_button") {
+          next_button_general();
+          is_support = true;
+        }
+  
+        if (button_next == "packaging_button"){
+          next_button_general();
+          is_packaging = true;
+        }
+  
+        if (button_next == "expertise_button") {
+          next_button_general();
+          is_expertise = true;
+        }
+  
+        if (button_next == "program_button"){
+          next_button_general();
+          is_program = true;
+        }
+  
+        if (button_next == "investment_button") {
+          next_button_general();
+          is_investment = true;
+        }
+  
+        if (button_next == "direct_button"){
+          next_button_general();
+          is_direct = true;
+        }
+  
+        if (button_next == "financing_button") {
+          next_button_general();
+          is_financing = true;
+        }
+  
+        if (button_next == "grants_button"){
+          next_button_general();
+          is_grants = true;
+        }
+  
+        if (button_next == "techno_market_button") {
+          next_button_general();
+          is_techno_market = true;
+        }
       }
-
-      if (button_next == "packaging_button"){
-        next_button_general();
-        is_packaging = true;
-      }
-
-      if (button_next == "expertise_button") {
-        next_button_general();
-        is_expertise = true;
-      }
-
-      if (button_next == "program_button"){
-        next_button_general();
-        is_program = true;
-      }
-
-      if (button_next == "investment_button") {
-        next_button_general();
-        is_investment = true;
-      }
-
-      if (button_next == "direct_button"){
-        next_button_general();
-        is_direct = true;
-      }
-
-      if (button_next == "financing_button") {
-        next_button_general();
-        is_financing = true;
-      }
-
-      if (button_next == "grants_button"){
-        next_button_general();
-        is_grants = true;
-      }
-
-      if (button_next == "techno_market_button") {
-        next_button_general();
-        is_techno_market = true;
-      }
-    }
+    } 
+  
 
     function back_button_general() {
       animate(internal_page_one, { scale: 1 });
@@ -417,53 +427,54 @@ export default function Controller() {
       
 
     }
+    if (back_button) {
+      back_button.onclick = () => {
+        if (is_support){
+          back_button_general()  
+          is_support = false;
+        }
 
-    back_button.onclick = () => {
-      if (is_support){
-        back_button_general()  
-        is_support = false;
-      }
+        if (is_packaging){
+          back_button_general()
+          is_packaging = false;
+        }
 
-      if (is_packaging){
-        back_button_general()
-        is_packaging = false;
-      }
+        if (is_expertise){
+          back_button_general()  
+          is_expertise = false;
+        }
 
-      if (is_expertise){
-        back_button_general()  
-        is_expertise = false;
-      }
+        if (is_program){
+          back_button_general()
+          is_program = false;
+        }
 
-      if (is_program){
-        back_button_general()
-        is_program = false;
-      }
+        if (is_investment){
+          back_button_general()  
+          is_investment = false;
+        }
 
-      if (is_investment){
-        back_button_general()  
-        is_investment = false;
-      }
+        if (is_direct){
+          back_button_general()
+          is_direct = false;
+        }
 
-      if (is_direct){
-        back_button_general()
-        is_direct = false;
-      }
+        if (is_financing){
+          back_button_general()  
+          is_financing = false;
+        }
 
-      if (is_financing){
-        back_button_general()  
-        is_financing = false;
-      }
+        if (is_grants){
+          back_button_general()
+          is_grants = false;
+        }
 
-      if (is_grants){
-        back_button_general()
-        is_grants = false;
-      }
-
-      if (is_techno_market){
-        back_button_general()
-        is_techno_market = false;
-      }
-    }
+        if (is_techno_market){
+          back_button_general()
+          is_techno_market = false;
+        }
+      }}
+    
 
     function click_button_general(){
       setActivePage("inside");
@@ -628,7 +639,9 @@ export default function Controller() {
   }, [animate]);
 
   return (
-    <>
+    <>  
+          
+          {activeHome && <HomePageFour></HomePageFour>}
           {activePage === "inside" && currentPage && (
             <InsidePage page={currentPage} />
           )}

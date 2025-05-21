@@ -1,44 +1,194 @@
 import './HomePage.css';
 
-import { NavigatingSupportButton, InvestmentPackagingButton,
-    InvestmentExpertiseButton, PathIPOProgramButton, SeedInvestmentButton, DirectInvestmentButton,
-    IPOPreparationFinancingButton, GrantsButton, GlobalButton
-} from '../Buttons/Buttons.jsx';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { MenuButton } from '../Buttons/Buttons.jsx';
+import { useRef, useImperativeHandle, useEffect, createRef, forwardRef } from 'react';
 import logo from '../Img/LogoMIK.png';
+import { motion } from "motion/react"
+
+const buttonsIds= {
+    'support_button': 'Навигация по мерам поддержки',
+    'packaging_button': 'Инвестиционная упаковка',
+    'expertise_button': 'Инвестиционная экспертиза',
+    'program_button': 'Программа «Путь к IPO»',
+    'investment_button': 'Посевные инвестиции',
+    'direct_button': 'Прямые инвестиции',
+    'financing_button': 'Финансирование подготовки к IPO',
+    'grants_button': 'Гранты на приобретение оборудования и развитие деятельности',
+}
+
+const pageData = {
+    support_button: {
+        titleOne: "Навигация по мерам поддержки",
+        textOne:
+        "Сервис подбора релевантные программы поддержки от Правительства Москвы, институтов развития и других федеральных структур",
+        titleTwo: "Для кого:",
+        textTwo: ["Предприниматели и компании, которые ищут государственные меры поддержки",
+        ],
+        titleTree: "Что дает сервис?",
+        dictTree: [
+            "разобраться в многообразии доступных мер поддержки, реализуемых в Москве",
+            "подобрать наиболее подходящие меры поддержки",
+            "определить порядок действий для их получения",
+        ],
+        indicator: [
+            {"300+": "заявок на сервис"},
+            {"300+": "индивидуальных планов развития компании"},
+            {"350+": "заявок на релевантные программы поддержки"},
+            {"160+": "консультаций"},
+        ],
+        title: 'Что включает инвестиционная экспертиза?',
+        text: [
+            {'Рынок':'Оценка российского и глобального объёма рынка продукта, сегментов и прогнозов роста Продукт'},
+            {'Продукт':'Определение основных преимуществ продукта, актуальности, востребованности на рынке'},
+            {'Бизнес-модель':'Оценка бизнес-модели проекта, её реализуемости и эффективности'},
+            {'Динамика развития проекта':'Анализ истории развития проекта и его целей, оценка рисков и достигнутых результатов'},
+            {'Команда':'Анализ компетенций и опыта ключевых членов команды'},
+            {'Конкуренты':'Обзор конкурентного ландшафта продукта'},
+            {'Финансы':'Оценка финансовых показателей проекта'},
+            {'Сделка':'Оценка инвестиционной привлекательности проекта и возможностей последующего выхода из него'}
+        ],
+    },
+
+    packaging_button: {
+        titleOne: "Инвестиционная упаковка",
+        textOne: "Программа по созданию инвестиционных материалов для презентации инвесторам и привлечения финансирования",
+        titleTwo: "Для кого:",
+        textTwo: [
+            "Для стартапов и предпринимателей, которые хотят сформировать инвестиционное предложение и привлечь инвестиции в свой проект",
+            "Для тех, кто хочет научиться эффективно представлять свой проект инвестору"
+        ],
+        titleTree: "Что помогает решить программа?",
+        dictTree: [
+            "Помогает качественно представить инновационный проект и повысить шансы на финансирование",
+        ],
+        indicator: [
+            "1200+ заявок подано на участие в программе",
+            "290 млн руб. сумма привлеченного финансирования",
+            "280+ проектов разработали инвестиционные материалы",
+            "20,2+ млн руб. сэкономили участники на инвестиционной упаковке"],
+        title: 'Что включает программа?',
+        text: [
+            {'Полезные материалы':'Пошаговые алгоритмы, шаблоны, инструменты и знания для разработки инвестиционной презентации, финансовой модели и питч-презентации'},
+            {'Профессиональная помощь':'Консультация с опытными специалистами для улучшения материалов для инвесторов'},
+            {'Питч-сессии':' Возможность выступление на питч-сессии перед инвесторами'},
+        ]
+    },
+
+    techno_market_button: {
+        titleOne: "Платформа инвестиционного роста",
+        textOne: "Комплексный сервис для подготовки проектов к выходу на рынок капитала и привлечению инвестиций.",
+        titleTwo: "Кому подойдёт:",
+        textTwo: "Стартапам, малому бизнесу и технологическим компаниям, планирующим масштабирование.",
+        titleTree: "Что вы получите:",
+        dictTree: [
+            "Презентационные и аналитические материалы для инвесторов",
+            "Стратегию выхода на инвестиционный рынок",
+            "Юридическое и финансовое сопровождение сделок"
+        ],
+        indicator: [
+            "Более 100 реализованных проектов",
+            "Привлечено свыше 1 млрд ₽ инвестиций"
+        ],
+        title: "Оценка инвестиционной готовности",
+        text: [
+            { 'Базар': 'Глубокий анализ отрасли, оценка трендов и перспектив роста в выбранной нише' },
+            { 'Продукт': 'Выявление конкурентных преимуществ и рыночной ценности продукта' },
+            { 'Бизнес-модель': 'Проверка устойчивости и масштабируемости бизнес-модели' },
+            { 'Динамика проекта': 'Оценка этапов развития, потенциала роста и рисков' },
+            { 'Команда': 'Анализ ключевых компетенций и управленческого опыта команды' },
+            { 'Конкуренты': 'Сравнение с аналогичными решениями на рынке и формулирование УТП' },
+            { 'Финансы': 'Финансовая диагностика, расчёт unit-экономики и инвестиционных метрик' },
+            { 'Сделка': 'Формирование условий инвестирования и рекомендаций по выходу инвестора' }
+        ]
+    },
+    pilot_testing_program_button: {
+        titleOne: "Программа пилотного тестирования",
+        textOne: "Программа для тестирования новейших решений в реальных условиях на городских и коммерческих площадках",
+        titleTwo: "Для кого программа?",
+        textTwo: "•     Технологические компании, представляющие новые продукты и сервисы •     Городские и коммерческие заказчики, заинтересованные в инновациях",
+        titleTree: "Что дает программа?",
+        dictTree: [
+            "Тестирование продукта перед внедрением",
+            "Подтверждение спроса на инновационное решение",
+        ],
+        indicator: [
+            "Более 100 реализованных проектов",
+            "Привлечено свыше 1 млрд ₽ инвестиций"
+        ],
+    }
+};
 
 
+const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
+    const buttonRefs = useRef([]);
+    // useEffect(() => {
+    //     buttonRefs.current = [];
+    // });
+
+    const hideButtons = () => {
+        for (let i=0; i< buttonRefs.current.length; i++){
+            const buttonRef = buttonRefs.current[i].current;
+            if (buttonRef) {
+                buttonRef.hideAnimate(i/10);
+            } else {
+                console.log('No current ref for button.');
+            }
+        };
+    };
+
+    const showButtons = () => {
+        for (let i=0; i< buttonRefs.current.length; i++){
+            const buttonRef = buttonRefs.current[i].current;
+            if (buttonRef) {
+                buttonRef.showAnimate(i/10);
+            } else {
+                console.log('No current ref for button.');
+            }
+            console.log(buttonRefs)
+        };
+    };
+
+    useImperativeHandle(ref, () => ({
+        showButtons,
+        hideButtons,
+    }));
 
 
-export default function HomePageOne(){
-    const [currentPage, setCurrentPage] = useState(null);    
+    // TODO: this populates buttonRefs with copies of the buttons that no longer exists,
+    // animation on hideButtons and showButtons slows down drasticlly
+    // i dont get, why is rerender happens here of this element...
+    const onMenuButtonClick = (id) => {
+        setPageData(pageData[id]);
+        insidePageRef.current.showAnimate()
+        hideButtons()
+    }
 
-    // const buttonVariants = {
-    //         hidden: { opacity: 0, x: -2000, scale : 0 },
-    //         };   buttonVariants={buttonVariants}
-
+    let buttons = []
+    let counter = 0;
+    Object.entries(buttonsIds).forEach(([id, text]) => {
+        const buttonRef = createRef();
+        buttonRefs.current.push(buttonRef);
+        buttons.push(<MenuButton
+            onclickFunc={() => {onMenuButtonClick(id)} }
+            key={ id }
+            id_button={ id }
+            nameButton= { text }
+            ref={buttonRef}/>)
+        counter+=1;
+    });
 
     return (
         <>
-            <div id='home_container' className='home_container'> 
-                <img src={logo} alt="Logo" class="logoHome"/>
-                <div id='middel_conteiner' className='middel_conteiner'>
-                    
-                    <h2 className='title_home'>Меры поддержки<br/> и сервисы</h2>
-                    <div className='container_for_button'>
-                        {/* <GlobalButton id_button = {'global_id'} nameButton= {'Супер кнопка'}></GlobalButton> */}
-                        <NavigatingSupportButton/>
-                        <InvestmentPackagingButton/>
-                        <InvestmentExpertiseButton></InvestmentExpertiseButton>
-                        <PathIPOProgramButton></PathIPOProgramButton>
-                        <SeedInvestmentButton></SeedInvestmentButton>
-                        <DirectInvestmentButton></DirectInvestmentButton>
-                        <IPOPreparationFinancingButton></IPOPreparationFinancingButton>
-                        <GrantsButton></GrantsButton>
+            <div id='home_container' className='home_container'>
+                <img src={logo} alt="Logo" className="logoHome"/>
+                    <div id='middel_conteiner' className='middel_conteiner'>
+                        <h2 className='title_home'>Меры поддержки<br/> и сервисы</h2>
+                        <div className='container_for_button'>
+                            { buttons }
+                        </div>
                     </div>
-                </div>
             </div>
         </>
     )
-}
+})
+export default HomePageOne;

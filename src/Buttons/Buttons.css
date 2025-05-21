@@ -34,7 +34,8 @@
     z-index: 3;
 }
 
-.gloabal_button_style {
+
+.menu_button {
     width: 100%;
     height: 200px;
     background-image: url("../Img/Rectangle1.png");
@@ -47,7 +48,7 @@
     padding-left: 40px;
 
 }
-  
+
 
 .gloabal_button_style h3{
     margin-top: 20px;
@@ -66,7 +67,7 @@
     background-repeat: no-repeat;
     background-position: center;
     z-index: 3;
-    
+
 }
 
 

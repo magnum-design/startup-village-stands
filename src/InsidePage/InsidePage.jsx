@@ -49,14 +49,19 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         page = pageDataExample.support_button_container
     }
     const  componentRef = useRef(null);
+    const  titleContainer = useRef();
     function showAnimate(delay){
         if (componentRef.current){
             animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
+            animate(titleContainer.current, {opacity: 1}, {delay: 3}, )
+
         }
     };
     function hideAnimate(delay=0){
         if (componentRef.current){
             animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
+            animate(titleContainer.current,  {opacity: 0})
+
         }
     };
     useImperativeHandle(ref, () => ({
@@ -68,7 +73,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         <>           
             <div id='internal_page_one'  className='internal_conteiner' ref={componentRef}>
                 <img src={logo} alt="Logo" className="logoHome"/>
-                <div className='title_container'>
+                <div ref = {titleContainer} className='title_container'>
                     <h2>{page.titleOne}</h2>
                     <p>{page.textOne}</p>
                 </div>    

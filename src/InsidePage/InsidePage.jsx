@@ -2,6 +2,7 @@ import './InsidePage.css';
 import logo from '../Img/LogoMIK.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
+import StatisticFourBlock from '../Statistic/StatisticFourBlock';
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
 const pageDataExample = {
@@ -30,7 +31,7 @@ const pageDataExample = {
         textTwo: 'Предприниматели и компании, которые ищут государственные меры поддержки',
         titleTree:'Что дает сервис?',
         dictTree: ['разобраться в многообразии доступных мер поддержки, реализуемых в Москве', 'подобрать наиболее подходящие меры поддержки', 'определить порядок действий для их получения'],
-        indicator: ['300+ заявок на сервис', '300+ индивидуальных планов развития компании', '350+ заявок на релевантные программы поддержки', '160+ консультаций']
+        indicator: ['300+ заявок на сервисsdfsdfdsffffffffffffffffffffffffffffffff', '300+ индивидуальных планов развития компании', '350+ заявок на релевантные программы поддержки', '160+ консультаций']
     }
 }
 
@@ -63,7 +64,6 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         hideAnimate,
     }));
 
-
     return(
         <>           
             <div id='internal_page_one'  className='internal_conteiner' ref={componentRef}>
@@ -89,8 +89,13 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                             ))}
                         </ul>
                     </div>
-                    <div className='bottom_container'>
-                        {
+                    
+                    {page.indicator.length === 4 && 
+                        
+                        <StatisticFourBlock data={page.indicator} />
+                    }
+                        
+                        {/* {
                             page.indicator.map((item, index) => {
                             const [key, value] = Object.entries(item)[0];
                             return (
@@ -103,12 +108,15 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                                 </>
                             );
 
-                        })}
-                    </div>
+                        })} */}
+                    
                 </div>
             </div>
         </>
     )
 })
 
+
+
 export default InsidePage;
+

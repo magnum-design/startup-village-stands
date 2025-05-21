@@ -4,6 +4,7 @@ import { MenuButton } from '../Buttons/Buttons.jsx';
 import { useRef, useImperativeHandle, useEffect, createRef, forwardRef } from 'react';
 import logo from '../Img/LogoMIK.png';
 import { motion } from "motion/react"
+import { animate } from 'motion';
 
 const buttonsIds= {
     'support_button': 'Навигация по мерам поддержки',
@@ -121,11 +122,15 @@ const pageData = {
 
 const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
     const buttonRefs = useRef([]);
+    const PageOne = useRef();
+    const homeTitle = useRef();
     // useEffect(() => {
     //     buttonRefs.current = [];
     // });
 
     const hideButtons = () => {
+        console.log(homeTitle.current)
+        animate(homeTitle.current, {opacity: 0})
         for (let i=0; i< buttonRefs.current.length; i++){
             const buttonRef = buttonRefs.current[i].current;
             if (buttonRef) {
@@ -151,6 +156,7 @@ const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
     useImperativeHandle(ref, () => ({
         showButtons,
         hideButtons,
+
     }));
 
 
@@ -181,8 +187,8 @@ const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
         <>
             <div id='home_container' className='home_container'>
                 <img src={logo} alt="Logo" className="logoHome"/>
-                    <div id='middel_conteiner' className='middel_conteiner'>
-                        <h2 className='title_home'>Меры поддержки<br/> и сервисы</h2>
+                    <div  id='middel_conteiner' className='middel_conteiner'>
+                        <h2 ref={homeTitle} className='title_home'>Меры поддержки<br/> и сервисы</h2>
                         <div className='container_for_button'>
                             { buttons }
                         </div>

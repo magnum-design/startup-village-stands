@@ -1,188 +1,72 @@
+
 import '../InsidePage/InsidePage.css'
 
-function MyComponent({ htmlContent }) {
-    return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-  }
+
+export function Triplet({specialWords}){
+    let smallLeft = '';
+    let bigCenter = '';
+    let smallRight = '';
+    if (specialWords.length == 1) {
+        bigCenter = specialWords[0]
+    } else if (specialWords.length == 2){
+        if (specialWords[0] == 'до'){
+            smallLeft = specialWords[0]
+            bigCenter = specialWords[1]
+        } else {
+            bigCenter = specialWords[0]
+            smallRight = specialWords[1]
+        }
+    } else {
+        smallLeft = specialWords[0]
+        bigCenter = specialWords[1]
+        smallRight = specialWords[2]
+    }
+    return (
+        <>
+        <div className='horizont'>
+            <p className='down'>{ smallLeft } </p>
+            <h3 className='indicator_size'>{ bigCenter }</h3>
+            <p className='down'>{ smallRight }</p>
+        </div>
+        </>
+    )
+}
+
+function SquareBlock({ blockData }){
+    let specialWords = Object.keys(blockData)[0].split(" ")
+    console.log(Object.keys(blockData)[0])
+    return (
+        <>
+            <div className='for_statistic '>
+                <div className='circle'></div>
+                <Triplet specialWords = {specialWords} />
+              
+                <p>{blockData[Object.keys(blockData)]}</p>
+            </div>
+        </>
+    )
+}
 
 export default function StatisticFourBlock({data}){
-    
+
     const oneBlock = data[0]
     const twoBlock = data[1]
     const threeBlock = data[2]
     const fourBlock = data[3]
-    console.log(Object.keys(twoBlock)[0]) 
-    // console.log(Object.keys(twoBlock)[0].includes("млн.₽"))
+    console.log(Object.keys(twoBlock)[0])
     return (
-        <>  
+        <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_vertical'>
-                    <div className='for_statistic '>
-                        <div className='circle'></div>     
-                            <MyComponent htmlContent={Object.keys(oneBlock)}></MyComponent>
-                            <p>{oneBlock[Object.keys(oneBlock)]}</p>
-
-
-                        {/* {Object.keys(oneBlock)[0].includes("до") && Object.keys(oneBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <p className='down'>ДО</p>
-                                <h3 className='indicator_size'>{Object.keys(oneBlock)[0].split(" ")[1]}</h3> 
-                                <p className='down'>МЛН.₽</p>
-                            </div>
-                            <p>{oneBlock[Object.keys(oneBlock)]}</p>
-                            </>
-                        ) : Object.keys(oneBlock)[0].includes("тыс.") ? (
-                            <>
-                                <div className='horizont'>
-                                    <h3 className='indicator_size'>{Object.keys(oneBlock)[0].split(" ")[0]}</h3>
-                                    <p className='down'>ТЫС.</p> 
-                                </div>
-                                <p>{oneBlock[Object.keys(oneBlock)]}</p>
-                            </>
-                        ) : Object.keys(oneBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <h3 className='indicator_size'>{Object.keys(oneBlock)[0].split(" ")[0]}</h3>
-                                <p className='down'>МЛН.₽</p> 
-                            </div>
-                            <p>{oneBlock[Object.keys(oneBlock)]}</p>
-                            </>
-                        ) : (
-                            <>
-                            <h3 className='indicator_size'>{Object.keys(oneBlock)}</h3>
-                            <p>{oneBlock[Object.keys(oneBlock)]}</p>
-                            </>
-                        )} */}
-
-
-                        {/* <h3 className='indicator_size'>{Object.keys(oneBlock)}</h3>
-                        <p>{oneBlock[Object.keys(oneBlock)]}</p> */}
-                    </div>
-                    <div className='for_statistic'>
-                        <MyComponent htmlContent={Object.keys(twoBlock)}></MyComponent>
-                        <p>{twoBlock[Object.keys(twoBlock)]}</p>
-                        {/* <div className='circle'></div>
-                        {Object.keys(twoBlock)[0].includes("до") && Object.keys(twoBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <p className='down'>ДО</p>
-                                <h3 className='indicator_size'>{Object.keys(twoBlock)[0].split(" ")[1]}</h3> 
-                                <p className='down'>МЛН.₽</p>
-                            </div>
-                            <p>{twoBlock[Object.keys(twoBlock)]}</p>
-                            </>
-                        ) : Object.keys(twoBlock)[0].includes("тыс.") ? (
-                            <>
-                                <div className='horizont'>
-                                    <h3 className='indicator_size'>{Object.keys(twoBlock)[0].split(" ")[0]}</h3>
-                                    <p className='down'>ТЫС.</p> 
-                                </div>
-                                <p>{oneBlock[Object.keys(twoBlock)]}</p>
-                            </>
-                        ) : Object.keys(twoBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <h3 className='indicator_size'>{Object.keys(twoBlock)[0].split(" ")[0]}</h3>
-                                <p className='down'>МЛН.₽</p> 
-                            </div>
-                            <p>{twoBlock[Object.keys(twoBlock)]}</p>
-                            </>
-                        ) : (
-                            <>
-                            <h3 className='indicator_size'>{Object.keys(twoBlock)}</h3>
-                            <p>{twoBlock[Object.keys(twoBlock)]}</p>
-                            </>
-                        )} */}
-                    </div>                                             
+                    <SquareBlock blockData = { oneBlock }/>
+                    <SquareBlock blockData = { twoBlock }/>
                 </div>
                 <div className='bottom_container_vertical'>
-                    <div className='for_statistic '>
-                        <div className='circle'></div>     
-                        {Object.keys(threeBlock)[0].includes("до") && Object.keys(threeBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <p className='down'>ДО</p>
-                                <h3 className='indicator_size'>{Object.keys(threeBlock)[0].split(" ")[1]}</h3> 
-                                <p className='down'>МЛН.₽</p>
-                            </div>
-                            <p>{threeBlock[Object.keys(threeBlock)]}</p>
-                            </>
-                        ) : Object.keys(threeBlock)[0].includes("тыс.") ? (
-                            <>
-                                <div className='horizont'>
-                                    <h3 className='indicator_size'>{Object.keys(threeBlock)[0].split(" ")[0]}</h3>
-                                    <p className='down'>ТЫС.</p> 
-                                </div>
-                                <p>{threeBlock[Object.keys(threeBlock)]}</p>
-                            </>
-                        ) : Object.keys(threeBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <h3 className='indicator_size'>{Object.keys(threeBlock)[0].split(" ")[0]}</h3>
-                                <p className='down'>МЛН.₽</p> 
-                            </div>
-                            <p>{threeBlock[Object.keys(threeBlock)]}</p>
-                            </>
-                        ) : (
-                            <>
-                            <h3 className='indicator_size'>{Object.keys(threeBlock)}</h3>
-                            <p>{threeBlock[Object.keys(threeBlock)]}</p>
-                            </>
-                        )}
-                    </div>
-                    <div className='for_statistic'>
-                        <div className='circle'></div>
-                        {Object.keys(fourBlock)[0].includes("до") && Object.keys(fourBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <p className='down'>ДО</p>
-                                <h3 className='indicator_size'>{Object.keys(fourBlock)[0].split(" ")[1]}</h3> 
-                                <p className='down'>МЛН.₽</p>
-                            </div>
-                            <p>{fourBlock[Object.keys(fourBlock)]}</p>
-                            </>
-                        ) : Object.keys(fourBlock)[0].includes("тыс.") ? (
-                            <>
-                                <div className='horizont'>
-                                    <h3 className='indicator_size'>{Object.keys(fourBlock)[0].split(" ")[0]}</h3>
-                                    <p className='down'>ТЫС.</p> 
-                                </div>
-                                <p>{fourBlock[Object.keys(fourBlock)]}</p>
-                            </>
-                        ) : Object.keys(fourBlock)[0].includes("млн.₽") ? (
-                            <>
-                            <div className='horizont'>
-                                <h3 className='indicator_size'>{Object.keys(fourBlock)[0].split(" ")[0]}</h3>
-                                <p className='down'>МЛН.₽</p> 
-                            </div>
-                            <p>{fourBlock[Object.keys(fourBlock)]}</p>
-                            </>
-                        ) : (
-                            <>
-                            <h3 className='indicator_size'>{Object.keys(fourBlock)}</h3>
-                            <p>{fourBlock[Object.keys(fourBlock)]}</p>
-                            </>
-                        )}
-                    </div>                                   
+                    <SquareBlock blockData = { threeBlock }/>
+                    <SquareBlock blockData = { fourBlock }/>
                 </div>
-               
-            </div>    
-        </>            
+
+            </div>
+        </>
     )
 }
-
- {/* {data.map((item, index) => {
-                    const [key, value] = Object.entries(item)[0];
-                    return (
-                            <>  
-
-                                {/* <div className='circle'></div>   */}
-                                {/* <div className='for_statistic' key={index}>
-                                        <h3 className='indicator_size'>{key}</h3>
-                                        <p>{value}</p>
-                                </div>
-                                
-                            </>
-                            );
-                    })
-                } }*/}

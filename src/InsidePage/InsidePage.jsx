@@ -2,6 +2,7 @@ import './InsidePage.css';
 import logo from '../Img/LogoMIK.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
+import { motion } from 'framer-motion';
 import StatisticFourBlock from '../Statistic/StatisticFourBlock';
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
@@ -26,7 +27,7 @@ const pageDataExample = {
     },
     packaging_button_container : {
         titleOne: 'Ура Йопта',
-        textOne: 'Сервис подбора релевантные программы поддержки от Правительства Москвы, институтов развития и других федеральных структур',
+        textOne: ['Сервис подбора релевантные программы поддержки от Правительства Москвы, институтов развития и других федеральных структур'],
         titleTwo: 'Для кого:',
         textTwo: 'Предприниматели и компании, которые ищут государственные меры поддержки',
         titleTree:'Что дает сервис?',
@@ -53,7 +54,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
     function showAnimate(delay){
         if (componentRef.current){
             animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
-            animate(titleContainer.current, {opacity: 1}, {delay: 3}, )
+            animate(titleContainer.current, {opacity: 1}, {delay: 2}, )
 
         }
     };
@@ -69,30 +70,56 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         hideAnimate,
     }));
 
+    const list = {
+        // visible: { opacity: 1 },
+        hidden: { opacity: 0 },
+      }
+
+    console.log('Данные', page.textOne) 
+
     return(
         <>           
-            <div id='internal_page_one'  className='internal_conteiner' ref={componentRef}>
+            <motion.div 
+                variants={list}
+                initial="hidden" 
+                id='internal_page_one'  
+                className='internal_conteiner' 
+                ref={componentRef}>
                 <img src={logo} alt="Logo" className="logoHome"/>
-                <div ref = {titleContainer} className='title_container'>
+                <motion.div  
+                    ref = {titleContainer} 
+                    className = 'title_container'>
                     <h2>{page.titleOne}</h2>
-                    <p>{page.textOne}</p>
-                </div>    
+                     <p>{page.textOne}</p>
+                </motion.div>    
                 
                 <div className='inside_main_conteiner' >
                     <div className='for_whom'>
                         <h3>{page.titleTwo}</h3>
-                        {page.textTwo.map((item, index) => (
-                        <p key={index}>{item}</p>
-                        ))}
+                        {page.textTwo.length === 1 ? (
+                        <p>{page.textTwo}</p>
+                            ) : (
+                        <ul>
+                            {page.textTwo.map((item, index) => (
+                            <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                        )}
                     </div>
 
                     <div className='for_whom'>
                         <h3>{page.titleTree}</h3>
+
+                        {page.dictTree.length === 1 ? (
+                        <p>{page.dictTree}</p>
+                            ) : (
                         <ul>
                             {page.dictTree.map((item, index) => (
                             <li key={index}>{item}</li>
                             ))}
                         </ul>
+                        )}    
+
                     </div>
                     
                     {page.indicator.length === 4 && 
@@ -116,7 +143,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                         })} */}
                     
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 })

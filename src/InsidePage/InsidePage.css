@@ -117,19 +117,19 @@
     border: 1px solid;
     border-color: transparent;
     width: 93%;
-
-    height: 50%;
-    max-height: 343px;
+    
+    /* min-height: 0; 
+    height: auto; */
+    /* max-height: 343px; */
     padding: 40px 0px 20px 40px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: flex-start;
     align-items: flex-start;
-    overflow: visible;
-    
-        
+    overflow: visible;   
+    align-content: flex-start;
 }
 
 .circle{
@@ -151,6 +151,16 @@
       z-index: -1;
 }
 
+.horizont{
+    display: flex;
+    flex-direction: row;
+    align-items: 'flex-end';
+    justify-content: end;
+    }
+
+.down{
+    margin-top: 20%;
+}
 
 .indicator_size{
     font-size: 105pt;

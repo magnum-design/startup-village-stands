@@ -24,8 +24,8 @@ export default function Controller() {
       titleTwo: "Для кого:",
       textTwo: ["Предприниматели и компании, которые ищут государственные меры поддержки",
       ],
-      titleTree: "Чо дает сервис?",
-      dictTree: [
+      titleThree: "Чо дает сервис?",
+      dictThree: [
         "разобраться в многообразии доступных мер поддержки, реализуемых в Москве",
         "подобрать наиболее подходящие меры поддержки",
         "определить порядок действий для их получения",
@@ -57,8 +57,8 @@ export default function Controller() {
         "Для стартапов и предпринимателей, которые хотят сформировать инвестиционное предложение и привлечь инвестиции в свой проект",
         "Для тех, кто хочет научиться эффективно представлять свой проект инвестору"
       ],
-      titleTree: "Что помогает решить программа?",
-      dictTree: [
+      titleThree: "Что помогает решить программа?",
+      dictThree: [
         "Помогает качественно представить инновационный проект и повысить шансы на финансирование",
       ],
       indicator: [
@@ -81,8 +81,8 @@ export default function Controller() {
       textOne: "Комплексный сервис для подготовки проектов к выходу на рынок капитала и привлечению инвестиций.",
       titleTwo: "Кому подойдёт:",
       textTwo: "Стартапам, малому бизнесу и технологическим компаниям, планирующим масштабирование.",
-      titleTree: "Что вы получите:",
-      dictTree: [
+      titleThree: "Что вы получите:",
+      dictThree: [
         "Презентационные и аналитические материалы для инвесторов",
         "Стратегию выхода на инвестиционный рынок",
         "Юридическое и финансовое сопровождение сделок"
@@ -108,8 +108,8 @@ export default function Controller() {
       textOne: "Программа для тестирования новейших решений в реальных условиях на городских и коммерческих площадках",
       titleTwo: "Для кого программа?",
       textTwo: "•     Технологические компании, представляющие новые продукты и сервисы •     Городские и коммерческие заказчики, заинтересованные в инновациях",
-      titleTree: "Что дает программа?",
-      dictTree: [
+      titleThree: "Что дает программа?",
+      dictThree: [
         "Тестирование продукта перед внедрением",
         "Подтверждение спроса на инновационное решение",
       ],
@@ -158,7 +158,7 @@ export default function Controller() {
     const home_button = document.getElementById("home_button");
 
     // animate(home_button, {scale: 0})
-    const internal_page_one = document.getElementById("internal_page_one"); 
+    const internal_page_one = document.getElementById("internal_page_one");
 
 
     const home_container = document.getElementById("home_container");
@@ -266,9 +266,9 @@ export default function Controller() {
           ];
           home_button_general(buttons);
         }
-    
+
         if (locationPath === 'board_three') {
-          setCurrentPage(null); 
+          setCurrentPage(null);
           animate(home_button, { scale: 0 });
           animate(home_container_three, { opacity: 1, scale: 1 });
           animate(middel_conteiner_three, { scale: 1 });
@@ -286,7 +286,7 @@ export default function Controller() {
             scale: 1,
             transition: { delay: 5, duration: 8 },
           });
-          animate(next_button, {scale: 0});  
+          animate(next_button, {scale: 0});
           animate(back_button, {scale: 0})
         }
 
@@ -303,12 +303,12 @@ export default function Controller() {
           // ];
           // start_button_general(buttons);
         }
-  
+
 
 
       };
     }
-    
+
 
     function start_general() {
       setCurrentPage(null);
@@ -344,49 +344,49 @@ export default function Controller() {
           next_button_general();
           is_support = true;
         }
-  
+
         if (button_next == "packaging_button"){
           next_button_general();
           is_packaging = true;
         }
-  
+
         if (button_next == "expertise_button") {
           next_button_general();
           is_expertise = true;
         }
-  
+
         if (button_next == "program_button"){
           next_button_general();
           is_program = true;
         }
-  
+
         if (button_next == "investment_button") {
           next_button_general();
           is_investment = true;
         }
-  
+
         if (button_next == "direct_button"){
           next_button_general();
           is_direct = true;
         }
-  
+
         if (button_next == "financing_button") {
           next_button_general();
           is_financing = true;
         }
-  
+
         if (button_next == "grants_button"){
           next_button_general();
           is_grants = true;
         }
-  
+
         if (button_next == "techno_market_button") {
           next_button_general();
           is_techno_market = true;
         }
       }
-    } 
-  
+    }
+
 
     function back_button_general() {
       animate(internal_page_one, { scale: 1 });
@@ -400,7 +400,7 @@ export default function Controller() {
     if (back_button) {
       back_button.onclick = () => {
         if (is_support){
-          back_button_general()  
+          back_button_general()
           is_support = false;
         }
 
@@ -411,7 +411,7 @@ export default function Controller() {
         }
 
         if (is_expertise){
-          back_button_general()  
+          back_button_general()
           is_expertise = false;
         }
 
@@ -422,7 +422,7 @@ export default function Controller() {
 
 
         if (is_investment){
-          back_button_general()  
+          back_button_general()
           is_investment = false;
         }
 
@@ -432,10 +432,10 @@ export default function Controller() {
           is_direct = false;
         }
 
-     
+
 
         if (is_financing){
-          back_button_general()  
+          back_button_general()
           is_financing = false;
         }
 
@@ -455,7 +455,7 @@ export default function Controller() {
           is_techno_market = false;
         }
       }}
-    
+
 
     function click_button_general(){
       setActivePage("inside");
@@ -596,8 +596,8 @@ export default function Controller() {
   }, [animate]);
 
   return (
-    <>  
-          
+    <>
+
           {/* {activeHome && <HomePageFour></HomePageFour>} */}
           {activePage === "inside" && currentPage && (
             <InsidePage page={currentPage} />

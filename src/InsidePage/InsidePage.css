@@ -156,10 +156,11 @@
     flex-direction: row;
     align-items: 'flex-end';
     justify-content: end;
+    align-content: flex-end;
     }
 
 .down{
-    margin-top: 20%;
+    margin-top: 25%;
 }
 
 .indicator_size{

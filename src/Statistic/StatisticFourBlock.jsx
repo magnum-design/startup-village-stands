@@ -18,7 +18,11 @@ export default function StatisticFourBlock({data}){
                 <div className='bottom_container_vertical'>
                     <div className='for_statistic '>
                         <div className='circle'></div>     
-                        {Object.keys(oneBlock)[0].includes("до") && Object.keys(oneBlock)[0].includes("млн.₽") ? (
+                            <MyComponent htmlContent={Object.keys(oneBlock)}></MyComponent>
+                            <p>{oneBlock[Object.keys(oneBlock)]}</p>
+
+
+                        {/* {Object.keys(oneBlock)[0].includes("до") && Object.keys(oneBlock)[0].includes("млн.₽") ? (
                             <>
                             <div className='horizont'>
                                 <p className='down'>ДО</p>
@@ -48,7 +52,9 @@ export default function StatisticFourBlock({data}){
                             <h3 className='indicator_size'>{Object.keys(oneBlock)}</h3>
                             <p>{oneBlock[Object.keys(oneBlock)]}</p>
                             </>
-                        )}
+                        )} */}
+
+
                         {/* <h3 className='indicator_size'>{Object.keys(oneBlock)}</h3>
                         <p>{oneBlock[Object.keys(oneBlock)]}</p> */}
                     </div>

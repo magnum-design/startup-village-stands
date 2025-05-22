@@ -3,7 +3,8 @@ import logo from '../Img/LogoMIK.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
-import StatisticFourBlock from '../Statistic/StatisticFourBlock';
+import {StatisticFourBlock, StatisticThreeBlock} from '../Statistic/StatisticFourBlock';
+
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
 const pageDataExample = {
@@ -94,7 +95,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         hidden: { opacity: 0 },
       }
 
-    console.log('Данные', page.textOne)
+    console.log('Данные', page.indicator.length )
 
     return(
         <>

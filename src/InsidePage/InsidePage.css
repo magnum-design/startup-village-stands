@@ -9,6 +9,8 @@
     overflow: hidden;    
     justify-content: center;
     align-items: center; 
+    align-content: flex-start;
+    justify-content: flex-start;
    }
 
 .home_button_block{
@@ -101,13 +103,24 @@
 }
 
 .bottom_container_vertical{
-    width: 100%;
+    width: 98%;
     /* flex: 1; */
     display: flex;
     flex-direction: row;
     gap: 5%;
     margin: 15px;
 }
+
+.bottom_container_horizontal{
+    width: 98%;
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+    margin: 15px;
+
+}
+
 
 
 .for_statistic{
@@ -118,7 +131,7 @@
     border: 1px solid;
     border-color: transparent;
     /* width: 93%; */
-    max-width: 510px;
+    /* max-width: 510px; */
     /* min-height: 0; 
     height: auto; */
     /* max-height: 343px; */
@@ -133,6 +146,35 @@
     align-content: flex-start;
 }
 
+.for_statistic_row{
+    flex: 1;
+    box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.5);
+    border-radius: 20px;
+    background-color: #000000d3;
+    border: 1px solid;
+    border-color: transparent;
+    /* width: 93%; */
+    /* max-width: 510px; */
+    /* min-height: 0; 
+    height: auto; */
+    /* max-height: 343px; */
+    padding: 20px 0px 20px 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:start;
+    align-items: center;
+    overflow: visible;   
+    align-content: flex-end;
+    gap: 2%
+}
+
+
+.for_p{
+    display: flex;
+    justify-content: flex-start;
+}
 .circle{
     background: radial-gradient(
         50% 50% at 62% 49%,
@@ -143,12 +185,33 @@
       );
       border-radius: 100px;
       width: 5%;
+      max-width: 20px;
       height: 50%;
       min-height: 132px;
       min-width: 26px;
       position: absolute;
       top: 25%;
       left: -2.5%;
+      z-index: -1;
+}
+
+.circle_hor{
+    background: radial-gradient(
+        50% 50% at 62% 49%,
+        rgba(139, 255, 126, 1) 0%,
+        rgba(77, 255, 201, 1) 33%,
+        rgba(82, 235, 133, 1) 65%,
+        rgba(39, 204, 210, 1) 100%
+      );
+      border-radius: 100px;
+      width: 5%;
+      max-width: 20px;
+      height: 50%;
+      min-height: 132px;
+      min-width: 26px;
+      position: absolute;
+      top: 25%;
+      left: -1%;
       z-index: -1;
 }
 
@@ -170,9 +233,9 @@
 }
 
 .title_container{
-    margin-top: 150px ;
+    margin-top: 200px ;
     text-align: left;
-    width: 86%;
+    width: 88%;
     display: flex;
     justify-content:flex-start;
     flex-direction: column;

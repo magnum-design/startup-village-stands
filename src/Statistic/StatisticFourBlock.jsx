@@ -34,7 +34,7 @@ export function Triplet({specialWords}){
 
 function SquareBlock({ blockData }){
     let specialWords = Object.keys(blockData)[0].split(" ")
-    console.log(Object.keys(blockData)[0])
+    // console.log(Object.keys(blockData)[0])
     return (
         <>
             <div className='for_statistic '>
@@ -47,12 +47,37 @@ function SquareBlock({ blockData }){
     )
 }
 
-export default function StatisticFourBlock({data}){
+function TriangleBlock({ blockData }){
+    let specialWords = Object.keys(blockData)[0].split(" ")
+    // console.log(Object.keys(blockData)[0])
+    return (
+        <>
+            <div className='for_statistic_row'>
+                <div className='circle_hor'></div>
+                <Triplet specialWords = {specialWords} />
+                <div className='for_p'>
+                    <p>{blockData[Object.keys(blockData)]}</p>
+                </div>
+            </div>
+        </>
+    )
+}
 
-    const oneBlock = data[0]
-    const twoBlock = data[1]
-    const threeBlock = data[2]
-    const fourBlock = data[3]
+export function StatisticFourBlock({data}){
+    
+    let oneBlock, twoBlock, threeBlock, fourBlock; 
+    if (data) {
+        oneBlock = data[0];
+        twoBlock = data[1];
+        threeBlock = data[2];
+        fourBlock = data[3];
+    } else {
+        oneBlock = "10";
+        twoBlock = "10";
+        threeBlock = "10";
+        fourBlock = "10";
+    }
+    
     console.log(Object.keys(twoBlock)[0])
     return (
         <>
@@ -70,3 +95,28 @@ export default function StatisticFourBlock({data}){
         </>
     )
 }
+
+export function StatisticThreeBlock({data}){
+    // console.log(data[0])
+    const oneBlock = data[0]
+    const twoBlock = data[1]
+    const threeBlock = data[2]
+    // console.log(Object.keys(twoBlock)[0]) 
+    // console.log(Object.keys(twoBlock)[0].includes("млн.₽"))
+    return (
+        <>  
+            <div className='bottom_container_four'>
+                <div className='bottom_container_horizontal'>
+                            
+                        <TriangleBlock blockData = { oneBlock } />
+           
+                        <TriangleBlock blockData = { twoBlock } />
+                    
+                        <TriangleBlock blockData = { threeBlock } />
+              
+                </div>
+            </div>    
+        </>            
+    )
+}
+

@@ -37,11 +37,13 @@ export function BackButton() {
      const  componentRef = useRef(null);
      function showAnimate(delay){
          if (componentRef.current){
+             componentRef.current.style.pointerEvents = 'auto';
              animate(componentRef.current, { opacity: 1, y:20}, { duration: 0.5, delay : delay} )
          }
      };
      function hideAnimate(delay){
          if (componentRef.current){
+             componentRef.current.style.pointerEvents = 'none';
              animate(componentRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : delay} )
          }
      };
@@ -176,9 +178,9 @@ export function TechnoMarketButton({ buttonVariants }) {
   const  componentRef = useRef(null);
 
   const handleClick = (e) => {
-    setShowDetails(true); 
+    setShowDetails(true);
     if (onClick) {
-      onClick(e); 
+      onClick(e);
     }
   };
 
@@ -196,7 +198,7 @@ export function TechnoMarketButton({ buttonVariants }) {
 
   if (showDetails) {
     hideAnimate(1);
-    
+
   }
 
   useImperativeHandle(ref, () => ({  showAnimate,
@@ -211,7 +213,7 @@ export function TechnoMarketButton({ buttonVariants }) {
    );
 
  })
- 
+
 
  export function EntrepreneurshipPromotionButton() {
    return (
@@ -233,7 +235,7 @@ export function TechnoMarketButton({ buttonVariants }) {
    );
  }
 
- 
+
  export function GloballButtonsFour({id_button, nameButton}){
     return(
       <>
@@ -265,4 +267,3 @@ export function StartInMoscow({onClick}) {
     </>
   );
 }
-

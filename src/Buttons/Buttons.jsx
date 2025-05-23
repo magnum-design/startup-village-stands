@@ -57,7 +57,7 @@ export function BackButton() {
       return (
         <>
          <div onClick={onclickFunc} className='menu_button' id={id_button} ref={componentRef}>
-            <h3 >{nameButton}</h3>
+            <h3 className='correct_for_button'>{nameButton}</h3>
          </div>
       </>
       )

@@ -37,8 +37,10 @@ function setInactiveTimer(homePageRef, startPageRef) {
 
 export default function BoardOne() {
     let homePageRef = useRef(null);
+    let next_button = useRef(null);
     let startPageRef = useRef(null);
     let insidePageRef = useRef(null);
+    let insidePageTwoRef = useRef(null);
 
     setInactiveTimer(homePageRef, startPageRef);
 
@@ -46,18 +48,23 @@ export default function BoardOne() {
         // console.log(homePageRef)
         insidePageRef.current.hideAnimate(0);
         homePageRef.current.showButtons()
+
     }
 
+    const nextButtonClick = () => {
+
+    }
 
     let [pageData, setPageData] = useState(null);
     return (
         <>
             <HomeButton onclickFunc={homeButtonClick}/>
-            <NextButton/>
+            <NextButton onclickFunc={nextButtonClick}/>
             <BackButton/>
             <StartPage   ref={startPageRef}/>
             <HomePageOne ref={homePageRef} insidePageRef={insidePageRef} setPageData={setPageData}/>
             <InsidePage  ref={insidePageRef} pageData={pageData}/>
+            {/* <InsidePageTwo ref = {insidePageTwoRef}/> */}
         </>
     );
 }

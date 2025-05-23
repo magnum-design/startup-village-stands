@@ -3,7 +3,7 @@ import logo from '../Img/LogoMIK.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
-import {StatisticFourBlock, StatisticThreeBlock} from '../Statistic/StatisticFourBlock';
+import {StatisticFourBlock, StatisticThreeBlock, StatisticTwoBlock} from '../Statistic/StatisticFourBlock';
 
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
@@ -76,7 +76,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         hidden: { opacity: 0 },
       }
 
-    console.log('Данные', page.indicator.length ) 
+    console.log('Данные',  page.indicator.length === 2  ) 
 
     return(
         <>           
@@ -128,9 +128,9 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                         <StatisticFourBlock data={page.indicator} />
                     ) : page.indicator.length === 3 ? (
                         <StatisticThreeBlock data={page.indicator} />
-                    ) : (
-                        null 
-                    )
+                    ) : page.indicator.length === 2 ? (
+                        <StatisticTwoBlock data={page.indicator}/>
+                    ) : (null)
                 }
 
                         

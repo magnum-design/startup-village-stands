@@ -36,9 +36,10 @@ function SquareBlock({ blockData }){
     let specialWords = Object.keys(blockData)[0].split(" ")
     // console.log(Object.keys(blockData)[0])
     return (
-        <>
+        <>  
+            <div className='circle'></div>
             <div className='for_statistic '>
-                <div className='circle'></div>
+                
                 <Triplet specialWords = {specialWords} />
               
                 <p>{blockData[Object.keys(blockData)]}</p>
@@ -49,11 +50,11 @@ function SquareBlock({ blockData }){
 
 function TriangleBlock({ blockData }){
     let specialWords = Object.keys(blockData)[0].split(" ")
-    // console.log(Object.keys(blockData)[0])
+    console.log('Почему', Object.keys(blockData)[0])
     return (
-        <>
+        <>  
+            <div className='circle_hor'></div>
             <div className='for_statistic_row'>
-                <div className='circle_hor'></div>
                 <Triplet specialWords = {specialWords} />
                 <div className='for_p'>
                     <p>{blockData[Object.keys(blockData)]}</p>
@@ -83,12 +84,20 @@ export function StatisticFourBlock({data}){
         <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_vertical'>
-                    <SquareBlock blockData = { oneBlock }/>
-                    <SquareBlock blockData = { twoBlock }/>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { oneBlock }/>
+                    </div>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { twoBlock }/>
+                    </div>
                 </div>
                 <div className='bottom_container_vertical'>
-                    <SquareBlock blockData = { threeBlock }/>
-                    <SquareBlock blockData = { fourBlock }/>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { threeBlock }/>
+                    </div>    
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { fourBlock }/>
+                    </div>    
                 </div>
 
             </div>
@@ -107,16 +116,43 @@ export function StatisticThreeBlock({data}){
         <>  
             <div className='bottom_container_four'>
                 <div className='bottom_container_horizontal'>
-                            
+                    <div class="for_statistic_wrapper">        
                         <TriangleBlock blockData = { oneBlock } />
-           
+                    </div>
+                    <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
-                    
+                    </div>
+                    <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { threeBlock } />
+                    </div>
+                </div>
+            </div>    
+        </>            
+    )
+}
+
+export function StatisticTwoBlock({data}){
+    // console.log('Йоу',data[1])
+    const oneBlock = data[0]
+    const twoBlock = data[1]
+    
+    // console.log(Object.keys(twoBlock)[0]) 
+    // console.log(Object.keys(twoBlock)[0].includes("млн.₽"))
+    return (
+        <>  
+            <div className='bottom_container_four'>
+                <div className='bottom_container_horizontal'>
+                    <div class="for_statistic_wrapper">        
+                        <TriangleBlock blockData = { oneBlock } />
+                    </div>    
+                    <div class="for_statistic_wrapper">
+                        <TriangleBlock blockData = { twoBlock } />
+                    </div>
               
                 </div>
             </div>    
         </>            
     )
 }
+
 

@@ -37,18 +37,26 @@
 
 .menu_button {
     width: 100%;
+    max-width: 1200px;
     height: 200px;
-    background-image: url("../Img/Rectangle1.png");
+    background-image: url("../Img/button_menu.png");
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 3;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    flex-wrap: wrap;
     padding-left: 40px;
+    align-items: center;
+    text-align: center;
 
 }
 
+.correct_for_button{
+    width: 80%;
+    padding-left: 2%;
+    padding-bottom: 1%;
+}
 
 .gloabal_button_style h3{
     margin-top: 20px;

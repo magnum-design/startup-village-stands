@@ -44,10 +44,10 @@ h3{
   font-family: 'MyCustomFont';
   text-transform: uppercase;
   font-style: normal;
-  font-size: 32pt;
+  font-size: 28pt;
   color: #ffffff;
   letter-spacing: 2px;
-  font-weight: 300;
+  font-weight: 700;
   text-align: left;
   margin: 0;
   
@@ -60,7 +60,7 @@ p{
   font-size: 24pt;
   color: #ffffff;
   letter-spacing: 2px;
-  font-weight: 300;
+  font-weight: 200;
   text-align: left;
   
 }

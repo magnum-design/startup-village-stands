@@ -14,9 +14,9 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/board_one" element={<BoardOne />} />
-          <Route path="/board_two" element={<BoardTwo />} />
-          <Route path="/board_three" element={<BoardThree />} />
-          <Route path="/board_four" element={<BoardFour />} />
+          <Route path="/board_two" element={<BoardOne />} />
+          <Route path="/board_three" element={<BoardOne />} />
+          <Route path="/board_four" element={<BoardOne />} />
           <Route path="*" element={<Controller />} /> {/* Fallback для неизвестных маршрутов */}
         </Routes>
       </BrowserRouter>

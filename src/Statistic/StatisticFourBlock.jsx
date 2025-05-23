@@ -1,6 +1,6 @@
 
-import '../InsidePage/InsidePage.css'
-
+import '../InsidePage/InsidePage.css';
+import qr from '../Img/qr-kod.png'; 
 
 export function Triplet({specialWords}){
     let smallLeft = '';
@@ -53,7 +53,7 @@ function TriangleBlock({ blockData }){
     console.log('Почему', Object.keys(blockData)[0])
     return (
         <>  
-            <div className='circle_hor'></div>
+            <div className='circle'></div>
             <div className='for_statistic_row'>
                 <Triplet specialWords = {specialWords} />
                 <div className='for_p'>
@@ -105,7 +105,8 @@ export function StatisticFourBlock({data}){
     )
 }
 
-export function StatisticThreeBlock({data}){
+export function StatisticThreeBlock({titlePage, data}){
+    const onePageTitle = ['Посевные инвестиции', 'Прямые инвестиции']
     // console.log(data[0])
     const oneBlock = data[0]
     const twoBlock = data[1]
@@ -122,9 +123,23 @@ export function StatisticThreeBlock({data}){
                     <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
                     </div>
+
+                    {onePageTitle.includes(titlePage) ? 
+                    (
+                    <div className='bottom_container_vertical' style={{ margin: 0, width: '105%' }}>    
+                        <div class="for_statistic_qr" >
+                            <TriangleBlock blockData = { threeBlock } />
+                        </div>
+                        <QR/>
+                    </div>    
+                    ) : (
                     <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { threeBlock } />
                     </div>
+                    )
+                    }
+                    
+
                 </div>
             </div>    
         </>            
@@ -148,7 +163,11 @@ export function StatisticTwoBlock({data}){
                     <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
                     </div>
-              
+               
+                    {/* <QR/> */}
+                
+
+
                 </div>
             </div>    
         </>            
@@ -156,3 +175,16 @@ export function StatisticTwoBlock({data}){
 }
 
 
+export function QR(){
+    return(
+        <>
+            <div class="for_statistic_wrapper">
+                <div className='circle'></div>
+                <div className='for_qr'> 
+                    <p>подать заявку</p>
+                    <img src={qr} alt="Logo" className="logo_gr"/>    
+                </div>
+            </div>
+        </>
+    )
+}

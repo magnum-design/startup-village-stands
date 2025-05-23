@@ -2,8 +2,8 @@
     position: absolute;
     bottom: 1%;
     left: 7%;
-    width: 95px;
-    height: 95px;
+    width: 125px;
+    height: 125px;
     background-image: url("../Img/home_button.png");
     background-size:contain;
     background-repeat: no-repeat;
@@ -14,8 +14,8 @@
     position: absolute;
     bottom: 1%;
     right: 7%;
-    width: 95px;
-    height: 95px;
+    width: 125px;
+    height: 125px;
     background-image: url("../Img/nextButton.png");
     background-size:contain;
     background-repeat: no-repeat;
@@ -26,8 +26,8 @@
     position: absolute;
     bottom: 1%;
     left: 15%;
-    width: 95px;
-    height: 95px;
+    width: 125px;
+    height: 125px;
     background-image: url("../Img/backbutton.png");
     background-size:contain;
     background-repeat: no-repeat;
@@ -65,173 +65,4 @@
     z-index: 2; /* Поднимаем текст над возможными псевдоэлементами */
 }
 
-.support_button_container{
-    /* position: absolute;
-    top: 0px; */
-    width: 1800px;
-    height: auto;
-    background-image: url("../Img/homeOneButton1.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 3;
 
-}
-
-
-
-.packaging_button_container{
-    /* position: absolute;
-    top: 200px; */
-    width: 90%;
-    height: 30%;
-    background-image: url("../Img/homeOneButton2.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-.expertise_button_container{
-    /* position: absolute;
-    top: 440px; */
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton3.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-.program_button_container{
-    /* position: absolute;
-    top: 660px; */
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton4.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-.investment_button_container{
-    /* position: absolute;
-    top: 870px; */
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton5.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-.direct_button_container{
-    /* position: absolute;
-    top: 1080px; */
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton6.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.financing_button_container{
-    /* position: absolute;
-    top: 1280px; */
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton7.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.grants_button_container{
-    /* position: absolute;
-    top: 1480px; */
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/homeOneButton8.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-
-}
-
-.techno_market_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.education_programs_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.online_service_rid_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.ip_packaging_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.ip_secured_lending_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.russian_patent_grant_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.foreign_patent_grant_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size:contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-/* three */
-.pilot_testing_program_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-.intersectoral_clusters_button_container {
-    width: 90%;
-    height: 20%;
-    background-image: url("../Img/button.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 3;
-}

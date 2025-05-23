@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import {MenuButton} from './Buttons/Buttons'
 import StartPage from './StartPage/StartPage.jsx';
@@ -36,6 +37,24 @@ function setInactiveTimer(homePageRef, startPageRef) {
 
 
 export default function BoardOne() {
+    const path = useLocation();
+    const locationPath = path.pathname.split('/')[1];
+    console.log('lop', locationPath);
+    let titleStart;
+
+    if (locationPath === 'board_one') {
+        titleStart = 'Привлечение финансирования'
+    } else if (locationPath === 'board_two') {
+        titleStart = 'ПОДДЕРЖКА РАЗРАБОТОК'
+    } else if (locationPath === 'board_three') {
+        titleStart = 'ВНЕДРЕНИЕ ИННОВАЦИЙ'
+    } else if (locationPath === 'board_four') {
+        titleStart = 'ТРУДОУСТРОЙСТВО В ВЫСОКОТЕХ'
+    } else {
+        titleStart = 'Привет'
+    }
+    
+    console.log('та', titleStart)    
     let homePageRef = useRef(null);
     let next_button = useRef(null);
     let startPageRef = useRef(null);
@@ -61,7 +80,7 @@ export default function BoardOne() {
             <HomeButton onclickFunc={homeButtonClick}/>
             <NextButton onclickFunc={nextButtonClick}/>
             <BackButton/>
-            <StartPage   ref={startPageRef}/>
+            <StartPage titleStartPage = {titleStart}  ref={startPageRef}/>
             <HomePageOne ref={homePageRef} insidePageRef={insidePageRef} setPageData={setPageData}/>
             <InsidePage  ref={insidePageRef} pageData={pageData}/>
             {/* <InsidePageTwo ref = {insidePageTwoRef}/> */}

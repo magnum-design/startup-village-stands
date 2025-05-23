@@ -40,6 +40,8 @@ const pageDataExample = {
 
 
 function GreenBubble({ pageTitle, pageText }) {
+    console.log('AAA', pageTitle);
+    console.log('AAA', pageText);
     if (!pageText){
         return (<></>)
     }
@@ -120,7 +122,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                     page.indicator.length === 4 ? (
                         <StatisticFourBlock data={page.indicator} />
                     ) : page.indicator.length === 3 ? (
-                        <StatisticThreeBlock data={page.indicator} />
+                        <StatisticThreeBlock titlePage = {page.titleOne} data={page.indicator} />
                     ) : page.indicator.length === 2 ? (
                         <StatisticTwoBlock data={page.indicator}/>
                     ) : (null)

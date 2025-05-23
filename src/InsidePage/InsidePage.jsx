@@ -13,8 +13,8 @@ const pageDataExample = {
         textOne: 'Сервис подбора релевантные программы поддержки от Правительства Москвы, институтов развития и других федеральных структур',
         titleTwo: 'Для кого:',
         textTwo: ['Предприниматели и компании, которые ищут государственные меры поддержки'],
-        titleTree:'Что дает сервис?',
-        dictTree: ['разобраться в многообразии доступных мер поддержки, реализуемых в Москве', 'подобрать наиболее подходящие меры поддержки', 'определить порядок действий для их получения'],
+        titleThree:'Что дает сервис?',
+        dictThree: ['разобраться в многообразии доступных мер поддержки, реализуемых в Москве', 'подобрать наиболее подходящие меры поддержки', 'определить порядок действий для их получения'],
         indicator: ['300+ заявок на сервис', '300+ индивидуальных планов развития компании', '350+ заявок на релевантные программы поддержки', '160+ консультаций']
     },
     plug :  {
@@ -22,8 +22,8 @@ const pageDataExample = {
         textOne: 'plug',
         titleTwo: 'plug',
         textTwo: 'plug',
-        titleTree:'?',
-        dictTree: ['plug'],
+        titleThree:'?',
+        dictThree: ['plug'],
         indicator: ['plug']
     },
     packaging_button_container : {
@@ -31,14 +31,33 @@ const pageDataExample = {
         textOne: ['Сервис подбора релевантные программы поддержки от Правительства Москвы, институтов развития и других федеральных структур'],
         titleTwo: 'Для кого:',
         textTwo: 'Предприниматели и компании, которые ищут государственные меры поддержки',
-        titleTree:'Что дает сервис?',
-        dictTree: ['разобраться в многообразии доступных мер поддержки, реализуемых в Москве', 'подобрать наиболее подходящие меры поддержки', 'определить порядок действий для их получения'],
+        titleThree:'Что дает сервис?',
+        dictThree: ['разобраться в многообразии доступных мер поддержки, реализуемых в Москве', 'подобрать наиболее подходящие меры поддержки', 'определить порядок действий для их получения'],
         indicator: ['300+ заявок на сервисsdfsdfdsffffffffffffffffffffffffffffffff', '300+ индивидуальных планов развития компании', '350+ заявок на релевантные программы поддержки', '160+ консультаций']
     }
 }
 
 
 
+function GreenBubble({ pageTitle, pageText }) {
+    if (!pageText){
+        return (<></>)
+    }
+    return (
+        <>
+        <div className='for_whom'>
+            {pageTitle && <h3>{pageTitle}</h3>}
+            {pageText.length === 1 ? ( <p>{pageText}</p>) : (
+                <ul>
+                {pageText.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+                </ul>
+            )}
+        </div>
+        </>
+    )
+}
 
 const InsidePage = forwardRef(({ pageData }, ref) =>  {
     // console.log(page);
@@ -76,53 +95,27 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
         hidden: { opacity: 0 },
       }
 
-    console.log('Данные',  page.indicator.length === 2  ) 
+
 
     return(
-        <>           
-            <motion.div 
+        <>
+            <motion.div
                 variants={list}
-                initial="hidden" 
-                id='internal_page_one'  
-                className='internal_conteiner' 
+                initial="hidden"
+                id='internal_page_one'
+                className='internal_conteiner'
                 ref={componentRef}>
                 <img src={logo} alt="Logo" className="logoHome"/>
-                <motion.div  
-                    ref = {titleContainer} 
+                <motion.div
+                    ref = {titleContainer}
                     className = 'title_container'>
                     <h2>{page.titleOne}</h2>
                      <p>{page.textOne}</p>
-                </motion.div>    
-                
-                <div className='inside_main_conteiner' >
-                    <div className='for_whom'>
-                        <h3>{page.titleTwo}</h3>
-                        {page.textTwo.length === 1 ? (
-                        <p>{page.textTwo}</p>
-                            ) : (
-                        <ul>
-                            {page.textTwo.map((item, index) => (
-                            <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                        )}
-                    </div>
+                </motion.div>
 
-                    <div className='for_whom'>
-                        <h3>{page.titleTree}</h3>
-
-                        {page.dictTree.length === 1 ? (
-                        <p>{page.dictTree}</p>
-                            ) : (
-                        <ul>
-                            {page.dictTree.map((item, index) => (
-                            <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                        )}    
-
-                    </div>
-                    
+                <div className='inside_main_conteiner'>
+                    <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo}/>
+                    <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree}/>
                     {
                     page.indicator.length === 4 ? (
                         <StatisticFourBlock data={page.indicator} />
@@ -133,22 +126,6 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                     ) : (null)
                 }
 
-                        
-                        {/* {
-                            page.indicator.map((item, index) => {
-                            const [key, value] = Object.entries(item)[0];
-                            return (
-                                <>
-                                <div className='for_statistic' key={index}>
-                                <div className='circle'></div>    
-                                    <h3 className='indicator_size'>{key}</h3>
-                                    <p>{value}</p>
-                                </div>
-                                </>
-                            );
-
-                        })} */}
-                    
                 </div>
             </motion.div>
         </>
@@ -158,4 +135,3 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
 
 
 export default InsidePage;
-

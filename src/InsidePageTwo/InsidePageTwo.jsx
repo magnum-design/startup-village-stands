@@ -3,12 +3,18 @@ import {animate} from 'motion'
 import { motion } from 'framer-motion';
 import { QR } from '../Statistic/StatisticFourBlock';
 import qr from '../Img/qr-kod.png'; 
+
+import parse from 'html-react-parser';
+
 // import robo_ruka from '../Img/robo_ruka.png'
+function ParseJSON({ htmlContent }) {
+    return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+}
 
-
-function GreenBubble({ pageTitle, pageText }) {
+function GreenBubble({flag,  pageTitle, pageText }) {
     console.log('AAA', pageTitle);
     console.log('AAA', pageText);
+    console.log('AAAA', flag);
 
     if (!pageText){
         return (<></>)
@@ -16,11 +22,11 @@ function GreenBubble({ pageTitle, pageText }) {
     return (
         <>
         <div className='for_whom' style={{ fontWeight: 300 }} > 
-            {pageTitle && <p>{pageTitle}</p>}
+            {pageTitle && flag ? (<p>{pageTitle}</p>):(<h3>{pageTitle}</h3>)}
             {/* {pageText.length === 1 ? ( <p>{pageText}</p>) : ( */}
                 <ul>
                 {pageText.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index}><ParseJSON htmlContent = {item}/></li>
                 ))}
                 </ul>
             {/* )} */}
@@ -111,15 +117,17 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                     className='internal_conteiner'  
                     ref={componentRef}>
                     <div className="inside_main_conteiner-two">
+                    {page.title ? (
                         <div className='title_container_two'>
                             <h3>{page.title}</h3>
                         </div>
-                      
+                    ):( <div className='title_container_two'></div>)}
+                        
                             {page.text.map((item, index) => {
                                 const [key, value] = Object.entries(item)[0];
                                 return (
                                     <>
-                                        <GreenBubble pageTitle = {key}   pageText = {value}/>
+                                        <GreenBubble flag = {page.title} pageTitle = {key}   pageText = {value}/>
                                         {/* <div className="for_whom">
                                             <ul>
                                                 <li>

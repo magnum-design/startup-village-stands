@@ -1,12 +1,3 @@
-import './HomePage.css';
-
-import { MenuButton } from '../Buttons/Buttons.jsx';
-import { useRef, useImperativeHandle, useEffect, createRef, forwardRef } from 'react';
-import logo from '../Img/LogoMIK.png';
-import department_logo from '../Img/Clip_path_group.png';
-import { motion } from "motion/react"
-import { animate } from 'motion';
-
 const buttonsIds= {
     'support_button': 'Навигация по мерам поддержки',
     'packaging_button': 'Инвестиционная упаковка',
@@ -40,7 +31,7 @@ const pageData = {
         ],
         text: [
             {"Требования к заявителю:": ["Наличие юридического лица или ИП ", "Авторизация на i.moscow"]},
-            {"Сервис поможет найти подходящую меру поддержки по следующим запросам:":
+            {"Сервис поможет найти подходящую меру поддержки по следующим запросам:": 
                 [
                     "Привлечение финансирования",
                     "Масштабирование",
@@ -134,7 +125,7 @@ const pageData = {
             {"Теоретический модуль": ["Онлайн-курс, на котором слушатели узнают, как устроены механизмы реализации публичных сделок, нюансы взаимодействия с банками-организаторами, брокерами и консультантами, а также познакомятся с тенденциями развития рынков акций и облигаций"]},
             {"Практический модуль": ["Участники совместно с менторами сформируют дорожные карты выхода на публичный рынок, разберут успешные кейсы действующих эмитентов, получат возможность познакомиться и задать вопросы ведущим экспертам рынка"]},
             {"Финальное мероприятие": ["Презентации стратегии участников по выходу на pre-IPO, IPO и выпуск облигаций"]},
-
+       
         ],
         urlImage: ""
     },
@@ -254,7 +245,7 @@ const pageData = {
             {"до 30 млн.₽": "на 1 компанию в год (сумма оказанной поддержки)"},
             {"6,3+ млрд.₽": "сумма оказанной поддержки (за все время)"}
         ],
-        title: '',
+        title: '', 
         text: [
             {"Приобретение оборудования за счет собственных средств:":
                  [
@@ -265,7 +256,7 @@ const pageData = {
             {"Приобретение оборудования за счет собственных средств:": ["50% от стоимости отечественного оборудования", "35% от стоимости иностранного оборудования"]},
             {"Приобретение оборудования по договору финансовой аренды (лизинга):": ["50% от стоимости отечественного оборудования", "35% от стоимости иностранного оборудования"]},
             {"Уплата процентов по кредитным договорам:": ["Ключевая ставка ЦБ РФ + 5% при приобретении отечественного оборудования, но не более ставки по кредитному договору", "Ключевая ставка ЦБ РФ при приобретении иностранного оборудования или на развитие деятельности, но не более ставки по кредитному договору"]},
-
+           
         ],
         urlImage: ""
     },
@@ -325,88 +316,7 @@ const pageData = {
                     "исследования рынка и технологические экспертизы",
                     "услуги по рекламе и продвижению и иные согласованные расходы",
                 ]},
-            ],
+            ],      
         urlImage: ""
     }
 };
-
-
-const HomePageOne =  forwardRef(({setPageData, insidePageRef, showNavigation, hideNavigation}, ref) => {
-    const buttonRefs = useRef([]);
-    const homeTitle = useRef();
-
-    const hideButtons = () => {
-        console.log(homeTitle.current)
-        animate(homeTitle.current, {opacity: 0})
-        for (let i=0; i< buttonRefs.current.length; i++){
-            const buttonRef = buttonRefs.current[i].current;
-            if (buttonRef) {
-                buttonRef.hideAnimate(i/10);
-            } else {
-                console.log('No current ref for button.');
-            }
-        };
-    };
-
-    const showButtons = () => {
-        animate(homeTitle.current, {opacity: 1})
-
-        for (let i=0; i< buttonRefs.current.length; i++){
-            const buttonRef = buttonRefs.current[i].current;
-            if (buttonRef) {
-                buttonRef.showAnimate(i/10);
-            } else {
-                console.log('No current ref for button.');
-            }
-            console.log(buttonRefs)
-        };
-    };
-
-    useImperativeHandle(ref, () => ({
-        showButtons,
-        hideButtons,
-
-    }));
-
-
-    // TODO: this populates buttonRefs with copies of the buttons that no longer exists,
-    // animation on hideButtons and showButtons slows down drasticlly
-    // i dont get, why is rerender happens here of this element...
-    const onMenuButtonClick = (id) => {
-        showNavigation()
-        setPageData(pageData[id]);
-        insidePageRef.current.showAnimate()
-        hideButtons()
-    }
-    buttonRefs.current = []
-
-    let buttons = []
-    let counter = 0;
-    Object.entries(buttonsIds).forEach(([id, text]) => {
-        const buttonRef = createRef();
-        buttonRefs.current.push(buttonRef);
-        buttons.push(<MenuButton
-            onclickFunc={() => {onMenuButtonClick(id)} }
-            key={ id }
-            id_button={ id }
-            nameButton= { text }
-            ref={buttonRef}/>)
-        counter+=1;
-    });
-
-    return (
-        <>
-            <div id='home_container' className='home_container'>
-            <img src={department_logo} alt="department_logo" className="department_logo"/>
-                <img src={logo} alt="Logo" className="logoHome"/>
-                    <div  id='middel_conteiner' className='middel_conteiner'>
-                        <h2 ref={homeTitle} className='title_home'>Меры поддержки<br/> и сервисы</h2>
-                        <div className='container_for_button'>
-                            { buttons }
-                        </div>
-                    </div>
-            </div>
-        </>
-    )
-})
-export default HomePageOne;

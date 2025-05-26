@@ -51,7 +51,7 @@ const StartPage = forwardRef((props, ref) => {
                 <div id='content' className='content'>
                     <div className='start_container_vertical'>
                         <div class="for_statistic_wrapper">
-                            <div className='circle_hor'></div>
+                            <div className='circle'></div>
                             <div className='for_start'>
                                 <h1 className='title'>
                                 {titleStartFirst}<br/>

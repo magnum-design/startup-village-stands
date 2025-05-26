@@ -2,17 +2,18 @@ import './Buttons.css';
 import {motion, scale} from 'framer-motion';
 import { useRef,  forwardRef, useImperativeHandle } from "react";
 import { useState } from 'react';
-import { animate } from 'framer-motion';
+import { animate, AnimatePresence } from 'framer-motion';
 
 
-export function BackButton() {
+ export const BackButton = forwardRef((props, ref) => {
+    const onclickFunc = props['onclickFunc']
     return (
       <>
-         <motion.div initial={{ scale: 0 }} id='back_button' className="back_button_container">
+         <motion.div ref={ref} whileTap="tapped" onClick={onclickFunc} id='back_button' className="back_button_container">
          </motion.div>
       </>
     )
- }
+ })
 
  export const HomeButton = forwardRef((props, ref) => {
     const onclickFunc = props['onclickFunc']
@@ -36,33 +37,17 @@ export function BackButton() {
 
 
  export const MenuButton = forwardRef((props, ref) => {
-     const  componentRef = useRef(null);
-     function showAnimate(delay){
-         if (componentRef.current){
-             componentRef.current.style.pointerEvents = 'auto';
-             animate(componentRef.current, { opacity: 1, y:20}, { duration: 0.5, delay : delay} )
-         }
-     };
-     function hideAnimate(delay){
-         if (componentRef.current){
-             componentRef.current.style.pointerEvents = 'none';
-             animate(componentRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : delay} )
-         }
-     };
-
-     useImperativeHandle(ref, () => ({
-         showAnimate,
-         hideAnimate,
-     }));
      const id_button = props['id_button']
      const nameButton = props['nameButton']
      const onclickFunc = props['onclickFunc']
 
       return (
         <>
-         <div onClick={onclickFunc} className='menu_button' id={id_button} ref={componentRef}>
+        <AnimatePresence>
+         <motion.div key={id_button} initial={{y:-50, opacity:0}} animate={{y : 0, opacity:1, transition:{delay: props['delay']/10}}} exit={{x:100}} onClick={onclickFunc} className='menu_button' id={id_button}>
             <h3 className='correct_for_button'>{nameButton}</h3>
-         </div>
+         </motion.div>
+        </AnimatePresence>
       </>
       )
  });
@@ -176,41 +161,18 @@ export function TechnoMarketButton({ buttonVariants }) {
 
  // четвертый билборд кнопки
  export const HitechEmploymentButton = forwardRef((props, ref) => {
-  const [showDetails, setShowDetails] = useState(false);
-  const  componentRef = useRef(null);
 
   const handleClick = (e) => {
-    setShowDetails(true);
     if (props['onClick']) {
       props['onClick'](e);
     }
   };
 
-  function showAnimate(delay){
-    if (componentRef.current){
-        animate(componentRef.current, { opacity: 1, y:20 }, { duration: 0.5, delay : delay} )
-    }
-  };
-
-  function hideAnimate(delay){
-    if (componentRef.current){
-        animate(componentRef.current, { opacity: 0, y:0 }, { duration: 0.5, delay : delay} )
-    }
-  } ;
-
-  if (showDetails) {
-    hideAnimate(1);
-
-  }
-
-  useImperativeHandle(ref, () => ({  showAnimate,
-    hideAnimate,}));
    return (
      <>
        <div onClick={handleClick}  id="hitech_employment_button" className="gloabal_button_style">
           <h3>ТРУДОУСТРОЙСТВО В ВЫСОКОТЕХ</h3>
        </div>
-       {/* {showDetails && <InsidePageFour />} */}
      </>
    );
 

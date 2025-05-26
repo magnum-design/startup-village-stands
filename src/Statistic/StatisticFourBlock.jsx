@@ -1,5 +1,6 @@
 import '../InsidePage/InsidePage.css';
 import qr from '../Img/qr-kod.png';
+import {motion} from 'framer-motion'
 
 export function Triplet({specialWords}){
     let smallLeft = '';
@@ -81,20 +82,20 @@ export function StatisticFourBlock({data}){
         <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_vertical'>
-                    <div className="for_statistic_wrapper">
+                    <motion.div initial={{y:-100, opacity : 0}} animate={{y: 0, opacity : 1, transition:{delay: 1.5}}}className="for_statistic_wrapper">
                         <SquareBlock blockData = { oneBlock }/>
-                    </div>
-                    <div className="for_statistic_wrapper">
+                    </motion.div>
+                    <motion.div initial={{ x:-100, opacity : 0}} animate={{ x:0, opacity : 1, transition:{delay: 1.5}}}className="for_statistic_wrapper">
                         <SquareBlock blockData = { twoBlock }/>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className='bottom_container_vertical'>
-                    <div className="for_statistic_wrapper">
+                    <motion.div initial={{y:-100, opacity : 0}} animate={{y: 0, opacity : 1, transition:{delay: 1.7}}}className="for_statistic_wrapper">
                         <SquareBlock blockData = { threeBlock }/>
-                    </div>
-                    <div className="for_statistic_wrapper">
+                    </motion.div>
+                    <motion.div initial={{y:-100, opacity : 0}} animate={{y:0, opacity : 1, transition:{delay: 1.8}}}className="for_statistic_wrapper">
                         <SquareBlock blockData = { fourBlock }/>
-                    </div>
+                    </motion.div>
                 </div>
 
             </div>
@@ -114,26 +115,26 @@ export function StatisticThreeBlock({titlePage, data}){
         <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_horizontal'>
-                    <div className="for_statistic_wrapper">
+                    <motion.div initial={{opacity : 0, x:100}} animate={{opacity : 1, x:0, transition:{delay:1.5}}}className="for_statistic_wrapper">
                         <TriangleBlock blockData = { oneBlock } />
-                    </div>
-                    <div className="for_statistic_wrapper">
+                    </motion.div>
+                    <motion.div initial={{opacity : 0, x:-100}} animate={{opacity : 1, x:0, transition:{delay:2}}}className="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
-                    </div>
+                    </motion.div>
 
                     {onePageTitle.includes(titlePage) ?
                     (
                     <div className='bottom_container_vertical' style={{ margin: 0, width: '105%' }}>
-                        <div className="for_statistic_qr" >
+                        <motion.div initial={{opacity : 0, x:100}} animate={{opacity: 1, x:0, transition:{delay:2.5}}} className="for_statistic_qr" >
                             <TriangleBlock blockData = { threeBlock } />
                             {/* <img src={qr} /> */}
-                        </div>
-                        <QR/>
+                        </motion.div>
+                        <QR delay={2.5}/>
                     </div>
                     ) : (
-                    <div className="for_statistic_wrapper">
+                    <motion.div initial={{opacity : 0, x:100}} animate={{x:0, opacity : 1, transition:{delay:2.5}}} className="for_statistic_wrapper">
                         <TriangleBlock blockData = { threeBlock } />
-                    </div>
+                    </motion.div>
                     )
                     }
 
@@ -155,12 +156,12 @@ export function StatisticTwoBlock({data}){
         <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_horizontal'>
-                    <div class="for_statistic_wrapper">
+                    <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:1.5}}}className="for_statistic_wrapper">
                         <TriangleBlock blockData = { oneBlock } />
-                    </div>
-                    <div class="for_statistic_wrapper">
+                    </motion.div>
+                    <motion.div initial={{opacity : 0, y:-100}} animate={{opacity :1, y:0, transition:{delay:2}}}className="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
-                    </div>
+                    </motion.div>
 
                     {/* <QR/> */}
 
@@ -173,16 +174,16 @@ export function StatisticTwoBlock({data}){
 }
 
 
-export function QR(){
+export function QR({delay}){
     return(
         <>
-            <div class="for_statistic_wrapper">
+            <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}}className="for_statistic_wrapper">
                 <div className='circle'></div>
                 <div className='for_qr'>
                     <p>подать заявку</p>
                     <img src={qr} alt="Logo" className="logo_gr"/>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

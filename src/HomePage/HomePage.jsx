@@ -8,63 +8,25 @@ import { motion } from "motion/react"
 import { animate } from 'motion';
 
 
-const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, insidePageRef, showNavigation, hideNavigation}, ref) => {
-    const buttonRefs = useRef([]);
+const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
     const homeTitle = useRef();
 
-    const hideButtons = () => {
-        console.log(homeTitle.current)
-        animate(homeTitle.current, {opacity: 0})
-        for (let i=0; i< buttonRefs.current.length; i++){
-            const buttonRef = buttonRefs.current[i].current;
-            if (buttonRef) {
-                buttonRef.hideAnimate(i/10);
-            } else {
-                console.log('No current ref for button.');
-            }
-        };
-    };
-
-    const showButtons = () => {
-        animate(homeTitle.current, {opacity: 1})
-
-        for (let i=0; i< buttonRefs.current.length; i++){
-            const buttonRef = buttonRefs.current[i].current;
-            if (buttonRef) {
-                buttonRef.showAnimate(i/10);
-            } else {
-                console.log('No current ref for button.');
-            }
-            console.log(buttonRefs)
-        };
-    };
-
-    useImperativeHandle(ref, () => ({
-        showButtons,
-        hideButtons,
-
-    }));
-
-
     const onMenuButtonClick = (id) => {
-        showNavigation()
         setPageData(pageData[id]);
-        insidePageRef.current.showAnimate()
-        hideButtons()
+        setShowHome(true);
+        // TODO: show if nessasary
+        setShowNext(true);
     }
-    buttonRefs.current = []
 
-    let buttons = []
     let counter = 0;
+    let buttons = [];
     Object.entries(buttonsIds).forEach(([id, text]) => {
-        const buttonRef = createRef();
-        buttonRefs.current.push(buttonRef);
         buttons.push(<MenuButton
             onclickFunc={() => {onMenuButtonClick(id)} }
+            delay = { counter/2 }
             key={ id }
             id_button={ id }
-            nameButton= { text }
-            ref={buttonRef}/>)
+            nameButton= { text } />)
         counter+=1;
     });
 

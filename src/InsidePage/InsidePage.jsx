@@ -4,6 +4,7 @@ import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
 import {StatisticFourBlock, StatisticThreeBlock, StatisticTwoBlock} from '../Statistic/StatisticFourBlock';
+import { GreenBubble } from '../GreenBubble'
 
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
@@ -41,28 +42,6 @@ function ParseJSON({ htmlContent }) {
     return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
-function GreenBubble({ pageTitle, pageText }) {
-    console.log('AAA', pageTitle);
-    console.log('AAA', pageText);
-    if (!pageText){
-        return (<></>)
-    }
-    return (
-        <>
-        <div className='for_whom'>
-            {pageTitle && <h3>{pageTitle}</h3>}
-            {pageText.length === 1 ? ( <p>{pageText}</p>) : (
-                <ul>
-                {pageText.map((item, index) => (
-                    <li key={index}><ParseJSON htmlContent = {item}/></li>
-                ))}
-                </ul>
-            )}
-        </div>
-        </>
-    )
-}
-
 const InsidePage = forwardRef(({ pageData }, ref) =>  {
     // console.log(page);
     console.log('Recived:', pageData);
@@ -73,44 +52,15 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
     } else {
         page = pageDataExample.support_button_container
     }
-    const  componentRef = useRef(null);
     const  titleContainer = useRef();
-    function showAnimate(delay){
-        if (componentRef.current){
-            animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
-            animate(titleContainer.current, {opacity: 1}, {delay: 2}, )
-
-        }
-    };
-    function hideAnimate(delay=0){
-        if (componentRef.current){
-            animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
-            animate(titleContainer.current,  {opacity: 0})
-
-        }
-    };
-    useImperativeHandle(ref, () => ({
-        showAnimate,
-        hideAnimate,
-    }));
-
-    const list = {
-        // visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-      }
-
-
 
     return(
         <>
             <motion.div
-                variants={list}
-                initial="hidden"
                 id='internal_page_one'
-                className='internal_conteiner'
-                ref={componentRef}>
+                className='internal_conteiner' >
                 <img src={logo} alt="Logo" className="logoHome"/>
-                <motion.div
+                <motion.div animate={{opacity:1, x:0}} initial={{opacity:0, x: -100}}
                     ref = {titleContainer}
                     className = 'title_container'>
                     <h2>{page.titleOne}</h2>
@@ -118,8 +68,8 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 </motion.div>
 
                 <div className='inside_main_conteiner'>
-                    <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo}/>
-                    <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree}/>
+                        <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo} delay={0.5}/>
+                        <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>
                     {
                     page.indicator.length === 4 ? (
                         <StatisticFourBlock data={page.indicator} />
@@ -131,7 +81,8 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 }
 
                 </div>
-            </motion.div>
+            </motion.div>)
+
         </>
     )
 })

@@ -3,42 +3,12 @@ import {animate} from 'motion'
 import { motion } from 'framer-motion';
 import { QR } from '../Statistic/StatisticFourBlock';
 import qr from '../Img/qr-kod.png';
+import { GreenBubble } from '../GreenBubble';
 
-import parse from 'html-react-parser';
-
-// import robo_ruka from '../Img/robo_ruka.png'
-function ParseJSON({ htmlContent }) {
-    return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-}
-
-function GreenBubble({flag,  pageTitle, pageText }) {
-    console.log('AAA', pageTitle);
-    console.log('AAA', pageText);
-    console.log('AAAA', flag);
-
-    if (!pageText){
-        return (<></>)
-    }
-    return (
-        <>
-        <div className='for_whom' style={{ fontWeight: 300 }} >
-            {pageTitle && flag ? (<p>{pageTitle}</p>):(<h3>{pageTitle}</h3>)}
-            {/* {pageText.length === 1 ? ( <p>{pageText}</p>) : ( */}
-                <ul>
-                {pageText.map((item, index) => (
-                    <li key={index}><ParseJSON htmlContent = {item}/></li>
-                ))}
-                </ul>
-            {/* )} */}
-        </div>
-        </>
-    )
-}
-
-function QRTwo ({image_url}){
+function QRTwo ({image_url, delay}){
     return(
         <>
-            <div className="for_statistic_wrapper_two" >
+            <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}} className="for_statistic_wrapper">
                 <div className='circle'></div>
                 <div className='for_qr' style={{width: '100%'}}>
                     <div className='flex_row'>
@@ -51,8 +21,7 @@ function QRTwo ({image_url}){
                         </div>
                     </div>
                 </div>
-
-            </div>
+            </motion.div>
         </>
     )
 }
@@ -83,39 +52,11 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
     } else {
         page = pageDataExample.support_button_container
     }
-    const  componentRef = useRef(null);
-    // const  titleContainer = useRef();
-    function showAnimate(delay){
-        if (componentRef.current){
-            animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
-            // animate(titleContainer.current, {opacity: 1}, {delay: 2}, )
-
-        }
-    };
-    function hideAnimate(delay=0){
-        if (componentRef.current){
-            animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
-            // animate(titleContainer.current,  {opacity: 0})
-
-        }
-    };
-    useImperativeHandle(ref, () => ({
-        showAnimate,
-        hideAnimate,
-    }));
-
-    const list = {
-        // visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-      }
-
       return(<>
                 <motion.div
-                    variants={list}
                     initial="hidden"
                     id='internal_page_two'
-                    className='internal_conteiner'
-                    ref={componentRef}>
+                    className='internal_conteiner'>
                     <div className="inside_main_conteiner-two">
                     {page.title ? (
                         <div className='title_container_two'>
@@ -127,7 +68,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                 const [key, value] = Object.entries(item)[0];
                                 return (
                                     <>
-                                        <GreenBubble flag = {page.title} pageTitle = {key}   pageText = {value}/>
+                                        <GreenBubble flag = {page.title} pageTitle = {key} delay={index/2}  pageText = {value}/>
                                         {/* <div className="for_whom">
                                             <ul>
                                                 <li>
@@ -143,10 +84,10 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                         {page.titleOne === 'Инвестиционная экспертиза' ?
                          (
                          <div className='contaniner_qr'>
-                            <QR/>
+                            <QR delay={2}/>
                          </div>
                          ):(
-                            <QRTwo image_url={page.urlImage}/>
+                            <QRTwo delay={2} image_url={page.urlImage}/>
                          )}
 
                     </div>

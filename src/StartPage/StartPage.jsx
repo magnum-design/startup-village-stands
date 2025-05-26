@@ -3,8 +3,9 @@ import background_video from '../Videos/fon.mp4';
 import logo from '../Img/LogoMIK.png';
 import department_logo from '../Img/Clip_path_group.png';
 import { forwardRef, useImperativeHandle, useRef} from 'react';
-import {animate, defaultEasing} from 'motion'
+import {animate, defaultEasing, progressPercentage} from 'motion'
 
+import {AnimatePresence, motion} from 'framer-motion'
 import { useLocation } from "react-router-dom";
 
 
@@ -12,33 +13,20 @@ import { useLocation } from "react-router-dom";
 
 
 const StartPage = forwardRef((props, ref) => {
-     let {titleStartPage} = props;
-     console.log('гыг', titleStartPage);
-     let titleStartFirst = titleStartPage.split(' ')[0];
-     let titleStartSecond = titleStartPage.split(' ')[1];
-     const  componentRef = useRef(null);
-     function showAnimate(delay){
-         if (componentRef.current){
-             componentRef.current.style.pointerEvents = 'auto';
-             animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
-         }
-     };
-     function hideAnimate(delay=0){
-         if (componentRef.current){
-             componentRef.current.style.pointerEvents = 'none';
-             animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
-         }
-     };
-     useImperativeHandle(ref, () => ({
-         showAnimate,
-         hideAnimate,
-     }));
+    let {titleStartPage} = props;
+    console.log('гыг', titleStartPage);
+    let titleStartFirst = titleStartPage.split(' ')[0];
+    let titleStartSecond = titleStartPage.split(' ')[1];
+    const  componentRef = useRef(null);
+    function hideStart(){
+        props.setShowStart(false);
+    }
 
 
     return (
         <>
-            <div id='start_container' className='start_container' ref={componentRef}
-        onClick={ hideAnimate }
+            <motion.div exit={{opacity : 0, duration: 5}} id='start_container' className='start_container' ref={componentRef}
+        onClick={ hideStart }
         >
                 <video className='video_fon'
                     controls = {false}
@@ -65,7 +53,7 @@ const StartPage = forwardRef((props, ref) => {
                     <img src={department_logo} alt="department_logo" className="department_logo"/>
                     <div className='mony'></div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 })

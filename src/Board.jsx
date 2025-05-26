@@ -9,14 +9,14 @@ import InsidePage from './InsidePage/InsidePage.jsx';
 import Controller from './Controller.js';
 import { HomeButton, NextButton, BackButton} from './Buttons/Buttons.jsx';
 import InsidePageTwo from './InsidePageTwo/InsidePageTwo.jsx';
-import { animate } from 'motion'
+import {AnimatePresence, motion} from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-const RESET_TIME = 520; //secs
+const RESET_TIME = 10; //secs
 
 
-function setInactiveTimer(homePageRef, startPageRef) {
+function setInactiveTimer(setPageData, setShowStart, setShowMore) {
     let lastClickTimestamp = null;
     const time_to_restart = RESET_TIME;
 
@@ -29,11 +29,20 @@ function setInactiveTimer(homePageRef, startPageRef) {
 
             if (timeDifference > time_to_restart * 1000) {
                 lastClickTimestamp = null;
-                startPageRef.current.showAnimate(0);
-                homePageRef.current.showButtons()
+                setShowStart(true);
+                setPageData(null);
+                setShowMore(false);
             }
         }
     }, 1000);
+}
+
+function Background(){
+    return (
+        <>
+        <div className='home_container'></div>
+        </>
+    )
 }
 
 
@@ -43,7 +52,6 @@ export default function BoardOne({jsonData, jsonbutton}) {
 
 
     const jsonDatapage = jsonData;
-    console.log('Data', jsonDatapage);
 
     let titleStart;
 
@@ -60,62 +68,69 @@ export default function BoardOne({jsonData, jsonbutton}) {
     }
 
 
-    let homePageRef = useRef(null);
-    let nextButtonRef = useRef(null);
-    let homeButtonRef = useRef(null);
-    let startPageRef = useRef(null);
-    let insidePageRef = useRef(null);
-    let insidePageTwoRef = useRef(null);
-
-    setInactiveTimer(homePageRef, startPageRef);
-
-    const showNavigation = () => {
-        animate(nextButtonRef.current, { opacity: 1, y:0}, { duration: 0.5, delay : 0} )
-        animate(homeButtonRef.current, { opacity: 1, y:0}, { duration: 0.5, delay : 0} )
-        homeButtonRef.current.style.pointerEvents = 'auto';
-        nextButtonRef.current.style.pointerEvents = 'auto';
-    }
-    const hideNavigation = () => {
-        animate(nextButtonRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : 0} )
-        animate(homeButtonRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : 0} )
-        homeButtonRef.current.style.pointerEvents = 'none';
-        nextButtonRef.current.style.pointerEvents = 'none';
-    }
-
-    const homeButtonClick = () => {
-        insidePageRef.current.hideAnimate(0);
-        insidePageTwoRef.current.hideAnimate();
-        homePageRef.current.showButtons();
-        hideNavigation();
-    }
-
-    const nextButtonClick = () => {
-        insidePageTwoRef.current.showAnimate();
-        insidePageRef.current.hideAnimate(0);
-    }
-
 
 
     let [pageData, setPageData] = useState(null);
+    let [showMore, setShowMore] = useState(false);
+    let [showStart, setShowStart] = useState(true);
+    let [showHome, setShowHome] = useState(false);
+    let [showNext, setShowNext] = useState(false);
+    let [showBack, setShowBack] = useState(false);
+
+    setInactiveTimer(setPageData, setShowStart, setShowMore);
+
+    function homeButtonFuncution(){
+        setShowHome(false);
+        setPageData(null);
+        setShowMore(false);
+        setShowNext(false);
+        setShowBack(false);
+    }
+    function nextButtonFuncution(){
+        setShowNext(false);
+        setShowMore(true);
+        setShowBack(true);
+    }
+
+    function startPageButton(){
+        setShowStart(false)
+        setShowHome(false)
+    }
+
+    function backButtonFunction(){
+        setShowNext(true);
+        setShowMore(false);
+        setShowBack(false);
+    }
     return (
         <>
-            <NextButton ref={nextButtonRef} onclickFunc={nextButtonClick}/>
-            <HomeButton ref={homeButtonRef} onclickFunc={homeButtonClick}/>
-            <BackButton/>
-            <StartPage titleStartPage = {titleStart}  ref={startPageRef}/>
-            <HomePage buttonsIds={jsonbutton} pageData={jsonData} ref={homePageRef} showNavigation={showNavigation} hideNavigation={hideNavigation} insidePageRef={insidePageRef} setPageData={setPageData}/>
-            <InsidePage  ref={insidePageRef} pageData={pageData}/>
-            <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>
+        <Background/>
+        { showNext && <NextButton onclickFunc={nextButtonFuncution} />}
+        { showHome && <HomeButton onclickFunc={homeButtonFuncution} />}
+        { showBack && <BackButton onclickFunc={backButtonFunction}/>}
+        <AnimatePresence>
+        { showStart ? (
+                <motion.div key='startpagekey'
+                animate = {{opacity:1}}
+                exit    = {{opacity: 0}}>
+                    <StartPage titleStartPage={titleStart} setShowStart={startPageButton} />
+                </motion.div>
+            ):(
+            <>
+               {!pageData ? (
+                        <HomePage buttonsIds={jsonbutton} pageData={jsonData} setShowNext={setShowNext} setShowHome={setShowHome} setPageData={setPageData}/>
+                       ):(
+                           <>
+                           {!showMore ? (
+                               <InsidePage  pageData={pageData}/>
+                           ):(
+                               <InsidePageTwo pageData={pageData}/>
+                            )}
+                           </>
+                       )})
+            </>)
+            }
+        </AnimatePresence>
         </>
-    );
-}
-            // <InsidePageTwo></InsidePageTwo>
-            // <Controller></Controller>
-{/* <NavigatingSupportButton/>
-                    <InvestmentPackagingButton/>
-                    <InvestmentExpertiseButton></InvestmentExpertiseButton>
-                    <PathIPOProgramButton></PathIPOProgramButton>
-                    <SeedInvestmentButton></SeedInvestmentButton>
-                    <DirectInvestmentButton></DirectInvestmentButton>
-                    <IPOPreparationFinancingButton></IPOPreparationFinancingButton>
-                    <GrantsButton></GrantsButton> */}
+    )};
+            // <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>

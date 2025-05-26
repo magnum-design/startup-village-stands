@@ -1,6 +1,5 @@
-
 import '../InsidePage/InsidePage.css';
-import qr from '../Img/qr-kod.png'; 
+import qr from '../Img/qr-kod.png';
 
 export function Triplet({specialWords}){
     let smallLeft = '';
@@ -36,7 +35,7 @@ function SquareBlock({ blockData }){
     let specialWords = Object.keys(blockData)[0].split(" ")
     // console.log(Object.keys(blockData)[0])
     return (
-        <>  
+        <>
             <div className='circle'></div>
             <div className='for_statistic '>
                 <Triplet specialWords = {specialWords} />
@@ -50,7 +49,7 @@ function TriangleBlock({ blockData }){
     let specialWords = Object.keys(blockData)[0].split(" ")
 
     return (
-        <>  
+        <>
             <div className='circle'></div>
             <div className='for_statistic_row'>
                 <Triplet specialWords = {specialWords} />
@@ -63,8 +62,8 @@ function TriangleBlock({ blockData }){
 }
 
 export function StatisticFourBlock({data}){
-    
-    let oneBlock, twoBlock, threeBlock, fourBlock; 
+
+    let oneBlock, twoBlock, threeBlock, fourBlock;
     if (data) {
         oneBlock = data[0];
         twoBlock = data[1];
@@ -76,26 +75,26 @@ export function StatisticFourBlock({data}){
         threeBlock = "10";
         fourBlock = "10";
     }
-    
+
     console.log(Object.keys(twoBlock)[0])
     return (
         <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_vertical'>
-                    <div class="for_statistic_wrapper">
+                    <div className="for_statistic_wrapper">
                         <SquareBlock blockData = { oneBlock }/>
                     </div>
-                    <div class="for_statistic_wrapper">
+                    <div className="for_statistic_wrapper">
                         <SquareBlock blockData = { twoBlock }/>
                     </div>
                 </div>
                 <div className='bottom_container_vertical'>
-                    <div class="for_statistic_wrapper">
+                    <div className="for_statistic_wrapper">
                         <SquareBlock blockData = { threeBlock }/>
-                    </div>    
-                    <div class="for_statistic_wrapper">
+                    </div>
+                    <div className="for_statistic_wrapper">
                         <SquareBlock blockData = { fourBlock }/>
-                    </div>    
+                    </div>
                 </div>
 
             </div>
@@ -109,39 +108,39 @@ export function StatisticThreeBlock({titlePage, data}){
     const oneBlock = data[0]
     const twoBlock = data[1]
     const threeBlock = data[2]
-    // console.log(Object.keys(twoBlock)[0]) 
+    // console.log(Object.keys(twoBlock)[0])
     // console.log(Object.keys(twoBlock)[0].includes("млн.₽"))
     return (
-        <>  
+        <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_horizontal'>
-                    <div class="for_statistic_wrapper">        
+                    <div className="for_statistic_wrapper">
                         <TriangleBlock blockData = { oneBlock } />
                     </div>
-                    <div class="for_statistic_wrapper">
+                    <div className="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
                     </div>
 
-                    {onePageTitle.includes(titlePage) ? 
+                    {onePageTitle.includes(titlePage) ?
                     (
-                    <div className='bottom_container_vertical' style={{ margin: 0, width: '105%' }}>    
-                        <div class="for_statistic_qr" >
+                    <div className='bottom_container_vertical' style={{ margin: 0, width: '105%' }}>
+                        <div className="for_statistic_qr" >
                             <TriangleBlock blockData = { threeBlock } />
                             {/* <img src={qr} /> */}
                         </div>
                         <QR/>
-                    </div>    
+                    </div>
                     ) : (
-                    <div class="for_statistic_wrapper">
+                    <div className="for_statistic_wrapper">
                         <TriangleBlock blockData = { threeBlock } />
                     </div>
                     )
                     }
-                    
+
 
                 </div>
-            </div>    
-        </>            
+            </div>
+        </>
     )
 }
 
@@ -149,27 +148,27 @@ export function StatisticTwoBlock({data}){
     // console.log('Йоу',data[1])
     const oneBlock = data[0]
     const twoBlock = data[1]
-    
-    // console.log(Object.keys(twoBlock)[0]) 
+
+    // console.log(Object.keys(twoBlock)[0])
     // console.log(Object.keys(twoBlock)[0].includes("млн.₽"))
     return (
-        <>  
+        <>
             <div className='bottom_container_four'>
                 <div className='bottom_container_horizontal'>
-                    <div class="for_statistic_wrapper">        
+                    <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { oneBlock } />
-                    </div>    
+                    </div>
                     <div class="for_statistic_wrapper">
                         <TriangleBlock blockData = { twoBlock } />
                     </div>
-               
+
                     {/* <QR/> */}
-                
+
 
 
                 </div>
-            </div>    
-        </>            
+            </div>
+        </>
     )
 }
 
@@ -179,9 +178,9 @@ export function QR(){
         <>
             <div class="for_statistic_wrapper">
                 <div className='circle'></div>
-                <div className='for_qr'> 
+                <div className='for_qr'>
                     <p>подать заявку</p>
-                    <img src={qr} alt="Logo" className="logo_gr"/>    
+                    <img src={qr} alt="Logo" className="logo_gr"/>
                 </div>
             </div>
         </>

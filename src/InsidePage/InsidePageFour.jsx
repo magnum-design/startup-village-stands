@@ -1,11 +1,9 @@
-
-
 import '../HomePage/HomePage.css';
 import logo from '../Img/LogoMIK.png';
 
 import {
-    HitechEmploymentButton, 
-    EntrepreneurshipPromotionButton, 
+    HitechEmploymentButton,
+    EntrepreneurshipPromotionButton,
     EducationAndSelfRealizationButton
 } from '../Buttons/Buttons.jsx';
 import { useState } from 'react';
@@ -19,12 +17,12 @@ export default function InsidePageFour(){
     const handleShowDetails = () => {
         setShowDetails(true);
     };
- 
+
     return (
         <>
-            <div id='home_container_inside_four' className='home_container'> 
-                <img src={logo} alt="Logo" class="logoHome"/>
-                <div id='middel_conteiner_inside_four' className='middel_conteiner'> 
+            <div id='home_container_inside_four' className='home_container'>
+                <img src={logo} alt="Logo" className="logoHome"/>
+                <div id='middel_conteiner_inside_four' className='middel_conteiner'>
                     <div className='container_for_button'>
                         <motion.div
                             initial={{ opacity: 0, x: -2000, scale : 0}}
@@ -39,10 +37,10 @@ export default function InsidePageFour(){
                             transition={{ delay: 1,  duration: 0.5 }}
                         >
                             <EntrepreneurshipPromotionButton  onClick={handleShowDetails}></EntrepreneurshipPromotionButton>
-                        </motion.div>    
-                    
+                        </motion.div>
+
                     </div>
-                </div> 
+                </div>
             </div>
         </>
     )

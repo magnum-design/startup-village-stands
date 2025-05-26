@@ -2,8 +2,8 @@ import './HomePage.css';
 import logo from '../Img/LogoMIK.png';
 
 import {
-    HitechEmploymentButton, 
-    EntrepreneurshipPromotionButton, 
+    HitechEmploymentButton,
+    EntrepreneurshipPromotionButton,
     EducationAndSelfRealizationButton
 } from '../Buttons/Buttons.jsx';
 import { useRef, useState } from 'react';
@@ -25,25 +25,25 @@ export default function HomePageFour(){
     const homePage = useRef();
 
     const handleShowDetails = (component) => {
-        setActiveComponent(component); 
+        setActiveComponent(component);
     };
 
     if (activeComponent === 'hitech') {
         // animate(homePage.current, {opacity: 0});
-        return <InsidePageFour />;     
+        return <InsidePageFour />;
     }
 
     return (
         <>
-            <div id='home_container_four' className='home_container'> 
-                <img src={logo} alt="Logo" class="logoHome"/>
+            <div id='home_container_four' className='home_container'>
+                <img src={logo} alt="Logo" className="logoHome"/>
                 <div id='middel_conteiner_four' className='middel_conteiner'>
-                    
+
                     <div className='container_for_button'>
                   {/* {fourButton.forEach(element => {
                         const id = Object.keys(element)[0]
                         const name = element[id]
-                        
+
                         return <GloballButtonsFour id_button={id} nameButton={name}></GloballButtonsFour>
 
                     })}; */}
@@ -60,7 +60,7 @@ export default function HomePageFour(){
                             transition={{ delay: 1,  duration: 0.5 }}
                         >
                             <EntrepreneurshipPromotionButton  onClick={handleShowDetails}></EntrepreneurshipPromotionButton>
-                        </motion.div>    
+                        </motion.div>
                         <motion.div
                             initial={{ opacity: 0, x: -2000, scale : 0}}
                             animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -69,7 +69,7 @@ export default function HomePageFour(){
                             <EducationAndSelfRealizationButton  onClick={handleShowDetails}></EducationAndSelfRealizationButton>
                         </motion.div>
                     </div>
-                </div> 
+                </div>
             </div>
         </>
     )

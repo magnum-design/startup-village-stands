@@ -1,6 +1,6 @@
 import './Buttons.css';
 import {motion, scale} from 'framer-motion';
-import { useRef, onClick, forwardRef, useImperativeHandle } from "react";
+import { useRef,  forwardRef, useImperativeHandle } from "react";
 import { useState } from 'react';
 import { animate } from 'framer-motion';
 
@@ -181,8 +181,8 @@ export function TechnoMarketButton({ buttonVariants }) {
 
   const handleClick = (e) => {
     setShowDetails(true);
-    if (onClick) {
-      onClick(e);
+    if (props['onClick']) {
+      props['onClick'](e);
     }
   };
 
@@ -249,10 +249,10 @@ export function TechnoMarketButton({ buttonVariants }) {
  }
 
 
- export function QualificationExam({onClick}) {
+ export function QualificationExam({onClickx}) {
   return (
     <>
-      <div onClick = {onClick}  id="qualification exam" className="gloabal_button_style">
+      <div onClick = {onClickx}  id="qualification exam" className="gloabal_button_style">
        <h3>Добровольный квалификационный экзамен</h3>
       </div>
     </>
@@ -260,10 +260,10 @@ export function TechnoMarketButton({ buttonVariants }) {
 }
 
 
-export function StartInMoscow({onClick}) {
+export function StartInMoscow({onClickx}) {
   return (
     <>
-      <div onClick = {onClick}  id="qualification exam" className="gloabal_button_style">
+      <div onClick = {onClickx}  id="qualification exam" className="gloabal_button_style">
        <h3>Start in Moscow</h3>
       </div>
     </>

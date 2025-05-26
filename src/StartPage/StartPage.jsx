@@ -12,10 +12,10 @@ import { useLocation } from "react-router-dom";
 
 
 const StartPage = forwardRef((props, ref) => {
-     let {titleStartPage} = props; 
+     let {titleStartPage} = props;
      console.log('гыг', titleStartPage);
      let titleStartFirst = titleStartPage.split(' ')[0];
-     let titleStartSecond = titleStartPage.split(' ')[1];    
+     let titleStartSecond = titleStartPage.split(' ')[1];
      const  componentRef = useRef(null);
      function showAnimate(delay){
          if (componentRef.current){
@@ -50,16 +50,16 @@ const StartPage = forwardRef((props, ref) => {
                 </video>
                 <div id='content' className='content'>
                     <div className='start_container_vertical'>
-                        <div class="for_statistic_wrapper">
+                        <div className="for_statistic_wrapper">
                             <div className='circle'></div>
                             <div className='for_start'>
                                 <h1 className='title'>
                                 {titleStartFirst}<br/>
                                 {titleStartSecond}
                                 </h1>
-                                
+
                             </div>
-                        </div>    
+                        </div>
                     </div>
                     <img src={logo} alt="Logo" className="logo"/>
                     <img src={department_logo} alt="department_logo" className="department_logo"/>

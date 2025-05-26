@@ -38,7 +38,7 @@ function GreenBubble({flag,  pageTitle, pageText }) {
 function QRTwo ({image_url}){
     return(
         <>
-            <div class="for_statistic_wrapper_two" >
+            <div className="for_statistic_wrapper_two" >
                 <div className='circle'></div>
                 <div className='for_qr' style={{width: '100%'}}>
                     <div className='flex_row'>
@@ -142,13 +142,13 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                         {/* </div>     */}
                         {page.titleOne === 'Инвестиционная экспертиза' ?
                          (
-                         <div className='contaniner_qr'>   
+                         <div className='contaniner_qr'>
                             <QR/>
                          </div>
                          ):(
                             <QRTwo image_url={page.urlImage}/>
                          )}
-                        
+
                     </div>
                 </motion.div>
             </>)

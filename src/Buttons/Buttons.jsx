@@ -23,10 +23,10 @@ export function BackButton() {
     )
  }
 
- export function NextButton() {
+ export function NextButton({onclickFunc}) {
     return (
       <>
-         <motion.div initial={{ scale: 0 }}  id='next_button' className="next_button_container">
+         <motion.div whileTap="tapped" onClick={onclickFunc}  id='next_button' className="next_button_container">
          </motion.div>
       </>
     )

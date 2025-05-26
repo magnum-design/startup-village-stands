@@ -1,52 +1,175 @@
+import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
+import {animate} from 'motion'
+import { motion } from 'framer-motion';
+import { QR } from '../Statistic/StatisticFourBlock';
+import qr from '../Img/qr-kod.png'; 
+import robo_ruka from '../Img/robo_ruka.png'
 
 
-const pageData = {
+function GreenBubble({ pageTitle, pageText }) {
+    console.log('AAA', pageTitle);
+    console.log('AAA', pageText);
+
+    if (!pageText){
+        return (<></>)
+    }
+    return (
+        <>
+        <div className='for_whom' style={{ fontWeight: 300 }} > 
+            {pageTitle && <p>{pageTitle}</p>}
+            {/* {pageText.length === 1 ? ( <p>{pageText}</p>) : ( */}
+                <ul>
+                {pageText.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+                </ul>
+            {/* )} */}
+        </div>
+        </>
+    )
+}
+
+function QRTwo ({image_url}){
+    return(
+        <>
+            <div class="for_statistic_wrapper">
+                <div className='circle'></div>
+                <div className='for_qr'>
+                    <div className='flex_row'> 
+                        <div className='flex_column'>
+                            <p>подать заявку</p>
+                            <img src={qr} alt="Logo" className="logo_gr_two"/>   
+                        </div>
+                        <div>
+                            <img src={image_url} alt="Logo" className="images_insideTwo"/> 
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </>
+    )
+}
+
+const pageDataExample = {
     support_button_container :  {
         title: 'Что включает инвестиционная',
         text: [
-            {'Рынок':'Оценка российского и глобального объёма рынка продукта, сегментов и прогнозов роста Продукт'},
-            {'Продукт':'Определение основных преимуществ продукта, актуальности, востребованности на рынке'},
-            {'Бизнес-модель':'Оценка бизнес-модели проекта, её реализуемости и эффективности'},
-            {'Динамика развития проекта':'Анализ истории развития проекта и его целей, оценка рисков и достигнутых результатов'}, 
-            {'Команда':'Анализ компетенций и опыта ключевых членов команды'}, 
-            {'Конкуренты':'Обзор конкурентного ландшафта продукта'}, 
-            {'Финансы':'Оценка финансовых показателей проекта'}, 
-            {'Сделка':'Оценка инвестиционной привлекательности проекта и возможностей последующего выхода из него'}
-         ],
+            { 'Базар': ['Глубокий анализ отрасли, оценка трендов и перспектив роста в выбранной нише'] },
+            { 'Продукт': ['Выявление конкурентных преимуществ и рыночной ценности продукта'] },
+            { 'Бизнес-модель': ['Проверка устойчивости и масштабируемости бизнес-модели'] },
+            { 'Динамика проекта': ['Оценка этапов развития, потенциала роста и рисков'] },
+            { 'Команда': ['Анализ ключевых компетенций и управленческого опыта команды'] },
+            { 'Конкуренты': ['Сравнение с аналогичными решениями на рынке и формулирование УТП'] },
+            { 'Финансы': ['Финансовая диагностика, расчёт unit-экономики и инвестиционных метрик'] },
+            { 'Сделка': ['Формирование условий инвестирования и рекомендаций по выходу инвестора'] }
+        ]
        
     }
 }
 
 
-export default function InsidePageTwo({page}) {
-    console.log('Page Two', page);
-    if (!page){
-        page = pageData.support_button_container
-    }
 
-    return(
-        <>
-            <div id='internal_page_two'  className='internal_conteiner'>
-                <div className="inside_main_conteiner-two">
-                    <h3>{page.title}</h3>
-                    {page.text.map((item, index) => {
-                        const [key, value] = Object.entries(item)[0];
-                        return (
-                            <>
-                                {/* <h3>{key}</h3> */}
-                                <div className="for_whom">
-                                    <ul>
-                                        <li>
-                                        <p>{key}</p>
-                                        </li>
-                                    </ul>
-                                    <p>{value}</p>
-                                </div>
-                            </>
-                        );
-                    })}
-                </div>
-            </div>    
-        </>
-    )
-}
+const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
+    let page = null;
+    if (pageData != null){
+        page = pageData
+    } else {
+        page = pageDataExample.support_button_container
+    }
+    const  componentRef = useRef(null);
+    // const  titleContainer = useRef();
+    function showAnimate(delay){
+        if (componentRef.current){
+            animate(componentRef.current, { opacity: 1 }, { duration: 0.5, delay : delay} )
+            // animate(titleContainer.current, {opacity: 1}, {delay: 2}, )
+
+        }
+    };
+    function hideAnimate(delay=0){
+        if (componentRef.current){
+            animate(componentRef.current, { opacity: 0 }, { duration: 0.5 } )
+            // animate(titleContainer.current,  {opacity: 0})
+
+        }
+    };
+    useImperativeHandle(ref, () => ({
+        showAnimate,
+        hideAnimate,
+    }));
+
+    const list = {
+        // visible: { opacity: 1 },
+        hidden: { opacity: 0 },
+      }
+
+      return(<>
+                <motion.div   
+                    variants={list} 
+                    initial="hidden" 
+                    id='internal_page_two'  
+                    className='internal_conteiner'  
+                    ref={componentRef}>
+                    <div className="inside_main_conteiner-two">
+                        <div className='title_container_two'>
+                            <h3>{page.title}</h3>
+                        </div>
+                      
+                            {page.text.map((item, index) => {
+                                const [key, value] = Object.entries(item)[0];
+                                return (
+                                    <>
+                                        <GreenBubble pageTitle = {key}   pageText = {value}/>
+                                        {/* <div className="for_whom">
+                                            <ul>
+                                                <li>
+                                                <p>{key}</p>
+                                                </li>
+                                            </ul>
+                                            <p>{value}</p>
+                                        </div> */}
+                                    </>
+                                );
+                            })}
+
+                        <QRTwo image_url={robo_ruka}/>
+                    </div>
+                </motion.div>    
+            </>)
+
+})
+
+export default InsidePageTwo;
+
+// export default function InsidePageTwo({page}) {
+//     console.log('Page Two', page);
+//     if (!page){
+//         page = pageData.support_button_container
+//     }
+
+//     return(
+//         <>
+//             <div id='internal_page_two'  className='internal_conteiner'  ref={componentRef}>
+//                 <div className="inside_main_conteiner-two">
+//                     <h3>{page.title}</h3>
+//                     {page.text.map((item, index) => {
+//                         const [key, value] = Object.entries(item)[0];
+//                         return (
+//                             <>
+//                                 {/* <h3>{key}</h3> */}
+//                                 <div className="for_whom">
+//                                     <ul>
+//                                         <li>
+//                                         <p>{key}</p>
+//                                         </li>
+//                                     </ul>
+//                                     <p>{value}</p>
+//                                 </div>
+//                             </>
+//                         );
+//                     })}
+//                 </div>
+//             </div>    
+//         </>
+//     )
+// }

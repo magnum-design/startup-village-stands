@@ -53,10 +53,10 @@ export default function BoardOne() {
     } else {
         titleStart = 'Привет'
     }
-    
+
     console.log('та', titleStart)    
     let homePageRef = useRef(null);
-    let next_button = useRef(null);
+    let nextButtonRef = useRef(null);
     let startPageRef = useRef(null);
     let insidePageRef = useRef(null);
     let insidePageTwoRef = useRef(null);
@@ -66,12 +66,14 @@ export default function BoardOne() {
     const homeButtonClick = () => {
         // console.log(homePageRef)
         insidePageRef.current.hideAnimate(0);
-        homePageRef.current.showButtons()
+        homePageRef.current.showButtons();
+        nextButtonRef.current.showButtons();
 
     }
 
     const nextButtonClick = () => {
-
+        insidePageTwoRef.current.showAnimate();
+        insidePageRef.current.hideAnimate(0);
     }
 
     let [pageData, setPageData] = useState(null);
@@ -83,7 +85,7 @@ export default function BoardOne() {
             <StartPage titleStartPage = {titleStart}  ref={startPageRef}/>
             <HomePageOne ref={homePageRef} insidePageRef={insidePageRef} setPageData={setPageData}/>
             <InsidePage  ref={insidePageRef} pageData={pageData}/>
-            {/* <InsidePageTwo ref = {insidePageTwoRef}/> */}
+            <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>
         </>
     );
 }

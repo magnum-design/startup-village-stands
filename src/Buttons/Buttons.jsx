@@ -14,23 +14,25 @@ export function BackButton() {
     )
  }
 
- export function HomeButton({onclickFunc}) {
+ export const HomeButton = forwardRef((props, ref) => {
+    const onclickFunc = props['onclickFunc']
     return (
       <>
-         <motion.div whileTap="tapped" onClick={onclickFunc} id='home_button' className="home_button_container">
+         <motion.div ref={ref} whileTap="tapped" onClick={onclickFunc} id='home_button' className="home_button_container">
          </motion.div>
       </>
     )
- }
+ })
 
- export function NextButton({onclickFunc}) {
+ export const NextButton = forwardRef((props, ref) => {
+    const onclickFunc = props['onclickFunc']
     return (
       <>
-         <motion.div whileTap="tapped" onClick={onclickFunc}  id='next_button' className="next_button_container">
+         <motion.div ref={ref} whileTap="tapped" onClick={onclickFunc}  id='next_button' className="next_button_container">
          </motion.div>
       </>
     )
- }
+ })
 
 
  export const MenuButton = forwardRef((props, ref) => {

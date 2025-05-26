@@ -177,7 +177,7 @@ const pageData = {
             { 'Сделка': 'Формирование условий инвестирования и рекомендаций по выходу инвестора' }
         ]
     },
-    
+
 
     pilot_testing_program_button: {
         titleOne: "Программа пилотного тестирования",
@@ -229,7 +229,7 @@ const pageData = {
         textOne: "Практико-ориентированная программа для технологических компаний, позволяющая разработать стратегию фандрайзинга с использованием инструментов рынка ценных бумаг",
         titleTwo: "Для кого программа?",
         textTwo: [
-            "Технологические компании:  собственники крупного бизнеса", 
+            "Технологические компании:  собственники крупного бизнеса",
             "представители компаний, планирующие выход на pre-IPO, IPO и выпуск облигаций "
         ],
         titleThree: "Что помогает решить программа?",
@@ -246,7 +246,7 @@ const pageData = {
             { 'Теоретический модуль:': ['Онлайн-курс, на котором слушатели узнают, как устроены механизмы реализации публичных сделок, нюансы взаимодействия с банками-организаторами, брокерами и консультантами, а также познакомятся с тенденциями развития рынков акций и облигаций'] },
             { 'Практический модуль:': ['Участники совместно с менторами сформируют дорожные карты выхода на публичный рынок, разберут успешные кейсы действующих эмитентов, получат возможность познакомиться и задать вопросы ведущим экспертам рынка '] },
             { 'Финальное мероприятие:': ['Презентации стратегии участников по выходу на pre-IPO, IPO и выпуск облигаций '] },
-          
+
         ],
         urlImage : '../Img/robo_ruka.png'
     },
@@ -255,7 +255,7 @@ const pageData = {
         textOne: "Льготное финансирование подготовки компаний для размещения на бирже",
         titleTwo: "Для кого:",
         textTwo: [
-            "Юридические лица", 
+            "Юридические лица",
         ],
         titleThree: "Что включает финансирование в рамках программы?",
         dictThree: [
@@ -284,13 +284,9 @@ const pageData = {
 };
 
 
-const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
+const HomePageOne =  forwardRef(({setPageData, insidePageRef, showNavigation, hideNavigation}, ref) => {
     const buttonRefs = useRef([]);
-    const PageOne = useRef();
     const homeTitle = useRef();
-    // useEffect(() => {
-    //     buttonRefs.current = [];
-    // });
 
     const hideButtons = () => {
         console.log(homeTitle.current)
@@ -330,6 +326,7 @@ const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
     // animation on hideButtons and showButtons slows down drasticlly
     // i dont get, why is rerender happens here of this element...
     const onMenuButtonClick = (id) => {
+        showNavigation()
         setPageData(pageData[id]);
         insidePageRef.current.showAnimate()
         hideButtons()

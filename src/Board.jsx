@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import './App.css';
 import {MenuButton} from './Buttons/Buttons'
 import StartPage from './StartPage/StartPage.jsx';
-import HomePageOne from './HomePage/HomePageOne.jsx';
+import HomePage from './HomePage/HomePage.jsx';
 import InsidePage from './InsidePage/InsidePage.jsx';
 import Controller from './Controller.js';
 import { HomeButton, NextButton, BackButton} from './Buttons/Buttons.jsx';
@@ -40,11 +40,11 @@ function setInactiveTimer(homePageRef, startPageRef) {
 export default function BoardOne({jsonData, jsonbutton}) {
     const path = useLocation();
     const locationPath = path.pathname.split('/')[1];
-    
+
 
     const jsonDatapage = jsonData;
     console.log('Data', jsonDatapage);
-    
+
     let titleStart;
 
     if (locationPath === 'board_one') {
@@ -103,7 +103,7 @@ export default function BoardOne({jsonData, jsonbutton}) {
             <HomeButton ref={homeButtonRef} onclickFunc={homeButtonClick}/>
             <BackButton/>
             <StartPage titleStartPage = {titleStart}  ref={startPageRef}/>
-            <HomePageOne ref={homePageRef} showNavigation={showNavigation} hideNavigation={hideNavigation} insidePageRef={insidePageRef} setPageData={setPageData}/>
+            <HomePage buttonsIds={jsonbutton} pageData={jsonData} ref={homePageRef} showNavigation={showNavigation} hideNavigation={hideNavigation} insidePageRef={insidePageRef} setPageData={setPageData}/>
             <InsidePage  ref={insidePageRef} pageData={pageData}/>
             <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>
         </>

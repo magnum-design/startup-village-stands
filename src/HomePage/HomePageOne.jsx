@@ -247,7 +247,8 @@ const pageData = {
             { 'Практический модуль:': ['Участники совместно с менторами сформируют дорожные карты выхода на публичный рынок, разберут успешные кейсы действующих эмитентов, получат возможность познакомиться и задать вопросы ведущим экспертам рынка '] },
             { 'Финальное мероприятие:': ['Презентации стратегии участников по выходу на pre-IPO, IPO и выпуск облигаций '] },
           
-        ]
+        ],
+        urlImage : '../Img/robo_ruka.png'
     },
     financing_button : {
         titleOne: "Финансирование подготовки к IPO",
@@ -333,6 +334,7 @@ const HomePageOne =  forwardRef(({setPageData, insidePageRef}, ref) => {
         insidePageRef.current.showAnimate()
         hideButtons()
     }
+    buttonRefs.current = []
 
     let buttons = []
     let counter = 0;

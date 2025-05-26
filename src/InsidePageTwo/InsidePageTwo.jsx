@@ -3,7 +3,7 @@ import {animate} from 'motion'
 import { motion } from 'framer-motion';
 import { QR } from '../Statistic/StatisticFourBlock';
 import qr from '../Img/qr-kod.png'; 
-import robo_ruka from '../Img/robo_ruka.png'
+// import robo_ruka from '../Img/robo_ruka.png'
 
 
 function GreenBubble({ pageTitle, pageText }) {
@@ -32,16 +32,16 @@ function GreenBubble({ pageTitle, pageText }) {
 function QRTwo ({image_url}){
     return(
         <>
-            <div class="for_statistic_wrapper">
+            <div class="for_statistic_wrapper_two" > 
                 <div className='circle'></div>
-                <div className='for_qr'>
+                <div className='for_qr' style={{width: '100%'}}>
                     <div className='flex_row'> 
                         <div className='flex_column'>
                             <p>подать заявку</p>
                             <img src={qr} alt="Logo" className="logo_gr_two"/>   
                         </div>
                         <div>
-                            <img src={image_url} alt="Logo" className="images_insideTwo"/> 
+                            <img src='src/Img/robo_ruka.png' alt="Logo" className="images_insideTwo"/> 
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                 );
                             })}
 
-                        <QRTwo image_url={robo_ruka}/>
+                        <QRTwo image_url={page.urlImage}/>
                     </div>
                 </motion.div>    
             </>)

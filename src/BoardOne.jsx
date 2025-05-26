@@ -66,8 +66,9 @@ export default function BoardOne() {
     const homeButtonClick = () => {
         // console.log(homePageRef)
         insidePageRef.current.hideAnimate(0);
+        insidePageTwoRef.current.hideAnimate(0);
         homePageRef.current.showButtons();
-        nextButtonRef.current.showButtons();
+        // nextButtonRef.current.hideAnimate(0);
 
     }
 

@@ -37,7 +37,9 @@ const pageDataExample = {
     }
 }
 
-
+function ParseJSON({ htmlContent }) {
+    return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+}
 
 function GreenBubble({ pageTitle, pageText }) {
     console.log('AAA', pageTitle);
@@ -52,7 +54,7 @@ function GreenBubble({ pageTitle, pageText }) {
             {pageText.length === 1 ? ( <p>{pageText}</p>) : (
                 <ul>
                 {pageText.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index}><ParseJSON htmlContent = {item}/></li>
                 ))}
                 </ul>
             )}

@@ -9,6 +9,7 @@ import InsidePage from './InsidePage/InsidePage.jsx';
 import Controller from './Controller.js';
 import { HomeButton, NextButton, BackButton} from './Buttons/Buttons.jsx';
 import InsidePageTwo from './InsidePageTwo/InsidePageTwo.jsx';
+import { animate } from 'motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -58,22 +59,34 @@ export default function BoardOne({jsonData, jsonbutton}) {
         titleStart = 'Привет'
     }
 
-    console.log('та', titleStart)    
+
     let homePageRef = useRef(null);
     let nextButtonRef = useRef(null);
+    let homeButtonRef = useRef(null);
     let startPageRef = useRef(null);
     let insidePageRef = useRef(null);
     let insidePageTwoRef = useRef(null);
 
     setInactiveTimer(homePageRef, startPageRef);
 
-    const homeButtonClick = () => {
-        // console.log(homePageRef)
-        insidePageRef.current.hideAnimate(0);
-        insidePageTwoRef.current.hideAnimate(0);
-        homePageRef.current.showButtons();
-        // nextButtonRef.current.hideAnimate(0);
+    const showNavigation = () => {
+        animate(nextButtonRef.current, { opacity: 1, y:0}, { duration: 0.5, delay : 0} )
+        animate(homeButtonRef.current, { opacity: 1, y:0}, { duration: 0.5, delay : 0} )
+        homeButtonRef.current.style.pointerEvents = 'auto';
+        nextButtonRef.current.style.pointerEvents = 'auto';
+    }
+    const hideNavigation = () => {
+        animate(nextButtonRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : 0} )
+        animate(homeButtonRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : 0} )
+        homeButtonRef.current.style.pointerEvents = 'none';
+        nextButtonRef.current.style.pointerEvents = 'none';
+    }
 
+    const homeButtonClick = () => {
+        insidePageRef.current.hideAnimate(0);
+        insidePageTwoRef.current.hideAnimate();
+        homePageRef.current.showButtons();
+        hideNavigation();
     }
 
     const nextButtonClick = () => {
@@ -81,14 +94,16 @@ export default function BoardOne({jsonData, jsonbutton}) {
         insidePageRef.current.hideAnimate(0);
     }
 
+
+
     let [pageData, setPageData] = useState(null);
     return (
         <>
-            <HomeButton onclickFunc={homeButtonClick}/>
-            <NextButton onclickFunc={nextButtonClick}/>
+            <NextButton ref={nextButtonRef} onclickFunc={nextButtonClick}/>
+            <HomeButton ref={homeButtonRef} onclickFunc={homeButtonClick}/>
             <BackButton/>
             <StartPage titleStartPage = {titleStart}  ref={startPageRef}/>
-            <HomePageOne ref={homePageRef} insidePageRef={insidePageRef} setPageData={setPageData}/>
+            <HomePageOne ref={homePageRef} showNavigation={showNavigation} hideNavigation={hideNavigation} insidePageRef={insidePageRef} setPageData={setPageData}/>
             <InsidePage  ref={insidePageRef} pageData={pageData}/>
             <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>
         </>

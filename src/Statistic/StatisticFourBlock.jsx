@@ -103,8 +103,70 @@ export function StatisticFourBlock({data}){
     )
 }
 
+export function StatisticSixBlock({data}){
+
+    let oneBlock, twoBlock, threeBlock, fourBlock, fiveBlock, sixBlock;
+    if (data) {
+        oneBlock = data[0];
+        twoBlock = data[1];
+        threeBlock = data[2];
+        fourBlock = data[3];
+        fiveBlock = data[4];
+        sixBlock = data[5];
+    } else {
+        oneBlock = "10";
+        twoBlock = "10";
+        threeBlock = "10";
+        fourBlock = "10";
+        fiveBlock = "10";
+        sixBlock = "10";
+    }
+
+    console.log(Object.keys(twoBlock)[0])
+    return (
+        <>
+            <div className='bottom_container_four'>
+                <div className='bottom_container_vertical'>
+                    <motion.div initial={{x:-100, opacity : 0}} animate={{x: 0, opacity : 1, transition:{delay: 1.5}}}className="for_statistic_wrapper">
+                        <SquareBlock blockData = { oneBlock }/>
+                    </motion.div>
+                    <motion.div initial={{x:100, opacity : 0}} animate={{x: 0, opacity : 1, transition:{delay: 1.5}}}className="for_statistic_wrapper">
+                        <SquareBlock blockData = { twoBlock }/>
+                    </motion.div>
+                </div>
+                <div className='bottom_container_vertical'>
+                    <motion.div initial={{x:-100, opacity : 0}} animate={{x: 0, opacity : 1, transition:{delay: 2}}}className="for_statistic_wrapper">
+                        <SquareBlock blockData = { threeBlock }/>
+                    </motion.div>
+                    <motion.div initial={{x:100, opacity : 0}} animate={{x: 0, opacity : 1, transition:{delay: 2}}}className="for_statistic_wrapper">
+                        <SquareBlock blockData = { fourBlock }/>
+                    </motion.div>
+                </div>
+                <div className='bottom_container_vertical'>
+                    <motion.div initial={{x:-100, opacity : 0}} animate={{x: 0, opacity : 1, transition:{delay: 2.5}}}className="for_statistic_wrapper">
+                        <SquareBlock blockData = { fiveBlock }/>
+                    </motion.div>
+                    <motion.div initial={{x:100, opacity : 0}} animate={{x: 0, opacity : 1, transition:{delay: 2.5}}}className="for_statistic_wrapper">
+                        <SquareBlock blockData = { sixBlock }/>
+                    </motion.div>
+                </div>
+
+            </div>
+        </>
+    )
+}
+
+
 export function StatisticThreeBlock({titlePage, data}){
-    const onePageTitle = ['Посевные инвестиции', 'Прямые инвестиции']
+    const onePageTitle = [
+        'Посевные инвестиции',
+        'Прямые инвестиции',
+        'Образовательные программы по интеллектуальной собственности',
+        'Кредитование под залог интеллектуальной собственности',
+        'Грант на патентование изобретений и полезных моделей в Российской Федерации',
+        'Грант на патентование изобретений и полезных моделей за рубежом',
+        'Программа пилотного тестирования'
+    ]
     // console.log(data[0])
     const oneBlock = data[0]
     const twoBlock = data[1]

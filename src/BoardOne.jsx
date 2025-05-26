@@ -68,10 +68,14 @@ export default function BoardOne() {
     const showNavigation = () => {
         animate(nextButtonRef.current, { opacity: 1, y:0}, { duration: 0.5, delay : 0} )
         animate(homeButtonRef.current, { opacity: 1, y:0}, { duration: 0.5, delay : 0} )
+        homeButtonRef.current.style.pointerEvents = 'auto';
+        nextButtonRef.current.style.pointerEvents = 'auto';
     }
     const hideNavigation = () => {
         animate(nextButtonRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : 0} )
         animate(homeButtonRef.current, { opacity: 0, y:0}, { duration: 0.5, delay : 0} )
+        homeButtonRef.current.style.pointerEvents = 'none';
+        nextButtonRef.current.style.pointerEvents = 'none';
     }
 
     const homeButtonClick = () => {

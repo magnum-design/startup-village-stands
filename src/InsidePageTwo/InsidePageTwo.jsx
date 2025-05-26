@@ -2,7 +2,7 @@ import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
 import { QR } from '../Statistic/StatisticFourBlock';
-import qr from '../Img/qr-kod.png'; 
+import qr from '../Img/qr-kod.png';
 
 import parse from 'html-react-parser';
 
@@ -21,7 +21,7 @@ function GreenBubble({flag,  pageTitle, pageText }) {
     }
     return (
         <>
-        <div className='for_whom' style={{ fontWeight: 300 }} > 
+        <div className='for_whom' style={{ fontWeight: 300 }} >
             {pageTitle && flag ? (<p>{pageTitle}</p>):(<h3>{pageTitle}</h3>)}
             {/* {pageText.length === 1 ? ( <p>{pageText}</p>) : ( */}
                 <ul>
@@ -38,20 +38,20 @@ function GreenBubble({flag,  pageTitle, pageText }) {
 function QRTwo ({image_url}){
     return(
         <>
-            <div class="for_statistic_wrapper_two" > 
+            <div class="for_statistic_wrapper_two" >
                 <div className='circle'></div>
                 <div className='for_qr' style={{width: '100%'}}>
-                    <div className='flex_row'> 
+                    <div className='flex_row'>
                         <div className='flex_column'>
                             <p>подать заявку</p>
-                            <img src={qr} alt="Logo" className="logo_gr_two"/>   
+                            <img src={qr} alt="Logo" className="logo_gr_two"/>
                         </div>
                         <div>
-                            <img src='src/Img/robo_ruka.png' alt="Logo" className="images_insideTwo"/> 
+                            <img src={image_url} alt="Logo" className="images_insideTwo"/>
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </>
     )
@@ -70,7 +70,7 @@ const pageDataExample = {
             { 'Финансы': ['Финансовая диагностика, расчёт unit-экономики и инвестиционных метрик'] },
             { 'Сделка': ['Формирование условий инвестирования и рекомендаций по выходу инвестора'] }
         ]
-       
+
     }
 }
 
@@ -110,11 +110,11 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
       }
 
       return(<>
-                <motion.div   
-                    variants={list} 
-                    initial="hidden" 
-                    id='internal_page_two'  
-                    className='internal_conteiner'  
+                <motion.div
+                    variants={list}
+                    initial="hidden"
+                    id='internal_page_two'
+                    className='internal_conteiner'
                     ref={componentRef}>
                     <div className="inside_main_conteiner-two">
                     {page.title ? (
@@ -122,7 +122,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                             <h3>{page.title}</h3>
                         </div>
                     ):( <div className='title_container_two'></div>)}
-                        
+
                             {page.text.map((item, index) => {
                                 const [key, value] = Object.entries(item)[0];
                                 return (
@@ -142,7 +142,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
 
                         <QRTwo image_url={page.urlImage}/>
                     </div>
-                </motion.div>    
+                </motion.div>
             </>)
 
 })
@@ -177,7 +177,7 @@ export default InsidePageTwo;
 //                         );
 //                     })}
 //                 </div>
-//             </div>    
+//             </div>
 //         </>
 //     )
 // }

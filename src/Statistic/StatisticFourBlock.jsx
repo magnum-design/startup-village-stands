@@ -39,9 +39,7 @@ function SquareBlock({ blockData }){
         <>  
             <div className='circle'></div>
             <div className='for_statistic '>
-                
                 <Triplet specialWords = {specialWords} />
-              
                 <p>{blockData[Object.keys(blockData)]}</p>
             </div>
         </>
@@ -50,7 +48,7 @@ function SquareBlock({ blockData }){
 
 function TriangleBlock({ blockData }){
     let specialWords = Object.keys(blockData)[0].split(" ")
-    console.log('Почему', Object.keys(blockData)[0])
+
     return (
         <>  
             <div className='circle'></div>
@@ -129,6 +127,7 @@ export function StatisticThreeBlock({titlePage, data}){
                     <div className='bottom_container_vertical' style={{ margin: 0, width: '105%' }}>    
                         <div class="for_statistic_qr" >
                             <TriangleBlock blockData = { threeBlock } />
+                            {/* <img src={qr} /> */}
                         </div>
                         <QR/>
                     </div>    

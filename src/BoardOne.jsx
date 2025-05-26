@@ -36,10 +36,14 @@ function setInactiveTimer(homePageRef, startPageRef) {
 }
 
 
-export default function BoardOne() {
+export default function BoardOne({jsonData, jsonbutton}) {
     const path = useLocation();
     const locationPath = path.pathname.split('/')[1];
-    console.log('lop', locationPath);
+    
+
+    const jsonDatapage = jsonData;
+    console.log('Data', jsonDatapage);
+    
     let titleStart;
 
     if (locationPath === 'board_one') {

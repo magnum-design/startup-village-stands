@@ -122,7 +122,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                             <h3>{page.title}</h3>
                         </div>
                     ):( <div className='title_container_two'></div>)}
-                        
+                        {/* <div className='content_conteiner'> */}
                             {page.text.map((item, index) => {
                                 const [key, value] = Object.entries(item)[0];
                                 return (
@@ -139,8 +139,16 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                     </>
                                 );
                             })}
-
-                        <QRTwo image_url={page.urlImage}/>
+                        {/* </div>     */}
+                        {page.titleOne === 'Инвестиционная экспертиза' ?
+                         (
+                         <div className='contaniner_qr'>   
+                            <QR/>
+                         </div>
+                         ):(
+                            <QRTwo image_url={page.urlImage}/>
+                         )}
+                        
                     </div>
                 </motion.div>    
             </>)

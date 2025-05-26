@@ -3,7 +3,7 @@ import logo from '../Img/LogoMIK.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
-import {StatisticFourBlock, StatisticThreeBlock, StatisticTwoBlock} from '../Statistic/StatisticFourBlock';
+import {StatisticFourBlock, StatisticThreeBlock, StatisticTwoBlock, StatisticSixBlock} from '../Statistic/StatisticFourBlock';
 
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
@@ -49,7 +49,7 @@ function GreenBubble({ pageTitle, pageText }) {
     }
     return (
         <>
-        <div className='for_whom'>
+        <div className='for_whom' >
             {pageTitle && <h3>{pageTitle}</h3>}
             {pageText.length === 1 ? ( <p>{pageText}</p>) : (
                 <ul>
@@ -120,8 +120,9 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 <div className='inside_main_conteiner'>
                     <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo}/>
                     <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree}/>
-                    {
-                    page.indicator.length === 4 ? (
+                    {page.indicator.length === 6 ? (
+                        <StatisticSixBlock data={page.indicator} />
+                    ) : page.indicator.length === 4 ? (
                         <StatisticFourBlock data={page.indicator} />
                     ) : page.indicator.length === 3 ? (
                         <StatisticThreeBlock titlePage = {page.titleOne} data={page.indicator} />

@@ -103,8 +103,70 @@ export function StatisticFourBlock({data}){
     )
 }
 
+export function StatisticSixBlock({data}){
+    
+    let oneBlock, twoBlock, threeBlock, fourBlock, fiveBlock, sixBlock; 
+    if (data) {
+        oneBlock = data[0];
+        twoBlock = data[1];
+        threeBlock = data[2];
+        fourBlock = data[3];
+        fiveBlock = data[4];
+        sixBlock = data[5];
+    } else {
+        oneBlock = "10";
+        twoBlock = "10";
+        threeBlock = "10";
+        fourBlock = "10";
+        fiveBlock = "10";
+        sixBlock = "10";
+    }
+    
+    console.log(Object.keys(twoBlock)[0])
+    return (
+        <>
+            <div className='bottom_container_four'>
+                <div className='bottom_container_vertical'>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { oneBlock }/>
+                    </div>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { twoBlock }/>
+                    </div>
+                </div>
+                <div className='bottom_container_vertical'>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { threeBlock }/>
+                    </div>    
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { fourBlock }/>
+                    </div>    
+                </div>
+                <div className='bottom_container_vertical'>
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { fiveBlock }/>
+                    </div>    
+                    <div class="for_statistic_wrapper">
+                        <SquareBlock blockData = { sixBlock }/>
+                    </div>    
+                </div>
+
+            </div>
+        </>
+    )
+}
+
+
 export function StatisticThreeBlock({titlePage, data}){
-    const onePageTitle = ['Посевные инвестиции', 'Прямые инвестиции']
+    const onePageTitle = [
+        'Посевные инвестиции', 
+        'Прямые инвестиции', 
+        'Образовательные программы по интеллектуальной собственности',
+        'Кредитование под залог интеллектуальной собственности',
+        'Грант на патентование изобретений и полезных моделей в Российской Федерации',
+        'Грант на патентование изобретений и полезных моделей за рубежом',
+        'Программа пилотного тестирования'
+    ]
     // console.log(data[0])
     const oneBlock = data[0]
     const twoBlock = data[1]

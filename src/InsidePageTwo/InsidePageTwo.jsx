@@ -15,13 +15,19 @@ function GreenBubble({flag,  pageTitle, pageText }) {
     console.log('AAA', pageTitle);
     console.log('AAA', pageText);
     console.log('AAAA', flag);
+    let a;
+    if (pageTitle && flag) {
+        a = '0'
+    } else (
+        a = '20px'
+    )
 
     if (!pageText){
         return (<></>)
     }
     return (
         <>
-        <div className='for_whom' style={{ fontWeight: 300 }} >
+        <div className='for_whom' style={{ fontWeight: 300,  gap: a}} >
             {pageTitle && flag ? (<p>{pageTitle}</p>):(<h3>{pageTitle}</h3>)}
             {/* {pageText.length === 1 ? ( <p>{pageText}</p>) : ( */}
                 <ul>
@@ -127,7 +133,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                 const [key, value] = Object.entries(item)[0];
                                 return (
                                     <>
-                                        <GreenBubble flag = {page.title} pageTitle = {key}   pageText = {value}/>
+                                        <GreenBubble flag = {page.title} pageTitle = {key}  pageText = {value}/>
                                         {/* <div className="for_whom">
                                             <ul>
                                                 <li>

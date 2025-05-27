@@ -6,6 +6,7 @@ import qr from '../Img/qr-kod.png';
 import { GreenBubble } from '../GreenBubble';
 import department_logo from '../Img/Clip_path_group.png';
 import logo from '../Img/LogoMIK.png';
+
 function QRTwo ({image_url, delay}){
     return(
         <>
@@ -83,6 +84,8 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                     </>
                                 );
                             })}
+                            {/* TODO: Сделать суда условие if, удалить в json данные */}
+                            <div className='otraslevie_napravlenia'></div>
                         {/* </div>     */}
                         {page.titleOne === 'Инвестиционная экспертиза' ?
                          (

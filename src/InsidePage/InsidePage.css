@@ -64,7 +64,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 .for_whom{
@@ -109,6 +109,8 @@
     /* flex: 1; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
     row-gap: 25px;
     margin: 0 15px 0 15px;
 

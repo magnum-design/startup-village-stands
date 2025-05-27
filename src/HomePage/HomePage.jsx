@@ -14,15 +14,21 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
     let text = pageData.textForButtonBlock[title];
    
     const onePageTitle = [
-        'investment_button',
-        'direct_button',
+        'Льготные займы на развитие',
+        'Льготные займы на масштабирование',
+        'Образовательные программы по интеллектуальной собственности',
+        'Кредитование под залог интеллектуальной собственности',
+        'Грант на патентование изобретений и полезных моделей в Российской Федерации',
+        'Грант на патентование изобретений и полезных моделей за рубежом',
+        'Пилотное тестирование инноваций',
+        
     ]
     const onMenuButtonClick = (id) => {
         setPageData(pageData[id]);
-        console.log('sjfbguiys',  pageData[id])     
+        // console.log('sjfbguiys',  pageData[id].titleOne)     
         setShowHome(true);
         // TODO: show if nessasary
-        if (onePageTitle.includes(pageData.titleOne)){
+        if (onePageTitle.includes(pageData[id].titleOne)){
             setShowNext(false);
         } else {
             setShowNext(true);

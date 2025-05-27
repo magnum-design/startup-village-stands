@@ -25,7 +25,7 @@
 h1{
   font-family: 'MyCustomFont';
   font-style: normal;
-  font-size: 87pt;
+  font-size: 80pt;
 
 }
 
@@ -59,10 +59,10 @@ p{
   font-style: normal;
   font-size: 24pt;
   color: #ffffff;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 200;
   text-align: left;
-  line-height: 1;
+  line-height: 40px;
   
 }
 
@@ -72,10 +72,10 @@ li{
   font-style: normal;
   font-size: 24pt;
   color: #ffffff;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 300;
   text-align: left;
-  
+  line-height: 40px;
 }
 
 

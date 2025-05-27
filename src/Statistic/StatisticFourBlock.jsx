@@ -74,7 +74,7 @@ function SquareBlock({ blockData }){
             <div className='circle'></div>
             <div className='for_statistic '>
                 <Triplet specialWords = {specialWords} />
-                <p>{blockData[Object.keys(blockData)]}</p>
+                <p style={{fontSize:'30pt'}}>{blockData[Object.keys(blockData)]}</p>
             </div>
         </>
     )
@@ -89,7 +89,7 @@ function TriangleBlock({ blockData }){
             <div className='for_statistic_row'>
                 <Triplet specialWords = {specialWords} />
                 <div className='for_p'>
-                    <p>{blockData[Object.keys(blockData)]}</p>
+                    <p style={{fontSize:'30pt'}}> {blockData[Object.keys(blockData)]}</p>
                 </div>
             </div>
         </>

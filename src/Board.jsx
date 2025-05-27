@@ -46,7 +46,7 @@ function Background(){
 }
 
 
-export default function BoardOne({jsonData, jsonbutton}) {
+export default function BoardOne({ jsonData, jsonbutton}) {
     const path = useLocation();
     const locationPath = path.pathname.split('/')[1];
 
@@ -113,7 +113,7 @@ export default function BoardOne({jsonData, jsonbutton}) {
                 <motion.div key='startpagekey'
                 animate = {{opacity:1}}
                 exit    = {{opacity: 0}}>
-                    <StartPage titleStartPage={titleStart} setShowStart={startPageButton} />
+                    <StartPage  image = {jsonDatapage.image.image_class} titleStartPage={titleStart} setShowStart={startPageButton} />
                 </motion.div>
             ):(
             <>
@@ -127,7 +127,7 @@ export default function BoardOne({jsonData, jsonbutton}) {
                                <InsidePageTwo pageData={pageData}/>
                             )}
                            </>
-                       )})
+                       )}
             </>)
             }
         </AnimatePresence>

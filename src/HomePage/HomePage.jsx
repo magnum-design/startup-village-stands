@@ -10,7 +10,8 @@ import { animate } from 'motion';
 
 const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
     const homeTitle = useRef();
-    // console.log('sjfbguiys', Object.keys(pageData))
+    let title = Object.keys(pageData.textForButtonBlock)[0];
+    let text = pageData.textForButtonBlock[title];
    
     const onePageTitle = [
         'investment_button',
@@ -47,7 +48,8 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
             <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <img src={logo} alt="Logo" className="logoHome"/>
                     <div  id='middel_conteiner' className='middel_conteiner'>
-                        <h2 ref={homeTitle} className='title_home'>Меры поддержки<br/> и сервисы</h2>
+                    <h2 ref={homeTitle} className='title_home'>Меры поддержки <br></br> и сервисы</h2>
+    
                         <div className='container_for_button'>
                             { buttons }
                         </div>

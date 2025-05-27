@@ -32,7 +32,7 @@
 }
 
 .title{
-    
+    margin: 20px 0;
     color: #fff;
     text-align: left;
     text-transform: uppercase;
@@ -58,6 +58,16 @@
     text-align: left;
     margin-left: 0;
     
+}
+
+.logo_start{
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 400px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
 }
 
 .start_container_vertical{
@@ -107,11 +117,49 @@
     z-index: 3;
 }
 
+.racket{
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: 700px;
+    height: 700px;
+    background-image: url("../Img/racketa.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
+.robo{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 700px;
+    height: 700px;
+    background-image: url("../Img/nout.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
+
+
+
+
 .department_logo{
     position: absolute;
     top: 90px;
     right: 80px;
     width: 242px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
+}
+
+.department_logo_start{
+    position: absolute;
+    top: 90px;
+    right: 80px;
+    width: 400px;
     margin-bottom: 20px;
     text-align: left;
     margin-left: 0;

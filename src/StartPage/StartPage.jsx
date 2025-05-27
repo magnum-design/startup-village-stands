@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 
 const StartPage = forwardRef((props, ref) => {
     let {titleStartPage} = props;
+    let {image} = props;
     console.log('гыг', titleStartPage);
     let titleStartFirst = titleStartPage.split(' ')[0];
     let titleStartSecond = titleStartPage.split(' ')[1];
@@ -49,9 +50,9 @@ const StartPage = forwardRef((props, ref) => {
                             </div>
                         </div>
                     </div>
-                    <img src={logo} alt="Logo" className="logo"/>
-                    <img src={department_logo} alt="department_logo" className="department_logo"/>
-                    <div className='mony'></div>
+                    <img src={logo} alt="Logo" className="logo_start"/>
+                    <img src={department_logo} alt="department_logo" className="department_logo_start"/>
+                    <div className={image}></div>
                 </div>
             </motion.div>
         </>

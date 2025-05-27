@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 import {MenuButton} from './Buttons/Buttons'
+import StartPageFour from './StartPage/StartPageFour.jsx';
 import StartPage from './StartPage/StartPage.jsx';
 import HomePage from './HomePage/HomePage.jsx';
 import InsidePage from './InsidePage/InsidePage.jsx';
@@ -13,7 +14,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-const RESET_TIME = 1200; //secs
+const RESET_TIME = 10; //secs
 
 
 function setInactiveTimer(setPageData, setShowStart, setShowMore) {
@@ -46,7 +47,7 @@ function Background(){
 }
 
 
-export default function BoardOne({jsonData, jsonbutton}) {
+export default function BoardFour({jsonData, jsonbutton}) {
     const path = useLocation();
     const locationPath = path.pathname.split('/')[1];
 
@@ -54,20 +55,6 @@ export default function BoardOne({jsonData, jsonbutton}) {
     const jsonDatapage = jsonData;
 
     let titleStart;
-
-    if (locationPath === 'board_one') {
-        titleStart = 'Привлечение финансирования'
-    } else if (locationPath === 'board_two') {
-        titleStart = 'ПОДДЕРЖКА РАЗРАБОТОК'
-    } else if (locationPath === 'board_three') {
-        titleStart = 'ВНЕДРЕНИЕ ИННОВАЦИЙ'
-    } else if (locationPath === 'board_four') {
-        titleStart = 'ТРУДОУСТРОЙСТВО В ВЫСОКОТЕХ'
-    } else {
-        titleStart = 'Привет'
-    }
-
-
 
 
     let [pageData, setPageData] = useState(null);
@@ -113,7 +100,7 @@ export default function BoardOne({jsonData, jsonbutton}) {
                 <motion.div key='startpagekey'
                 animate = {{opacity:1}}
                 exit    = {{opacity: 0}}>
-                    <StartPage titleStartPage={titleStart} setShowStart={startPageButton} />
+                    <StartPageFour titleStartPage={titleStart} setShowStart={startPageButton} />
                 </motion.div>
             ):(
             <>
@@ -133,4 +120,3 @@ export default function BoardOne({jsonData, jsonbutton}) {
         </AnimatePresence>
         </>
     )};
-            // <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>

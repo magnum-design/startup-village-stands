@@ -1,6 +1,7 @@
 import './StartPage.css';
 import background_video from '../Videos/fon.mp4';
 import logo from '../Img/LogoMIK.png';
+import four_logo from '../Img/four_logo.png' 
 import department_logo from '../Img/Clip_path_group.png';
 import { forwardRef, useImperativeHandle, useRef} from 'react';
 import {animate, defaultEasing, progressPercentage} from 'motion'
@@ -26,7 +27,7 @@ const StartPage = forwardRef((props, ref) => {
     return (
         <>
             <motion.div exit={{opacity : 0, duration: 5}} id='start_container' className='start_container' ref={componentRef}
-        onClick={ hideStart }
+         onClick={ hideStart }
         >
                 <video className='video_fon'
                     controls = {false}
@@ -39,8 +40,8 @@ const StartPage = forwardRef((props, ref) => {
                 <div id='content' className='content'>
                     <div className='start_container_vertical'>
                         <div className="for_statistic_wrapper">
-                            <div className='circle'></div>
-                            <div className='for_start'>
+                            <div className='circle_four'></div>
+                            <div className='for_start_four'>
                                 <h1 className='title'>
                                 {titleStartFirst}<br/>
                                 {titleStartSecond}
@@ -49,7 +50,7 @@ const StartPage = forwardRef((props, ref) => {
                             </div>
                         </div>
                     </div>
-                    <img src={logo} alt="Logo" className="logo"/>
+                    <img src={four_logo} alt="Logo" className="logo_starts"/>
                     <img src={department_logo} alt="department_logo" className="department_logo"/>
                     <div className='mony'></div>
                 </div>

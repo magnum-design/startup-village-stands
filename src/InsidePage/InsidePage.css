@@ -362,3 +362,94 @@
 .five{
     position: relative;
 }
+
+.for_whom_four{
+    width: 100%;
+    align-items: flex-start;
+    background: radial-gradient(
+        150% 800% at 0% 100%,
+        rgba(16, 0, 40, 1) 0%,
+        rgba(140, 72, 241, 1) 40%,
+        rgba(154, 93, 242, 1) 80%,
+        rgba(202, 170, 248, 1) 80%
+      );
+    background-color: rgba(255, 255, 255, 1.0);
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 20px;
+    box-shadow: -4px 8px 15.399999618530273px 4px rgba(116, 77, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 40px;
+    position: relative;
+    
+}
+
+.for_qr_four{
+    /* flex: 1; */
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 20px;
+    border: 1px solid rgba(77, 255, 201, 0.2); 
+    padding: 40px 40px 40px 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    align-content: flex-start;
+    z-index: 1; 
+    isolation: isolate;
+    
+    
+}
+
+.for_statistic_four{
+    flex: 1;
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 20px;
+    border: 1px solid rgba(77, 255, 201, 0.2); 
+    padding: 40px 20px 40px 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: visible;
+    align-content: flex-start;
+    z-index: 1; 
+    isolation: isolate; 
+    
+}
+
+.for_statistic_row{
+    flex: 1;
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 20px;
+    border: 1px solid rgba(77, 255, 201, 0.2); 
+    padding: 20px 20px 20px 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 2%;
+    z-index: 1;
+    isolation: isolate;
+}

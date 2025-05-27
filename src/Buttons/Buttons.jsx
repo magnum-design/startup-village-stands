@@ -44,7 +44,7 @@ import { animate, AnimatePresence } from 'framer-motion';
       return (
         <>
         <AnimatePresence>
-         <motion.div key={id_button} initial={{y:-50, opacity:0}} animate={{y : 0, opacity:1, transition:{delay: props['delay']/10}}} exit={{x:100}} onClick={onclickFunc} className='menu_button' id={id_button}>
+         <motion.div key={id_button} initial={{y:-50, opacity:0}} animate={{y : 0, opacity:1, transition:{delay: props['delay']/10}}} exit={{x:100}} onClick={onclickFunc} className='menu_button_four' id={id_button}>
             <h3 className='correct_for_button'>{nameButton}</h3>
          </motion.div>
         </AnimatePresence>

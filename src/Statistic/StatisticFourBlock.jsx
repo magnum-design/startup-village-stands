@@ -38,7 +38,7 @@ function SquareBlock({ blockData }){
     return (
         <>
             <div className='circle'></div>
-            <div className='for_statistic '>
+            <div className='for_statistic_four'>
                 <Triplet specialWords = {specialWords} />
                 <p>{blockData[Object.keys(blockData)]}</p>
             </div>

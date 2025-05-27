@@ -32,7 +32,7 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
 
     return (
         <>
-            <div id='home_container' className='home_container'>
+            <div id='home_container' className='home_container_four'>
             <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <img src={logo} alt="Logo" className="logoHome"/>
                     <div  id='middel_conteiner' className='middel_conteiner'>

@@ -13,6 +13,7 @@
     /* opacity: 0; */
 }
 
+
 .middel_conteiner {
     width: 100%;
     height: 100%;
@@ -62,4 +63,20 @@
 
 
     /* row-gap: 2%;  */
+}
+
+
+.home_container_four {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    color: #000;
+    background-image: url('../Img/fon_four.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 0; */
 }

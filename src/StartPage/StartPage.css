@@ -60,6 +60,17 @@
     
 }
 
+.logo_starts {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 400px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
+    
+}
+
 .start_container_vertical{
     width: 90%;
     /* flex: 1; */
@@ -115,4 +126,46 @@
     margin-bottom: 20px;
     text-align: left;
     margin-left: 0;
+}
+
+.circle_four{
+    background: radial-gradient(
+        50% 50% at 74% 50%,
+        rgba(140, 72, 241, 1) 31%,
+        rgba(154, 93, 242, 1) 50%,
+        rgba(202, 170, 248, 1) 79% 
+      );
+      border-radius: 100px;
+      width: 5%;
+      max-width: 20px;
+      height: 50%;
+      min-height: 132px;
+      min-width: 26px;
+      position: absolute;
+      top: 25%;
+      left: -10px;
+      z-index: 0;
+}
+
+.for_start_four{
+    flex: 1;
+    box-shadow: -4px 8px 15px 4px rgba(240, 170, 248, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 20px;
+    border: 1px solid rgba(154, 93, 242, 0.2); 
+    padding: 40px 20px 40px 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: visible;
+    align-content: flex-start;
+    z-index: 1; 
+    isolation: isolate;
+    height: 800px; 
 }

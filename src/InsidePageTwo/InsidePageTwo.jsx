@@ -8,9 +8,9 @@ import { GreenBubble } from '../GreenBubble';
 function QRTwo ({image_url, delay}){
     return(
         <>
-            <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}} className="for_statistic_wrapper">
+            <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}} className="for_statistic_wrapper_two">
                 <div className='circle'></div>
-                <div className='for_qr' style={{width: '100%'}}>
+                <div className='for_qr_four' style={{width: '100%'}}>
                     <div className='flex_row'>
                         <div className='flex_column'>
                             <p>подать заявку</p>

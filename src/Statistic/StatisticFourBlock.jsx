@@ -37,7 +37,7 @@ function SquareBlock({ blockData }){
     // console.log(Object.keys(blockData)[0])
     return (
         <>
-            <div className='circle'></div>
+            <div className='circle_four'></div>
             <div className='for_statistic_four'>
                 <Triplet specialWords = {specialWords} />
                 <p>{blockData[Object.keys(blockData)]}</p>
@@ -51,18 +51,22 @@ function TriangleBlock({ blockData }){
 
     return (
         <>
-            <div className='circle'></div>
+            <div className='circle_four'></div>
             <div className='for_statistic_row'>
                 <Triplet specialWords = {specialWords} />
                 <div className='for_p'>
-                    <p>{blockData[Object.keys(blockData)]}</p>
+                    <p className='statistic_p'>{blockData[Object.keys(blockData)]}</p>
                 </div>
             </div>
         </>
     )
 }
 
-export function StatisticFourBlock({data}){
+export function StatisticFourBlock({titlePage, data}){
+    const onePageTitle = [
+        'Академия инноваторов',
+        'Новатор Москвы'
+    ]
 
     let oneBlock, twoBlock, threeBlock, fourBlock;
     if (data) {
@@ -97,13 +101,14 @@ export function StatisticFourBlock({data}){
                         <SquareBlock blockData = { fourBlock }/>
                     </motion.div>
                 </div>
-
+                
+                {onePageTitle.includes(titlePage) && <motion.div initial={{y:-100, opacity : 0}} animate={{y:0, opacity : 1, transition:{delay: 1.9}}} className='four_statistic_block'> <QR/> </motion.div>}
             </div>
         </>
     )
 }
 
-export function StatisticSixBlock({data}){
+export function StatisticSixBlock({titlePage ,data}){
 
     let oneBlock, twoBlock, threeBlock, fourBlock, fiveBlock, sixBlock;
     if (data) {
@@ -165,7 +170,13 @@ export function StatisticThreeBlock({titlePage, data}){
         'Кредитование под залог интеллектуальной собственности',
         'Грант на патентование изобретений и полезных моделей в Российской Федерации',
         'Грант на патентование изобретений и полезных моделей за рубежом',
-        'Программа пилотного тестирования'
+        'Программа пилотного тестирования',
+        'Добровольный квалификационный экзамен',
+        'Start in Moscow',
+        'Студфест',
+        'День без турникетов',
+        'Субсидия на обучение сотрудников',
+        'Лидеры цифровой трансформации'
     ]
     // console.log(data[0])
     const oneBlock = data[0]
@@ -225,7 +236,7 @@ export function StatisticTwoBlock({data}){
                         <TriangleBlock blockData = { twoBlock } />
                     </motion.div>
 
-                    {/* <QR/> */}
+                    <QR/>
 
 
 
@@ -240,8 +251,8 @@ export function QR({delay}){
     return(
         <>
             <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}}className="for_statistic_wrapper">
-                <div className='circle'></div>
-                <div className='for_qr'>
+                <div className='circle_four'></div>
+                <div className='for_qr_four'>
                     <p>подать заявку</p>
                     <img src={qr} alt="Logo" className="logo_gr"/>
                 </div>

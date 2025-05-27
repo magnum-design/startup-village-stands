@@ -4,7 +4,7 @@
     left: 7%;
     width: 125px;
     height: 125px;
-    background-image: url("../Img/home_button.png");
+    background-image: url("../Img/home_button_four.png");
     background-size:contain;
     background-repeat: no-repeat;
     z-index: 3;
@@ -16,7 +16,7 @@
     right: 7%;
     width: 125px;
     height: 125px;
-    background-image: url("../Img/nextButton.png");
+    background-image: url("../Img/nextButton_four.png");
     background-size:contain;
     background-repeat: no-repeat;
     z-index: 3;
@@ -28,7 +28,7 @@
     left: 15%;
     width: 125px;
     height: 125px;
-    background-image: url("../Img/backbutton.png");
+    background-image: url("../Img/backbutton_four.png");
     background-size:contain;
     background-repeat: no-repeat;
     z-index: 3;

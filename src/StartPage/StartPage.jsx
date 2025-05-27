@@ -15,9 +15,11 @@ import { useLocation } from "react-router-dom";
 
 const StartPage = forwardRef((props, ref) => {
     let {titleStartPage} = props;
-    console.log('гыг', titleStartPage);
+    let {image} = props;
+    // console.log('гыг', titleStartPage, image);
     let titleStartFirst = titleStartPage.split(' ')[0];
     let titleStartSecond = titleStartPage.split(' ')[1];
+    let titleStartThree =  titleStartPage.split(' ')[2] && titleStartPage.split(' ')[2];
     const  componentRef = useRef(null);
     function hideStart(){
         props.setShowStart(false);
@@ -44,15 +46,16 @@ const StartPage = forwardRef((props, ref) => {
                             <div className='for_start_four'>
                                 <h1 className='title'>
                                 {titleStartFirst}<br/>
-                                {titleStartSecond}
+                                {titleStartSecond}<br/>
+                                {titleStartThree}
                                 </h1>
 
                             </div>
                         </div>
                     </div>
                     <img src={four_logo} alt="Logo" className="logo_starts"/>
-                    <img src={department_logo} alt="department_logo" className="department_logo"/>
-                    <div className='mony'></div>
+                    <img src={department_logo} alt="department_logo" className="department_logo_start"/>
+                    <div className={image}></div>
                 </div>
             </motion.div>
         </>

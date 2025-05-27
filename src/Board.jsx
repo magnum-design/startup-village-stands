@@ -40,7 +40,7 @@ function setInactiveTimer(setPageData, setShowStart, setShowMore) {
 function Background(){
     return (
         <>
-        <div className='home_container'></div>
+        <div className='home_container_four'></div>
         </>
     )
 }
@@ -60,9 +60,9 @@ export default function BoardOne({jsonData, jsonbutton}) {
     } else if (locationPath === 'board_two') {
         titleStart = 'ПОДДЕРЖКА РАЗРАБОТОК'
     } else if (locationPath === 'board_three') {
-        titleStart = 'ВНЕДРЕНИЕ ИННОВАЦИЙ'
+        titleStart = 'Развитиае человечского капитала'
     } else if (locationPath === 'board_four') {
-        titleStart = 'ТРУДОУСТРОЙСТВО В ВЫСОКОТЕХ'
+        titleStart = ''
     } else {
         titleStart = 'Привет'
     }
@@ -113,7 +113,7 @@ export default function BoardOne({jsonData, jsonbutton}) {
                 <motion.div key='startpagekey'
                 animate = {{opacity:1}}
                 exit    = {{opacity: 0}}>
-                    <StartPage titleStartPage={titleStart} setShowStart={startPageButton} />
+                    <StartPage image = {jsonDatapage.image.image_class} titleStartPage={titleStart} setShowStart={startPageButton} />
                 </motion.div>
             ):(
             <>

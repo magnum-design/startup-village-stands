@@ -118,6 +118,19 @@
     z-index: 3;
 }
 
+
+.bulb{
+    position: absolute;
+    top: 41%;
+    left: 45%;
+    width: 600px;
+    height: 600px;
+    background-image: url("../Img/bulb.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
 .department_logo{
     position: absolute;
     top: 90px;
@@ -128,9 +141,19 @@
     margin-left: 0;
 }
 
+.department_logo_start{
+    position: absolute;
+    top: 90px;
+    right: 80px;
+    width: 500px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
+}
+
 .circle_four{
     background: radial-gradient(
-        50% 50% at 74% 50%,
+        80% 80% at 74% 50%,
         rgba(140, 72, 241, 1) 31%,
         rgba(154, 93, 242, 1) 50%,
         rgba(202, 170, 248, 1) 79% 

@@ -7,10 +7,10 @@
     flex-direction: column;
     position: absolute;
     overflow: hidden;    
-    justify-content: center;
+    justify-content: first baseline;
     align-items: center; 
     align-content: flex-start;
-    justify-content: flex-start;
+
    }
 
 .home_button_block{
@@ -51,7 +51,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    gap: 40px;
+    gap: 20px;
 
 
 }
@@ -172,6 +172,14 @@
     
 }
 
+.four_statistic_block{
+    width: 98%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
 
 .circle{
     background: radial-gradient(
@@ -196,7 +204,7 @@
 
 .for_statistic_row{
     flex: 1;
-    box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.3), 
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5), 
                 inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -277,7 +285,7 @@
 }
 
 .title_container{
-    margin-top: 200px ;
+    margin-top: 150px ;
     text-align: left;
     width: 88%;
     display: flex;
@@ -449,7 +457,13 @@
     flex-direction: row; 
     justify-content: flex-start; 
     align-items: center;
-    gap: 2%;
+    gap: 4%;
     z-index: 1;
     isolation: isolate;
+}
+
+.statistic_p{
+    font-size: 32pt;
+    font-style: normal;
+    font-weight: 400;
 }

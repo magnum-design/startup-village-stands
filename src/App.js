@@ -15,8 +15,8 @@ export default function App() {
         <Routes>
           <Route path="/board_one" element={<Board jsonData = {pageDataOne} jsonbutton = {buttonsIdsOne} />} />
           <Route path="/board_two" element={<Board  jsonData = {pageDataTwo} jsonbutton = {buttonsIdsTwo}/>} />
-          <Route path="/board_three" element={<Board  jsonData = {pageDataThree} jsonbutton = {buttonsIdsThree}/>} />
-          <Route path="/board_four" element={<BoardFour  jsonData = {pageDataFour} jsonbutton = {buttonsIdFour}/>} />                    
+          <Route path="/board_three" element={<Board  jsonData = {pageDataFour} jsonbutton = {buttonsIdFour}/>} />
+          {/* <Route path="/board_four" element={<BoardFour  jsonData = {pageDataFour} jsonbutton = {buttonsIdFour}/>} />                     */}
           <Route path="*" element={<Controller />} /> {/* Fallback для неизвестных маршрутов */}
         </Routes>
       </BrowserRouter>

@@ -60,16 +60,18 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                     ref = {titleContainer}
                     className = 'title_container'>
                     <h2>{page.titleOne}</h2>
-                     <p>{page.textOne}</p>
+                    <p style={{fontSize: '20pt'}}>{page.textOne}</p>
                 </motion.div>
 
                 <div className='inside_main_conteiner'>
                 <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo} delay={0.5}/>
-                <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>
+                {page.titleThree && <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>}
+                {page.titleFour && <GreenBubble pageTitle = {page.titleFour} pageText= {page.dictFour} delay={1.5}/>}
+
                     { page.indicator.length === 6 ? (
                         <StatisticSixBlock data={page.indicator} />
                     ) : page.indicator.length === 4 ? (
-                        <StatisticFourBlock data={page.indicator} />
+                        <StatisticFourBlock titlePage = {page.titleOne} data={page.indicator} />
                     ) : page.indicator.length === 3 ? (
                         <StatisticThreeBlock titlePage = {page.titleOne} data={page.indicator} />
                     ) : page.indicator.length === 2 ? (

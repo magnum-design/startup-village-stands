@@ -10,12 +10,23 @@ import { animate } from 'motion';
 
 const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
     const homeTitle = useRef();
-
+    // console.log('sjfbguiys', Object.keys(pageData))
+   
+    const onePageTitle = [
+        'investment_button',
+        'direct_button',
+    ]
     const onMenuButtonClick = (id) => {
         setPageData(pageData[id]);
+        console.log('sjfbguiys',  pageData[id])     
         setShowHome(true);
         // TODO: show if nessasary
-        setShowNext(true);
+        if (onePageTitle.includes(pageData.titleOne)){
+            setShowNext(false);
+        } else {
+            setShowNext(true);
+        }
+        
     }
 
     let counter = 0;

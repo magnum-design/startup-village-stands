@@ -4,11 +4,12 @@ import { motion } from 'framer-motion';
 import { QR } from '../Statistic/StatisticFourBlock';
 import qr from '../Img/qr-kod.png';
 import { GreenBubble } from '../GreenBubble';
-
+import department_logo from '../Img/Clip_path_group.png';
+import logo from '../Img/LogoMIK.png';
 function QRTwo ({image_url, delay}){
     return(
         <>
-            <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}} className="for_statistic_wrapper">
+            <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}} className="for_statistic_wrapper_two">
                 <div className='circle'></div>
                 <div className='for_qr' style={{width: '100%'}}>
                     <div className='flex_row'>
@@ -57,6 +58,8 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                     initial="hidden"
                     id='internal_page_two'
                     className='internal_conteiner'>
+                    <img src={department_logo} alt="department_logo" className="department_logo"/>
+                    <img src={logo} alt="Logo" className="logoHome"/>
                     <div className="inside_main_conteiner-two">
                     {page.title ? (
                         <div className='title_container_two'>

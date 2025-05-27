@@ -62,6 +62,7 @@ p{
   letter-spacing: 2px;
   font-weight: 200;
   text-align: left;
+  line-height: 1;
   
 }
 
@@ -76,6 +77,8 @@ li{
   text-align: left;
   
 }
+
+
 
 .App {
   text-align: center;

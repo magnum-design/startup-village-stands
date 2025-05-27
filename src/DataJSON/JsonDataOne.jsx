@@ -10,6 +10,10 @@ export const buttonsIdsOne= {
 }
 
 export const pageDataOne = {
+    image:{
+        image_class : 'mony'
+    },
+    textForButtonBlock: {'карьера В ВЫСОКОТЕХе': 'Построение карьеры в технологических компаниях'},
     support_button: {
         titleOne: "Навигция по мерам поддержки",
         textOne: "Сервис подбора релевантных программ поддержки от Правительства Москвы, институтов развития и других федеральных структур",
@@ -339,6 +343,10 @@ export const buttonsIdsThree = {
 };
 
 export const pageDataTwo = {
+    image:{
+        image_class : 'racket'
+    },
+    textForButtonBlock: {'Меры поддержки и сервисы': 'Построение карьеры в технологических компаниях'},
     technomarket_button: {
         titleOne: "Техномаркет",
         textOne: "Маркетплейс, где технологические компании могут заказать весь спектр услуг: от НИОКР и испытаний, до прототипирования и серийного производства",
@@ -551,6 +559,10 @@ export const pageDataTwo = {
 
 
 export const pageDataThree = {
+    image:{
+        image_class : 'robo'
+    },
+    textForButtonBlock: {'карьера В ВЫСОКОТЕХе': 'Построение карьеры в технологических компаниях'},
     pilot_testing_program_button: {
         titleOne: "Программа пилотного тестирования",
         textOne: "Программа для тестирования новейших решений в реальных условиях на городских и коммерческих площадках",

@@ -2,7 +2,12 @@ import '../InsidePage/InsidePage.css';
 import qr from '../Img/qr-kod.png';
 import {motion} from 'framer-motion'
 
+function startsWithNumber(str) {
+    return /^\d/.test(str);
+}
 export function Triplet({specialWords}){
+    // I'm sorry for this abomination, but time is ticking
+    console.log(specialWords)
     let smallLeft = '';
     let bigCenter = '';
     let smallRight = '';
@@ -16,10 +21,39 @@ export function Triplet({specialWords}){
             bigCenter = specialWords[0]
             smallRight = specialWords[1]
         }
-    } else {
-        smallLeft = specialWords[0]
-        bigCenter = specialWords[1]
-        smallRight = specialWords[2]
+    } else if (specialWords.length == 3){
+        if (startsWithNumber(specialWords[0])){
+            bigCenter = specialWords[0]
+            smallRight = specialWords[1] + ' ' + specialWords[2]
+        }
+        if (startsWithNumber(specialWords[1])){
+            smallLeft = specialWords[0]
+            bigCenter = specialWords[1]
+            smallRight = specialWords[2]
+        }
+        if (startsWithNumber(specialWords[2])){
+            smallLeft = specialWords[0] + ' ' + specialWords[1]
+            bigCenter = specialWords[2]
+        }
+    } else if (specialWords.length == 4){
+        if (startsWithNumber(specialWords[0])){
+            bigCenter = specialWords[0]
+            smallRight = specialWords[1] + ' ' + specialWords[2] + ' ' + specialWords[3]
+        }
+        if (startsWithNumber(specialWords[1])){
+            smallLeft = specialWords[0]
+            bigCenter = specialWords[1]
+            smallRight = specialWords[2] + ' ' + specialWords[3]
+        }
+        if (startsWithNumber(specialWords[2])){
+            smallLeft = specialWords[0] + ' ' + specialWords[1]
+            bigCenter = specialWords[2]
+            smallRight = specialWords[3]
+        }
+        if (startsWithNumber(specialWords[4])){
+            smallLeft = specialWords[0] + ' ' + specialWords[1] + ' ' + specialWords[2]
+            bigCenter = specialWords[3]
+        }
     }
     return (
         <>

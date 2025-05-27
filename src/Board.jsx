@@ -13,7 +13,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-const RESET_TIME = 1200; //secs
+const RESET_TIME = 60 * 5; //secs
 
 
 function setInactiveTimer(setPageData, setShowStart, setShowMore) {

@@ -16,7 +16,7 @@
   font-family: 'MyCustomFont';
   src: url('./fonts/TTFirsNeue-Regular.ttf') format('truetype');
   font-weight:  normal;
-  font-style: medium;
+  font-style: regular;
 }
 
 
@@ -56,11 +56,11 @@ h3{
 
 p{
   font-family: 'MyCustomFont';
-  font-style: normal;
+  font-style: regular;
   font-size: 20pt;
   color: #ffffff;
-  letter-spacing: 2px;
-  font-weight: 200;
+  letter-spacing: 1px;
+  font-weight: 100;
   text-align: left;
   
 }
@@ -68,11 +68,11 @@ p{
 
 li{
   font-family: 'MyCustomFont';
-  font-style: normal;
+  font-style: regular;
   font-size: 20pt;
   color: #ffffff;
-  letter-spacing: 2px;
-  font-weight: 200;
+  letter-spacing: 1px;
+  font-weight: 100;
   text-align: left;
   
 }

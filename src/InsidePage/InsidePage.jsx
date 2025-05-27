@@ -1,10 +1,11 @@
 import './InsidePage.css';
-import logo from '../Img/LogoMIK.png';
+import logo from '../Img/four_logo.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
 import { GreenBubble } from '../GreenBubble'
 import {StatisticFourBlock, StatisticThreeBlock, StatisticTwoBlock, StatisticSixBlock} from '../Statistic/StatisticFourBlock';
+import department_logo from '../Img/Clip_path_group.png'
 
 import InsidePageTwo from '../InsidePageTwo/InsidePageTwo';
 
@@ -56,6 +57,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 id='internal_page_one'
                 className='internal_conteiner' >
                 <img src={logo} alt="Logo" className="logoHome"/>
+                <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <motion.div animate={{opacity:1, x:0}} initial={{opacity:0, x: -100}}
                     ref = {titleContainer}
                     className = 'title_container'>

@@ -102,7 +102,7 @@ export function StatisticFourBlock({titlePage, data}){
                     </motion.div>
                 </div>
                 
-                {onePageTitle.includes(titlePage) && <motion.div initial={{y:-100, opacity : 0}} animate={{y:0, opacity : 1, transition:{delay: 1.9}}} className='four_statistic_block'> <QR/> </motion.div>}
+                {onePageTitle.includes(titlePage) && <div className='four_statistic_block'> <QR delay={2}/> </div>}
             </div>
         </>
     )
@@ -236,7 +236,7 @@ export function StatisticTwoBlock({data}){
                         <TriangleBlock blockData = { twoBlock } />
                     </motion.div>
 
-                    <QR/>
+                     <QR delay={2.5}/>
 
 
 

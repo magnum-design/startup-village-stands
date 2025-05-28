@@ -82,6 +82,7 @@ export default function BoardOne({ jsonData, jsonbutton}) {
 
     function homeButtonFuncution(){
         setShowHome(false);
+        setHomePageData(null);
         setPageData(null);
         setShowMore(false);
         setShowNext(false);
@@ -99,16 +100,10 @@ export default function BoardOne({ jsonData, jsonbutton}) {
     }
 
     function backButtonFunction(){
-        setShowNext(true);
-        setShowMore(false);
+        setPageData(null);
         setShowBack(false);
     }
 
-    function backButtonFunction(){
-        setShowNext(true);
-        setShowMore(false);
-        setShowBack(false);
-    }
     return (
         <>
         <Background/>
@@ -129,7 +124,7 @@ export default function BoardOne({ jsonData, jsonbutton}) {
                     ):(
                         <>
                        {!pageData ? (
-                            <HomePage buttonsIds={homePageData} pageData={jsonData} setShowNext={setShowNext} setShowHome={setShowHome} setPageData={setPageData}/>
+                            <HomePage buttonsIds={homePageData} pageData={jsonData} setShowBack={setShowBack} setShowHome={setShowHome} setPageData={setPageData}/>
                        ):(
                            <>
                            {!showMore ? (

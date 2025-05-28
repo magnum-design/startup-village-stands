@@ -69,9 +69,6 @@ export const PreHomePage =  forwardRef(({pageData, buttonsIds, setHomePageData, 
             <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <img src={logo} alt="Logo" className="logoHome"/>
                     <div  id='middel_conteiner' className='middel_conteiner'>
-                    <h2 ref={homeTitle} className='title_home'>{title}</h2>
-                    <p className='abs'>{text}</p>
-
                         <div className='container_for_button'>
                             { buttons }
                         </div>
@@ -82,12 +79,10 @@ export const PreHomePage =  forwardRef(({pageData, buttonsIds, setHomePageData, 
 })
 
 
-const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
-    console.log(pageData)
+const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowBack}, ref) => {
     const homeTitle = useRef();
     let title = buttonsIds['title']
-    let text = 'text'// pageData.textForButtonBlock[title];
-
+    let text =  buttonsIds['subtitle']
     const onePageTitle = [
         'Льготные займы на развитие',
         'Льготные займы на масштабирование',
@@ -115,18 +110,14 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
         setPageData(pageData[id]);
         // console.log('sjfbguiys',  pageData[id].titleOne)
         setShowHome(true);
+        setShowBack(true);
         // TODO: show if nessasary
-        if (onePageTitle.includes(pageData[id].titleOne)){
-            setShowNext(false);
-        } else {
-            setShowNext(true);
-        }
 
     }
 
     let counter = 0;
     let buttons = [];
-    Object.entries(buttonsIds).forEach(([id, text]) => {
+    Object.entries(buttonsIds['buttons']).forEach(([id, text]) => {
         buttons.push(<MenuButton
             onclickFunc={() => {onMenuButtonClick(id)} }
             delay = { counter/2 }

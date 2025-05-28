@@ -942,25 +942,41 @@ export const pageDataFour = {
 
 export const buttonsIdFour = {
     career_button:{
-        'voluntary_exam_button': 'Добровольный квалификационный экзамен',
-        'start_moscow_button': 'Start in Moscow',
+        'title' : 'КАРЬЕРА В ВЫСОКОТЕХЕ',
+        'subtitle' : 'Построение карьеры в технологических компаниях',
+        buttons : {
+            'voluntary_exam_button': 'Добровольный квалификационный экзамен',
+            'start_moscow_button': 'Start in Moscow',
+        }
     },
 
     popularization_button:{
-        'studfest_button': 'Студфест',
-        'turniket_free_day_button': 'День без турникетов',
+        'title' : 'ПОПУЛЯРИЗАЦИЯ ПРЕДПРИНИМАТЕЛЬСТВА',
+        'subtitle' : 'Поддержка в профессиональном самоопределении',
+        buttons :{
+            'studfest_button': 'Студфест',
+            'turniket_free_day_button': 'День без турникетов',
+        }
     },
 
     education_button:{
-        'technograd_button': 'ИОК "Техноград"',
-        'career_development_center_button': 'Центр развития карьеры',
-        'subsidy_employee_training_button': 'Субсидия на обучение сотрудников',
+        'title' : 'ОБУЧЕНИЕ И САМОРЕАЛИЗАЦИЯ',
+        'subtitle' : 'Повышение профессиональных компетенций',
+        buttons : {
+            'technograd_button': 'ИОК "Техноград"',
+            'career_development_center_button': 'Центр развития карьеры',
+            'subsidy_employee_training_button': 'Субсидия на обучение сотрудников',
+        }
     },
 
     involvement_button: {
-        'innovators_academy_button': 'Академия инноваторов',
-        'moscow_innovator_button': 'Новатор Москвы',
-        'digital_transformation_leaders_button': 'Лидеры цифровой трансформации'
+        'title' : 'ВОВЛЕЧЕНИЕ В ПРЕДПРИНИМАТЕЛЬСТВО',
+        'subtitle' : 'Академия инноваторов, Новатор Москвы, Лидеры цифровой трансформации',
+        buttons : {
+            'innovators_academy_button': 'Академия инноваторов',
+            'moscow_innovator_button': 'Новатор Москвы',
+            'digital_transformation_leaders_button': 'Лидеры цифровой трансформации'
+        }
     }
 };
 

@@ -4,14 +4,14 @@ import { useLocation } from 'react-router-dom';
 import './App.css';
 import {MenuButton} from './Buttons/Buttons'
 import StartPage from './StartPage/StartPage.jsx';
-import HomePage from './HomePage/HomePage.jsx';
+import HomePage, { PreHomePage } from './HomePage/HomePage.jsx';
 import InsidePage from './InsidePage/InsidePage.jsx';
 import Controller from './Controller.js';
 import { HomeButton, NextButton, BackButton} from './Buttons/Buttons.jsx';
 import InsidePageTwo from './InsidePageTwo/InsidePageTwo.jsx';
 import {AnimatePresence, motion} from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { buttonsIdFour, buttonsIdPreHome } from './DataJSON/JsonDataOne';
 
 const RESET_TIME = 60 * 5; //secs
 
@@ -71,6 +71,7 @@ export default function BoardOne({ jsonData, jsonbutton}) {
 
 
     let [pageData, setPageData] = useState(null);
+    let [homePageData, setHomePageData] = useState(null);
     let [showMore, setShowMore] = useState(false);
     let [showStart, setShowStart] = useState(true);
     let [showHome, setShowHome] = useState(false);
@@ -102,6 +103,12 @@ export default function BoardOne({ jsonData, jsonbutton}) {
         setShowMore(false);
         setShowBack(false);
     }
+
+    function backButtonFunction(){
+        setShowNext(true);
+        setShowMore(false);
+        setShowBack(false);
+    }
     return (
         <>
         <Background/>
@@ -117,8 +124,12 @@ export default function BoardOne({ jsonData, jsonbutton}) {
                 </motion.div>
             ):(
             <>
-               {!pageData ? (
-                        <HomePage buttonsIds={jsonbutton} pageData={jsonData} setShowNext={setShowNext} setShowHome={setShowHome} setPageData={setPageData}/>
+                {! homePageData ? (
+                        <PreHomePage buttonsIds={buttonsIdPreHome} pageData={jsonData} setHomePageData={setHomePageData} setShowNext={setShowNext} setShowHome={setShowHome}/>
+                    ):(
+                        <>
+                       {!pageData ? (
+                            <HomePage buttonsIds={homePageData} pageData={jsonData} setShowNext={setShowNext} setShowHome={setShowHome} setPageData={setPageData}/>
                        ):(
                            <>
                            {!showMore ? (
@@ -127,10 +138,11 @@ export default function BoardOne({ jsonData, jsonbutton}) {
                                <InsidePageTwo pageData={pageData}/>
                             )}
                            </>
-                       )}
-            </>)
+                       )}</>)
+                }</>)
             }
         </AnimatePresence>
         </>
     )};
+
             // <InsidePageTwo ref = {insidePageTwoRef} pageData={pageData}/>

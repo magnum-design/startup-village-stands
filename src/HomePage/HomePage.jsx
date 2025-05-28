@@ -1,18 +1,19 @@
 import './HomePage.css';
 
-import { MenuButton } from '../Buttons/Buttons.jsx';
+import { MenuButton, MenuSubtitleButton } from '../Buttons/Buttons.jsx';
 import { useRef, useImperativeHandle, useEffect, createRef, forwardRef } from 'react';
 import logo from '../Img/razvitie.png';
 import department_logo from '../Img/Clip_path_group.png';
 import { motion } from "motion/react"
 import { animate } from 'motion';
+import { buttonsIdFour } from '../DataJSON/JsonDataOne';
 
 
-const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
+export const PreHomePage =  forwardRef(({pageData, buttonsIds, setHomePageData, setShowHome, setShowNext}, ref) => {
     const homeTitle = useRef();
     let title = Object.keys(pageData.textForButtonBlock)[0];
     let text = pageData.textForButtonBlock[title];
-   
+
     const onePageTitle = [
         'Льготные займы на развитие',
         'Льготные займы на масштабирование',
@@ -23,7 +24,81 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
         'Пилотное тестирование инноваций',
         'Финансирование подготовки к IPO',
         'Пилотное тестирование инноваций',
-        'Добровольный квалификационный экзамен', 
+        'Добровольный квалификационный экзамен',
+        'Start in Moscow',
+        'Студфест',
+        'День без турникетов',
+        'ИОК "Техноград"',
+        'Центр развития карьеры',
+        'Субсидия на обучение сотрудников',
+        'Академия инноваторов',
+        'Новатор Москвы',
+        'Лидеры цифровой трансформации',
+
+
+    ]
+    const onMenuButtonClick = (id) => {
+        console.log(buttonsIdFour[id])
+        setHomePageData(buttonsIdFour[id]);
+        // console.log('sjfbguiys',  pageData[id].titleOne)
+        setShowHome(true);
+        // if (onePageTitle.includes(pageData[id].titleOne)){
+        //     setShowNext(false);
+        // } else {
+        //     setShowNext(true);
+        // }
+
+    }
+
+    let counter = 0;
+    let buttons = [];
+    Object.entries(buttonsIds).forEach(([id, data]) => {
+        buttons.push(<MenuSubtitleButton
+            onclickFunc={() => {onMenuButtonClick(id)} }
+            delay = { counter/2 }
+            key={ id }
+            id_button={ id }
+            subtitle = {data.subtitle}
+            nameButton= { data.title } />)
+        counter+=1;
+    });
+
+    return (
+        <>
+            <div id='home_container' className='home_container'>
+            <img src={department_logo} alt="department_logo" className="department_logo"/>
+                <img src={logo} alt="Logo" className="logoHome"/>
+                    <div  id='middel_conteiner' className='middel_conteiner'>
+                    <h2 ref={homeTitle} className='title_home'>{title}</h2>
+                    <p className='abs'>{text}</p>
+
+                        <div className='container_for_button'>
+                            { buttons }
+                        </div>
+                    </div>
+            </div>
+        </>
+    )
+})
+
+
+const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
+    console.log(pageData)
+    const homeTitle = useRef();
+    let title = buttonsIds['title']
+    let text = 'text'// pageData.textForButtonBlock[title];
+
+    const onePageTitle = [
+        'Льготные займы на развитие',
+        'Льготные займы на масштабирование',
+        'Образовательные программы по интеллектуальной собственности',
+        'Кредитование под залог интеллектуальной собственности',
+        'Грант на патентование изобретений и полезных моделей в Российской Федерации',
+        'Грант на патентование изобретений и полезных моделей за рубежом',
+        'Пилотное тестирование инноваций',
+        'Финансирование подготовки к IPO',
+        'Пилотное тестирование инноваций',
+        'Добровольный квалификационный экзамен',
         'Start in Moscow',
         'Студфест',
         'День без турникетов',
@@ -38,7 +113,7 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
     ]
     const onMenuButtonClick = (id) => {
         setPageData(pageData[id]);
-        // console.log('sjfbguiys',  pageData[id].titleOne)     
+        // console.log('sjfbguiys',  pageData[id].titleOne)
         setShowHome(true);
         // TODO: show if nessasary
         if (onePageTitle.includes(pageData[id].titleOne)){
@@ -46,7 +121,7 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
         } else {
             setShowNext(true);
         }
-        
+
     }
 
     let counter = 0;
@@ -69,7 +144,7 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
                     <div  id='middel_conteiner' className='middel_conteiner'>
                     <h2 ref={homeTitle} className='title_home'>{title}</h2>
                     <p className='abs'>{text}</p>
-    
+
                         <div className='container_for_button'>
                             { buttons }
                         </div>

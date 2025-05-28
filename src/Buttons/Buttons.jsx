@@ -36,6 +36,24 @@ import { animate, AnimatePresence } from 'framer-motion';
  })
 
 
+ export const MenuSubtitleButton = forwardRef((props, ref) => {
+     const id_button = props['id_button']
+     const nameButton = props['nameButton']
+     const subtitle = props['subtitle']
+     const onclickFunc = props['onclickFunc']
+
+      return (
+        <>
+        <AnimatePresence>
+         <motion.div key={id_button} initial={{y:-50, opacity:0}} animate={{y : 0, opacity:1, transition:{delay: props['delay']/10}}} exit={{x:100}} onClick={onclickFunc} className='menu_button' id={id_button}>
+            <h4 className='correct_for_button'>{nameButton}</h4>
+            <p> {subtitle} </p>
+         </motion.div>
+        </AnimatePresence>
+      </>
+      )
+ });
+
  export const MenuButton = forwardRef((props, ref) => {
      const id_button = props['id_button']
      const nameButton = props['nameButton']

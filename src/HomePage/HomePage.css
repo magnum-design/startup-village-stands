@@ -29,14 +29,14 @@
 
 .abs{
     margin-left: 7%;
-    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
 .title_home{
     /* position: absolute;
     top: 9%;
     left: 7%; */
-    margin-top: 0;
+    margin-top: 3%;
     margin-left: 7%;
     font-style: light;
     text-align: left;

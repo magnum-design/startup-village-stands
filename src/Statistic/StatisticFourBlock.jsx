@@ -89,7 +89,7 @@ function TriangleBlock({ blockData }){
             <div className='for_statistic_row'>
                 <Triplet specialWords = {specialWords} />
                 <div className='for_p'>
-                    <p style={{fontSize:'28pt'}}> {blockData[Object.keys(blockData)]}</p>
+                    <p style={{fontSize:'28pt', lineHeight: '42px'}}> {blockData[Object.keys(blockData)]}</p>
                 </div>
             </div>
         </>
@@ -201,6 +201,8 @@ export function StatisticThreeBlock({titlePage, data}){
         'Грант на патентование изобретений и полезных моделей за рубежом',
         'Программа пилотного тестирования',
         'Льготные займы на масштабирование',
+        'Пилотное тестирование инноваций',
+        'Финансирование подготовки к IPO'
    
     ]
     // console.log(data[0])

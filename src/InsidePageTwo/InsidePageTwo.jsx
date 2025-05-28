@@ -97,7 +97,8 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                     );
                                 })
                             }                    
-                    {page.title === 'Что дают межотраслевые кластеры?' && 
+     
+                    {Object.keys(page.text[0])[0] === 'Что дают межотраслевые кластеры?' && 
                     <motion.div 
                         initial={{opacity : 0, x:-100}} 
                         animate={{opacity : 1, x:0, transition:{delay:1.5}}} 

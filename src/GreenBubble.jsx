@@ -23,23 +23,25 @@ const GreenBubble = ({flag, pageTitle, pageText, delay }) => {
                 </>
             )}
             {pageText.length === 1 ? (
-                pageText[0][1] === 's' ? (
-                    <ul><li><b><ParseJSON htmlString={pageText[0]} /></b></li></ul>
+                pageText[0][0]  === '*' ? (
+                    <ul><li><b><ParseJSON htmlString={pageText[0].slice(1)} /></b></li></ul>
                 ) : (
                     <p><ParseJSON htmlString={pageText[0]} /></p>
                 )
             ) : (
-                <ul>
-                    {pageText.map((item, index) => {
+                
+                    pageText.map((item, index) => {
                         return (
-                            item[1] !== 's' ? (
-                                <li key={index}><b><ParseJSON htmlString={item} /></b></li>
+                            item[0] !== '*' ? (
+                                <ul>
+                                    <li key={index}><b><ParseJSON htmlString={item} /></b></li>
+                                </ul>
                             ) : (
-                                <p key={index}><b><ParseJSON htmlString={item} /></b></p>
+                                <p key={index}><b><ParseJSON htmlString={item.slice(1)} /></b></p>
                             )
                         );
-                    })}
-                </ul>
+                    })
+                
             )}
         </motion.div>
         </>

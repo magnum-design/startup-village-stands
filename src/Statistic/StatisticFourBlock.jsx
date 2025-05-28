@@ -243,7 +243,7 @@ export function StatisticThreeBlock({titlePage, data}){
                             <TriangleBlock blockData = { threeBlock } />
                             {/* <img src={qr} /> */}
                         </motion.div>
-                        <QR delay={2.5}/>
+                        <QR titlePage = {titlePage} delay={2.5}/>
                     </div>
                     ) : (
                     <motion.div initial={{opacity : 0, x:100}} animate={{x:0, opacity : 1, transition:{delay:2.5}}} className="for_statistic_wrapper">
@@ -295,12 +295,12 @@ export function StatisticTwoBlock({titlePage, data}){
 }
 
 
-export function QR({delay}){
+export function QR({ titlePage, delay}){
     return(
         <>
             <motion.div initial={{opacity : 0, y:-100}} animate={{opacity : 1, y:0, transition:{delay:delay}}}className="for_statistic_wrapper">
                 <div className='circle'></div>
-                <div className='for_qr'>
+                <div className='for_qr'  style={titlePage === 'Лидеры цифровой трансформации' ? { padding: '30px 40px' } : {}}>
                     <p>подать заявку</p>
                     <img src={qr} alt="Logo" className="logo_gr"/>
                 </div>

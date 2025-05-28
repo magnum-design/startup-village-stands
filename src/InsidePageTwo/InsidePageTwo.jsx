@@ -64,7 +64,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                     <div className="inside_main_conteiner-two">
                     {page.title ? (
                         <div className='title_container_two'>
-                            <h3>{page.title}</h3>
+                            <h5>{page.title}</h5>
                         </div>
                     ):( <div className='title_container_two'></div>)}
 
@@ -73,20 +73,37 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                                 return (
                                     <>
                                         <GreenBubble flag = {page.title} pageTitle = {key} delay={index/2}  pageText = {value}/>
-                                        {/* <div className="for_whom">
-                                            <ul>
-                                                <li>
-                                                <p>{key}</p>
-                                                </li>
-                                            </ul>
-                                            <p>{value}</p>
-                                        </div> */}
+                                        
+                                        
                                     </>
                                 );
                             })}
-                            {/* TODO: Сделать суда условие if, удалить в json данные */}
-                            <div className='otraslevie_napravlenia'></div>
-                        {/* </div>     */}
+                     {page.titleTwoBlock && 
+                        <div className='title_container_two not_margin_top'>
+                            <h5>{page.titleTwoBlock}</h5>
+                        </div>
+                    }      
+
+                            {pageData.titleTwoBlock && pageData.textTwoBlock &&  
+                                pageData.textTwoBlock.map((item, index) => {
+                                    const [key, value] = Object.entries(item)[0];
+                                    return (
+                                        <GreenBubble 
+                                            flag={pageData.titleTwoBlock} 
+                                            pageTitle={key} 
+                                            delay={index / 2}  
+                                            pageText={value} 
+                                        />
+                                    );
+                                })
+                            }                    
+                    {page.title === 'Что дают межотраслевые кластеры?' && 
+                    <motion.div 
+                        initial={{opacity : 0, x:-100}} 
+                        animate={{opacity : 1, x:0, transition:{delay:1.5}}} 
+                        className='otraslevie_napravlenia'>
+                    </motion.div>}
+                            
                         {page.titleOne === 'Инвестиционная экспертиза' ?
                          (
                          <div className='contaniner_qr'>

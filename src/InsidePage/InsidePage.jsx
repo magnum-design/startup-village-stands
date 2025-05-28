@@ -74,7 +74,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                     ) : page.indicator.length === 3 ? (
                         <StatisticThreeBlock titlePage = {page.titleOne} data={page.indicator} />
                     ) : page.indicator.length === 2 ? (
-                        <StatisticTwoBlock data={page.indicator}/>
+                        <StatisticTwoBlock titlePage = {page.titleOne} data={page.indicator}/>
                     ) : (null)
                 }
 

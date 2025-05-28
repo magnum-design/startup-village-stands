@@ -110,12 +110,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
     row-gap: 25px;
     margin: 0 15px 0 15px;
 
 }
 
+.otraslevie_napravlenia{
+    background-image: url("../Img/otraslevie_napravlenia.png");
+    width: 113%;
+    height: 900px;
+    background-size:contain;
+    background-repeat: no-repeat;
+}
 
 .bottom_container_vertical{
     width: 98%;
@@ -348,6 +354,7 @@
 .logo_gr_two{
     width: 350px;
     height: 350px;
+    margin-top: 20px;
 }
 
 .content_conteiner{
@@ -450,4 +457,8 @@
     font-size: 32pt;
     font-style: normal;
     font-weight: 400;
+}
+
+.not_margin_top{
+    margin-top: 10px;
 }

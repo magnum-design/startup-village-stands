@@ -74,7 +74,7 @@ function SquareBlock({ blockData }){
             <div className='circle'></div>
             <div className='for_statistic '>
                 <Triplet specialWords = {specialWords} />
-                <p style={{fontSize:'30pt'}}>{blockData[Object.keys(blockData)]}</p>
+                <p style={{fontSize:'28pt'}}>{blockData[Object.keys(blockData)]}</p>
             </div>
         </>
     )
@@ -89,7 +89,7 @@ function TriangleBlock({ blockData }){
             <div className='for_statistic_row'>
                 <Triplet specialWords = {specialWords} />
                 <div className='for_p'>
-                    <p style={{fontSize:'30pt'}}> {blockData[Object.keys(blockData)]}</p>
+                    <p style={{fontSize:'28pt'}}> {blockData[Object.keys(blockData)]}</p>
                 </div>
             </div>
         </>
@@ -243,11 +243,17 @@ export function StatisticThreeBlock({titlePage, data}){
     )
 }
 
-export function StatisticTwoBlock({data}){
+export function StatisticTwoBlock({titlePage, data}){
     // console.log('Йоу',data[1])
     const oneBlock = data[0]
     const twoBlock = data[1]
+    const onePageTitle = [
+        'Грант на патентование изобретений и полезных моделей за рубежом',
+    
+    ]
 
+
+    console.log('условие', onePageTitle.includes(titlePage))
     // console.log(Object.keys(twoBlock)[0])
     // console.log(Object.keys(twoBlock)[0].includes("млн.₽"))
     return (
@@ -261,6 +267,7 @@ export function StatisticTwoBlock({data}){
                         <TriangleBlock blockData = { twoBlock } />
                     </motion.div>
 
+                    {onePageTitle.includes(titlePage) && <QR delay={2.5}/>}   
                     {/* <QR/> */}
 
 

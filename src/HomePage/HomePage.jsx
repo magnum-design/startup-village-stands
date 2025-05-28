@@ -21,7 +21,8 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
         'Грант на патентование изобретений и полезных моделей в Российской Федерации',
         'Грант на патентование изобретений и полезных моделей за рубежом',
         'Пилотное тестирование инноваций',
-        
+        'Финансирование подготовки к IPO',
+        'Пилотное тестирование инноваций'
     ]
     const onMenuButtonClick = (id) => {
         setPageData(pageData[id]);

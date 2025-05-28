@@ -2,7 +2,7 @@ import './HomePage.css';
 
 import { MenuButton } from '../Buttons/Buttons.jsx';
 import { useRef, useImperativeHandle, useEffect, createRef, forwardRef } from 'react';
-import logo from '../Img/LogoMIK.png';
+import logo from '../Img/razvitie.png';
 import department_logo from '../Img/Clip_path_group.png';
 import { motion } from "motion/react"
 import { animate } from 'motion';
@@ -22,7 +22,19 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
         'Грант на патентование изобретений и полезных моделей за рубежом',
         'Пилотное тестирование инноваций',
         'Финансирование подготовки к IPO',
-        'Пилотное тестирование инноваций'
+        'Пилотное тестирование инноваций',
+        'Добровольный квалификационный экзамен', 
+        'Start in Moscow',
+        'Студфест',
+        'День без турникетов',
+        'ИОК "Техноград"',
+        'Центр развития карьеры',
+        'Субсидия на обучение сотрудников',
+        'Академия инноваторов',
+        'Новатор Москвы',
+        'Лидеры цифровой трансформации',
+
+
     ]
     const onMenuButtonClick = (id) => {
         setPageData(pageData[id]);
@@ -55,7 +67,8 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
             <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <img src={logo} alt="Logo" className="logoHome"/>
                     <div  id='middel_conteiner' className='middel_conteiner'>
-                    <h2 ref={homeTitle} className='title_home'>Меры поддержки <br></br> и сервисы</h2>
+                    <h2 ref={homeTitle} className='title_home'>{title}</h2>
+                    <p className='abs'>{text}</p>
     
                         <div className='container_for_button'>
                             { buttons }

@@ -1,6 +1,6 @@
 import './StartPage.css';
-import background_video from '../Videos/fon.mp4';
-import logo from '../Img/LogoMIK.png';
+import background_video from '../Videos/bg_violet.mp4';
+import logo from '../Img/razvitie.png';
 import department_logo from '../Img/Clip_path_group.png';
 import { forwardRef, useImperativeHandle, useRef} from 'react';
 import {animate, defaultEasing, progressPercentage} from 'motion'
@@ -18,6 +18,7 @@ const StartPage = forwardRef((props, ref) => {
     console.log('гыг', titleStartPage);
     let titleStartFirst = titleStartPage.split(' ')[0];
     let titleStartSecond = titleStartPage.split(' ')[1];
+    let titleStartThree = titleStartPage.split(' ')[2];
     const  componentRef = useRef(null);
     function hideStart(){
         props.setShowStart(false);
@@ -44,7 +45,8 @@ const StartPage = forwardRef((props, ref) => {
                             <div className='for_start'>
                                 <h1 className='title'>
                                 {titleStartFirst}<br/>
-                                {titleStartSecond}
+                                {titleStartSecond}<br/>
+                                {titleStartThree}
                                 </h1>
 
                             </div>

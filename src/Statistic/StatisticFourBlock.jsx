@@ -96,8 +96,11 @@ function TriangleBlock({ blockData }){
     )
 }
 
-export function StatisticFourBlock({data}){
-
+export function StatisticFourBlock({titlePage, data}){
+    const onePageTitle = [
+        'Академия инноваторов',
+        'Новатор Москвы',
+    ]
     let oneBlock, twoBlock, threeBlock, fourBlock;
     if (data) {
         oneBlock = data[0];
@@ -132,6 +135,7 @@ export function StatisticFourBlock({data}){
                     </motion.div>
                 </div>
 
+                {onePageTitle.includes(titlePage) && <div className='four_statistic_block'> <QR delay={2}/> </div>}
             </div>
         </>
     )
@@ -184,7 +188,7 @@ export function StatisticSixBlock({data}){
                         <SquareBlock blockData = { sixBlock }/>
                     </motion.div>
                 </div>
-
+              
             </div>
         </>
     )
@@ -202,7 +206,17 @@ export function StatisticThreeBlock({titlePage, data}){
         'Программа пилотного тестирования',
         'Льготные займы на масштабирование',
         'Пилотное тестирование инноваций',
-        'Финансирование подготовки к IPO'
+        'Финансирование подготовки к IPO',
+        'Добровольный квалификационный экзамен', 
+        'Start in Moscow',
+        'Студфест',
+        'День без турникетов',
+        'ИОК "Техноград"',
+        'Центр развития карьеры',
+        'Субсидия на обучение сотрудников',
+        'Академия инноваторов',
+        'Новатор Москвы',
+        'Лидеры цифровой трансформации',
    
     ]
     // console.log(data[0])
@@ -224,7 +238,7 @@ export function StatisticThreeBlock({titlePage, data}){
 
                     {onePageTitle.includes(titlePage) ?
                     (
-                    <div className='bottom_container_vertical' style={{ margin: 0, width: '105%' }}>
+                    <div className='bottom_container_vertical' style={{ margin: 0, width: '109%'  }}>
                         <motion.div initial={{opacity : 0, x:100}} animate={{opacity: 1, x:0, transition:{delay:2.5}}} className="for_statistic_qr" >
                             <TriangleBlock blockData = { threeBlock } />
                             {/* <img src={qr} /> */}
@@ -251,7 +265,7 @@ export function StatisticTwoBlock({titlePage, data}){
     const twoBlock = data[1]
     const onePageTitle = [
         'Грант на патентование изобретений и полезных моделей за рубежом',
-    
+        'ИОК "Техноград"',
     ]
 
 

@@ -62,7 +62,7 @@ export default function BoardOne({ jsonData, jsonbutton}) {
     } else if (locationPath === 'board_three') {
         titleStart = 'ВНЕДРЕНИЕ ИННОВАЦИЙ'
     } else if (locationPath === 'board_four') {
-        titleStart = 'ТРУДОУСТРОЙСТВО В ВЫСОКОТЕХ'
+        titleStart = 'Развитие человеческого капитала'
     } else {
         titleStart = 'Привет'
     }

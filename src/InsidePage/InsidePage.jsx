@@ -1,5 +1,5 @@
 import './InsidePage.css';
-import logo from '../Img/LogoMIK.png';
+import logo from '../Img/razvitie.png';
 import { useImperativeHandle, useRef, useEffect, forwardRef} from 'react';
 import {animate} from 'motion'
 import { motion } from 'framer-motion';
@@ -40,7 +40,7 @@ const pageDataExample = {
 
 const InsidePage = forwardRef(({ pageData }, ref) =>  {
     // console.log(page);
-    console.log('Recived:', pageData);
+    console.log('Recived:', pageData.titleTwoBlock);
 
     let page = null;
     if (pageData != null){
@@ -66,13 +66,16 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
 
                 <div className='inside_main_conteiner'>
                 <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo} delay={0.5}/>
-                <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>
-                {pageData.textTwoBlock && pageData.titleTwoBlock === "Что включает программа?" && <GreenBubble pageTitle = {page.titleTwoBlock} pageText= {page.textTwoBlock} delay={1}/>}
+                {page.titleThree && <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>}
+                {pageData.textTwoBlock && 
+                (pageData.titleTwoBlock === "Что включает программа?" || 
+                pageData.titleTwoBlock === "Требования к заявителю:") 
+                && <GreenBubble pageTitle = {page.titleTwoBlock} pageText= {page.textTwoBlock} delay={1.5}/>}
                 
                     { page.indicator.length === 6 ? (
                         <StatisticSixBlock data={page.indicator} />
                     ) : page.indicator.length === 4 ? (
-                        <StatisticFourBlock data={page.indicator} />
+                        <StatisticFourBlock titlePage = {page.titleOne}  data={page.indicator} />
                     ) : page.indicator.length === 3 ? (
                         <StatisticThreeBlock titlePage = {page.titleOne} data={page.indicator} />
                     ) : page.indicator.length === 2 ? (

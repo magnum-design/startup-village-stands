@@ -73,15 +73,16 @@
     align-items: flex-start;
     background: radial-gradient(
         150% 800% at 0% 100%,
-        rgba(0, 46, 40, 1) 0%,
-        rgba(64, 157, 122, 1) 40%,
-        rgba(77, 255, 201, 1) 80%
+        rgba(16, 0, 40, 1) 0%,
+        rgba(140, 72, 241, 1) 40%,
+        rgba(154, 93, 242, 1) 80%,
+        rgba(202, 170, 248, 1) 80%
       );
     background-color: rgba(255, 255, 255, 1.0);
     border: 1px solid;
     border-color: transparent;
     border-radius: 20px;
-    box-shadow: -4px 8px 15.399999618530273px 4px rgba(77, 255, 201, 0.5);
+    box-shadow: -4px 8px 15.399999618530273px 4px rgba(116, 77, 255, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -160,7 +161,8 @@
 
 .for_statistic{
     flex: 1;
-    box-shadow: -4px 8px 15.399999618530273px 4px rgba(77, 255, 201, 0.5);
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background: rgba(0, 0, 0, 0.5); 
@@ -191,11 +193,11 @@
 
 .circle{
     background: radial-gradient(
-        50% 50% at 62% 49%,
-        rgba(139, 255, 126, 1) 0%,
-        rgba(77, 255, 201, 1) 33%,
-        rgba(82, 235, 133, 1) 65%,
-        rgba(39, 204, 210, 1) 100%
+        49% 47% at 62% 49%,
+        rgba(140, 72, 241, 1) 31%,
+        rgba(154, 93, 242, 1) 50%,
+        rgba(202, 170, 248, 1) 79%
+        
       );
       border-radius: 100px;
       width: 5%;
@@ -212,7 +214,7 @@
 
 .for_statistic_row{
     flex: 1;
-    box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.3), 
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -244,7 +246,7 @@
 
 .for_qr{
     /* flex: 1; */
-    box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.3),
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -262,13 +264,14 @@
     align-content: flex-start;
     z-index: 1; 
     isolation: isolate;
+    gap: 10px;
     
     
 }
 
-.logo_gr{
-    width: 240px;
-    height: 240px;
+.logo_gr {
+    width: 225px;
+    height: 225px;
 }
 
 
@@ -295,13 +298,13 @@
 .title_container{
     margin-top: 300px ;
     text-align: left;
-    width: 88%;
+    width: 86%;
     display: flex;
     justify-content:flex-start;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-    padding: 0px 40px 20px 80px;
+    padding: 0px 60px 20px 80px;
         
 }
 

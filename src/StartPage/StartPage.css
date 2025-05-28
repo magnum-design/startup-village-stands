@@ -84,8 +84,7 @@
 
 .for_start{
     flex: 1;
-    box-shadow: -4px 8px 15px 4px rgba(77, 255, 201, 0.3),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: -4px 8px 15px 4px rgba(116, 77, 255, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background: rgba(0, 0, 0, 0.5); 
@@ -141,7 +140,17 @@
     z-index: 3;
 }
 
-
+.bulb{
+    position: absolute;
+    top: 31%;
+    left: 45%;
+    width: 600px;
+    height: 600px;
+    background-image: url("../Img/bulb.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
 
 
 

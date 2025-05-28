@@ -67,7 +67,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 <div className='inside_main_conteiner'>
                 <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo} delay={0.5}/>
                 <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>
-                {pageData.textTwoBlock && <GreenBubble pageTitle = {page.titleTwoBlock} pageText= {page.textTwoBlock} delay={1}/>}
+                {pageData.textTwoBlock && pageData.titleTwoBlock === "Что включает программа?" && <GreenBubble pageTitle = {page.titleTwoBlock} pageText= {page.textTwoBlock} delay={1}/>}
                 
                     { page.indicator.length === 6 ? (
                         <StatisticSixBlock data={page.indicator} />

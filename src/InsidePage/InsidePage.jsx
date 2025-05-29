@@ -39,8 +39,6 @@ const pageDataExample = {
 }
 
 const InsidePage = forwardRef(({mainTitle, pageData }, ref) =>  {
-    // console.log(page);
-    console.log('Recived:', pageData);
 
     let page = null;
     if (pageData != null){
@@ -66,21 +64,21 @@ const InsidePage = forwardRef(({mainTitle, pageData }, ref) =>  {
                 </motion.div>
 
                 <div className='inside_main_conteiner'>
-                <GreenBubble pageTitle = {page.titleTwo}   pageText = {page.textTwo} delay={0.5}/>
-                <GreenBubble pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>
-                {pageData.textTwoBlock && 
-                (pageData.titleTwoBlock === "Что включает программа?" || 
-                pageData.titleTwoBlock === "Возможности программы?") 
-                && <GreenBubble pageTitle = {page.titleTwoBlock} pageText= {page.textTwoBlock} delay={1.5}/>}
-                
+                <GreenBubble key={page.titleOne  + '0'} pageTitle = {page.titleTwo}   pageText = {page.textTwo} delay={0.5}/>
+                <GreenBubble key={page.titleOne  + '1'} pageTitle = {page.titleThree} pageText= {page.dictThree} delay={1}/>
+                {pageData.textTwoBlock &&
+                (pageData.titleTwoBlock === "Что включает программа?" ||
+                pageData.titleTwoBlock === "Возможности программы?")
+                && <GreenBubble key={page.titleOne  + '2'} pageTitle = {page.titleTwoBlock} pageText= {page.textTwoBlock} delay={1.5}/>}
+
                     { page.indicator.length === 6 ? (
-                        <StatisticSixBlock data={page.indicator} />
+                        <StatisticSixBlock key={page.titleOne  + '3'} data={page.indicator} />
                     ) : page.indicator.length === 4 ? (
-                        <StatisticFourBlock data={page.indicator} />
+                        <StatisticFourBlock key={page.titleOne  + '4'} data={page.indicator} />
                     ) : page.indicator.length === 3 ? (
-                        <StatisticThreeBlock titlePage = {page.titleOne} data={page.indicator} />
+                        <StatisticThreeBlock key={page.titleOne  + '5'} titlePage = {page.titleOne} data={page.indicator} />
                     ) : page.indicator.length === 2 ? (
-                        <StatisticTwoBlock titlePage = {page.titleOne} data={page.indicator}/>
+                        <StatisticTwoBlock key={page.titleOne  + '6'} titlePage = {page.titleOne} data={page.indicator}/>
                     ) : (null)
                 }
 

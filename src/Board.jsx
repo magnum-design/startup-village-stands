@@ -77,6 +77,10 @@ export default function BoardOne({ jsonData, jsonbutton}) {
     let [showNext, setShowNext] = useState(false);
     let [showBack, setShowBack] = useState(false);
 
+    let [showFakeNext, setShowFakeNext] = useState(false);
+    let [showFakeBack, setShowFakeBack] = useState(false);
+    let [fakeCounter, setFakeCounter] = useState(0) ;
+
     setInactiveTimer(setPageData, setShowStart, setShowMore);
 
     function homeButtonFuncution(){
@@ -85,11 +89,39 @@ export default function BoardOne({ jsonData, jsonbutton}) {
         setShowMore(false);
         setShowNext(false);
         setShowBack(false);
+        setShowFakeNext(false);
+        setShowFakeBack(false);
+        setFakeCounter(0);
     }
     function nextButtonFuncution(){
         setShowNext(false);
         setShowMore(true);
         setShowBack(true);
+    }
+
+
+    function nextFakeButtonFuncution(){
+        console.log('next', fakeCounter)
+        setFakeCounter(fakeCounter + 1);
+        if (fakeCounter == 0){
+            setPageData(pageData => jsonData['direct_button'])
+            setShowFakeBack(true);
+        } else if (fakeCounter == 1){
+            setPageData(pageData => jsonData['financing_button'])
+            setShowFakeNext(false);
+            setShowFakeBack(true);
+        }
+    }
+
+    function backFakeButtonFunction(){
+        console.log('back', fakeCounter)
+        setFakeCounter(fakeCounter - 1);
+        if (fakeCounter == 1){
+            setPageData(pageData => jsonData['product_buttons'])
+            setShowFakeBack(false);
+        } else if (fakeCounter == 2){
+            setPageData(pageData => jsonData['direct_button'])
+        }
     }
 
     function startPageButton(){
@@ -105,9 +137,13 @@ export default function BoardOne({ jsonData, jsonbutton}) {
     return (
         <>
         <Background/>
-        { showNext && <NextButton onclickFunc={nextButtonFuncution} />}
         { showHome && <HomeButton onclickFunc={homeButtonFuncution} />}
+
+        { showNext && <NextButton onclickFunc={nextButtonFuncution} />}
+        { showFakeNext && <NextButton onclickFunc={nextFakeButtonFuncution} />}
+
         { showBack && <BackButton onclickFunc={backButtonFunction}/>}
+        { showFakeBack && <BackButton onclickFunc={backFakeButtonFunction}/>}
         <AnimatePresence>
         { showStart ? (
                 <motion.div key='startpagekey'
@@ -118,11 +154,11 @@ export default function BoardOne({ jsonData, jsonbutton}) {
             ):(
             <>
                {!pageData ? (
-                        <HomePage buttonsIds={jsonbutton} pageData={jsonData} setShowNext={setShowNext} setShowHome={setShowHome} setPageData={setPageData}/>
+                        <HomePage buttonsIds={jsonbutton} pageData={jsonData} setShowNext={setShowNext} setShowFakeBack={setShowFakeBack} setShowFakeNext={setShowFakeNext} setShowHome={setShowHome} setPageData={setPageData}/>
                        ):(
                            <>
                            {!showMore ? (
-                               <InsidePage mainTitle={titleStart} pageData={pageData}/>
+                               <InsidePage mainTitle={titleStart} fakeCounter={fakeCounter} pageData={pageData}/>
                            ):(
                                <InsidePageTwo mainTitle={titleStart} pageData={pageData}/>
                             )}

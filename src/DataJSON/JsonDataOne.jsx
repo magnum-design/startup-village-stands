@@ -8,7 +8,7 @@ export const buttonsIdsOne= {
     // 'financing_button': 'Финансирование подготовки к IPO',
     'product_buttons': 'Продукты московского венчурного фонда',
     'grants_button': 'Гранты на приобретение оборудования и развитие деятельности',
-    
+
 }
 
 export const pageDataOne = {
@@ -113,7 +113,7 @@ export const pageDataOne = {
         ],
         urlImage: require("../Img/robo_ruka.png")
     },
-    investment_button: {
+    product_buttons: {
         titleOne: "Льготные займы на развитие",
         textOne: "Льготное финансирование для технологических компаний ранней стадии",
         titleTwo: "Для кого программа?",

@@ -1,14 +1,13 @@
 import {motion} from 'framer-motion'
 
 function ParseJSON({ htmlString }) {
-    console.log('Parse', htmlString);
     return <span dangerouslySetInnerHTML={{ __html: htmlString }} />;
 }
 
 const GreenBubble = ({flag, pageTitle, pageText, delay }) => {
     // console.log('AAA', pageTitle);
     // console.log('AAA', pageText);
-    
+
     if (!pageText){
         return (<></>)
     }
@@ -29,7 +28,7 @@ const GreenBubble = ({flag, pageTitle, pageText, delay }) => {
                     <p><ParseJSON htmlString={pageText[0]} /></p>
                 )
             ) : (
-                
+
                     pageText.map((item, index) => {
                         return (
                             item[0] !== '*' ? (
@@ -41,7 +40,7 @@ const GreenBubble = ({flag, pageTitle, pageText, delay }) => {
                             )
                         );
                     })
-                
+
             )}
         </motion.div>
         </>

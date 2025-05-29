@@ -8,25 +8,26 @@ import { motion } from "motion/react"
 import { animate } from 'motion';
 
 
-const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowNext}, ref) => {
+const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome, setShowFakeNext, setShowFakeBack, fakeCounter, setShowNext}, ref) => {
     const homeTitle = useRef();
     let title = Object.keys(pageData.textForButtonBlock)[0];
     let text = pageData.textForButtonBlock[title];
-   
+
     const onePageTitle = [
-        'Льготные займы на развитие',
-        'Льготные займы на масштабирование',
         'Образовательные программы по интеллектуальной собственности',
         'Кредитование под залог интеллектуальной собственности',
         'Грант на патентование изобретений и полезных моделей в Российской Федерации',
         'Грант на патентование изобретений и полезных моделей за рубежом',
         'Пилотное тестирование инноваций',
-        'Финансирование подготовки к IPO',
-        'Пилотное тестирование инноваций'
+        'Пилотное тестирование инноваций',
+
+        'Льготные займы на развитие',
+        "Льготные займы на масштабирование",
+        "Финансирование подготовки к IPO",
     ]
     const onMenuButtonClick = (id) => {
         setPageData(pageData[id]);
-        // console.log('sjfbguiys',  pageData[id].titleOne)     
+        // console.log('sjfbguiys',  pageData[id].titleOne)
         setShowHome(true);
         // TODO: show if nessasary
         if (onePageTitle.includes(pageData[id].titleOne)){
@@ -34,8 +35,20 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
         } else {
             setShowNext(true);
         }
-        
+        if (pageData[id].titleOne == "Льготные займы на развитие"){
+            setShowFakeNext(true);
+        }
+        if (pageData[id].titleOne == "Льготные займы на масштабирование"){
+            setShowFakeNext(true);
+        }
+        if (pageData[id].titleOne == "Финансирование подготовки к IPO"){
+            setShowFakeNext(false);
+        }
     }
+
+    // 'investment_button': 'Льготные займы на развитие',
+    // 'direct_button': 'Льготные займы на масштабирование',
+    // 'financing_button': 'Финансирование подготовки к IPO',
 
     let counter = 0;
     let buttons = [];
@@ -56,7 +69,7 @@ const HomePageOne =  forwardRef(({pageData, buttonsIds, setPageData, setShowHome
                 <img src={logo} alt="Logo" className="logoHome"/>
                     <div  id='middel_conteiner' className='middel_conteiner'>
                     <h2 ref={homeTitle} className='title_home'>Меры поддержки <br></br> и сервисы</h2>
-    
+
                         <div className='container_for_button'>
                             { buttons }
                         </div>

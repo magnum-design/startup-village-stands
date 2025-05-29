@@ -7,7 +7,6 @@ function startsWithNumber(str) {
 }
 export function Triplet({specialWords}){
     // I'm sorry for this abomination, but time is ticking
-    console.log(specialWords)
     let smallLeft = '';
     let bigCenter = '';
     let smallRight = '';
@@ -203,7 +202,7 @@ export function StatisticThreeBlock({titlePage, data}){
         'Льготные займы на масштабирование',
         'Пилотное тестирование инноваций',
         'Финансирование подготовки к IPO'
-   
+
     ]
     // console.log(data[0])
     const oneBlock = data[0]
@@ -251,7 +250,7 @@ export function StatisticTwoBlock({titlePage, data}){
     const twoBlock = data[1]
     const onePageTitle = [
         'Грант на патентование изобретений и полезных моделей за рубежом',
-    
+
     ]
 
 
@@ -269,7 +268,7 @@ export function StatisticTwoBlock({titlePage, data}){
                         <TriangleBlock blockData = { twoBlock } />
                     </motion.div>
 
-                    {onePageTitle.includes(titlePage) && <QR delay={2.5}/>}   
+                    {onePageTitle.includes(titlePage) && <QR delay={2.5}/>}
                     {/* <QR/> */}
 
 

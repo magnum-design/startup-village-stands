@@ -38,7 +38,7 @@ const pageDataExample = {
     }
 }
 
-const InsidePage = forwardRef(({ pageData }, ref) =>  {
+const InsidePage = forwardRef(({mainTitle, pageData }, ref) =>  {
     // console.log(page);
     console.log('Recived:', pageData);
 
@@ -57,6 +57,7 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 className='internal_conteiner' >
                 <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <img src={logo} alt="Logo" className="logoHome"/>
+                <div><p className='main_title'>{mainTitle}</p></div>
                 <motion.div animate={{opacity:1, x:0}} initial={{opacity:0, x: -100}}
                     ref = {titleContainer}
                     className = 'title_container'>

@@ -47,7 +47,7 @@ const pageDataExample = {
 
 
 
-const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
+const InsidePageTwo = forwardRef(({mainTitle,  pageData }, ref) =>  {
     let page = null;
     if (pageData != null){
         page = pageData
@@ -61,6 +61,7 @@ const InsidePageTwo = forwardRef(({ pageData }, ref) =>  {
                     className='internal_conteiner'>
                     <img src={department_logo} alt="department_logo" className="department_logo"/>
                     <img src={logo} alt="Logo" className="logoHome"/>
+                    <div><p className='main_title_two'>{mainTitle}</p></div>
                     <div className="inside_main_conteiner-two">
                     {page.title ? (
                         <div className='title_container_two'>

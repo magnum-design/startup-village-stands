@@ -1,6 +1,6 @@
 .home_button_container{
     position: absolute;
-    top: 7%;
+    top: 5%;
     left: 6%;
     width: 125px;
     height: 125px;
@@ -12,7 +12,7 @@
 
 .next_button_container{
     position: absolute;
-    top: 7%;
+    top: 5%;
     right: 7%;
     width: 125px;
     height: 125px;
@@ -24,7 +24,7 @@
 
 .back_button_container{
     position: absolute;
-    top: 7%;
+    top: 5%;
     left: 15%;
     width: 125px;
     height: 125px;

@@ -463,3 +463,25 @@
 .not_margin_top{
     margin-top: 10px;
 }
+
+.main_title{
+    position: absolute;
+    top: 255px;
+    left: 105px;
+    color: #4DFFC9;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
+    text-transform: uppercase;
+}
+
+.main_title_two{
+    position: absolute;
+    top: 255px;
+    left: 100px;
+    color: #4DFFC9;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 0;
+    text-transform: uppercase;
+}

@@ -122,9 +122,9 @@ export default function BoardOne({ jsonData, jsonbutton}) {
                        ):(
                            <>
                            {!showMore ? (
-                               <InsidePage  pageData={pageData}/>
+                               <InsidePage mainTitle={titleStart} pageData={pageData}/>
                            ):(
-                               <InsidePageTwo pageData={pageData}/>
+                               <InsidePageTwo mainTitle={titleStart} pageData={pageData}/>
                             )}
                            </>
                        )}

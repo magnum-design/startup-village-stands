@@ -38,9 +38,9 @@ const pageDataExample = {
     }
 }
 
-const InsidePage = forwardRef(({ pageData }, ref) =>  {
-    // console.log(page);
-    console.log('Recived:', pageData.titleTwoBlock);
+const InsidePage = forwardRef(({main_title , pageData }, ref) =>  {
+    
+    console.log('Recived:', pageData.main_title);
 
     let page = null;
     if (pageData != null){
@@ -57,6 +57,16 @@ const InsidePage = forwardRef(({ pageData }, ref) =>  {
                 className='internal_conteiner' >
                 <img src={department_logo} alt="department_logo" className="department_logo"/>
                 <img src={logo} alt="Logo" className="logoHome"/>
+                {/* <motion.div
+                    ref = {titleContainer} 
+                    animate={{opacity:1, x:0}} 
+                    initial={{opacity:0, x: -1000}}   
+                    >
+                    <p className='main_title'>{main_title}</p>
+                </motion.div>  */}
+                <motion.div>
+                    <p className='main_title'>{main_title}</p>
+                </motion.div>
                 <motion.div animate={{opacity:1, x:0}} initial={{opacity:0, x: -100}}
                     ref = {titleContainer}
                     className = 'title_container'>

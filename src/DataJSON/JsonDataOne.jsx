@@ -674,6 +674,8 @@ export const pageDataThree = {
 
 
 export const pageDataFour = {
+    main_title:'Развитие человеческого капитала',
+
     image:{
         image_class : 'bulb'
     },

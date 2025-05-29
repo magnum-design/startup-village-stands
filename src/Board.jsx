@@ -124,13 +124,13 @@ export default function BoardOne({ jsonData, jsonbutton}) {
                     ):(
                         <>
                        {!pageData ? (
-                            <HomePage buttonsIds={homePageData} pageData={jsonData} setShowBack={setShowBack} setShowHome={setShowHome} setPageData={setPageData}/>
+                            <HomePage main_title={titleStart} buttonsIds={homePageData} pageData={jsonData} setShowBack={setShowBack} setShowHome={setShowHome} setPageData={setPageData}/>
                        ):(
                            <>
                            {!showMore ? (
-                               <InsidePage  pageData={pageData}/>
+                               <InsidePage main_title={titleStart}  pageData={pageData}/>
                            ):(
-                               <InsidePageTwo pageData={pageData}/>
+                               <InsidePageTwo main_title={titleStart} pageData={pageData}/>
                             )}
                            </>
                        )}</>)
